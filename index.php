@@ -1,5 +1,5 @@
 <?php 
-    $red = 'Blue';
-    $blue = 'Red';
+    $red = 'Red';
+    $blue = 'Blue';
     echo $red, $blue;
 ?>

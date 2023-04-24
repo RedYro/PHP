@@ -1,0 +1,19 @@
+:root{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.5rem;
+}
+
+nav{
+    padding: 10px 20px !important;
+}
+
+h1{
+    font-size: 3.1rem;
+}
+
+img[src="assets/img/logo.png"]{
+    width: 50px;
+}

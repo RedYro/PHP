@@ -69,6 +69,56 @@
                 </div>
             </div>
         </section>
+        <!-- fin section 1 -->
+        <section class="row mt-5">
+        <h2 class="text-center">2 - Comment fonctionne PHP </h2>
+        <div class="col-12 mt-5">
+            <ul>
+                <li>PHP étant un langage côté serveur, l'ensemble du flux de travail se trouve sur le serveur lui-même. Un interpréteur PHP est également installé sur le serveur pour vérifier les fichiers PHP. Du côté client, la seule exigence est un navigateur Web et une connexion Internet.</li>
+            </ul>
+            <p class="alert alert-danger">
+            Vous ne verrez jamais de code PHP dans le code source d'une page car ce dernier est un langage interprété par le navigateur et il ne renvoit donc que du code HTML à l'utilisateur. C'est la raison pour laquelle les fichiers ne sont plus lancés comme avant à partir de l'explorateur de fichiers.
+            </p>
+        </div>  
+        <div class="col-8 m-auto border px-5">
+            <div class="row align-items-center mt-5 "> 
+                <p class="col-6"><span>Étape 1 -</span> Le client demande la page Web sur le navigateur.</p>
+                <img src="assets/img/etape_1.png" alt="etape 1 du fonctionnement de php" class="col-6">
+            </div>
+            <div class="row align-items-center mt-5 "> 
+                <p class="col-6"><span>Étape 2 -</span>  Le serveur (où le logiciel PHP est installé) recherche alors le fichier .php associé à la requête. </p>
+                <img src="assets/img/etape_2.png" alt="etape 2 du fonctionnement de php" class="col-6">
+            </div>
+            <div class="row align-items-center mt-5 "> 
+                <p class="col-6"><span>Étape 3 -</span>  S'il est trouvé, il envoie le fichier à l'interpréteur PHP (puisque PHP est un langage interprété), qui vérifie les données demandées dans la base de données</p>
+                <img src="assets/img/etape_3.png" alt="etape 3 du fonctionnement de php" class="col-6">
+            </div>
+            <div class="row align-items-center mt-5 "> 
+                <p class="col-6"><span>Étape 4 -</span>  l'interpréteur renvoie ensuite la sortie de données demandée sous forme de page Web HTML (car un navigateur ne comprend pas les fichiers .php).</p>
+                <img src="assets/img/etape_4.png" alt="etape 4 du fonctionnement de php" class="col-6">
+            </div>
+            <div class="row align-items-center mt-5 "> 
+                <p class="col-6"><span>Étape 5 -</span>  Le serveur Web reçoit le fichier HTML de l'interpréteur.</p>
+                <img src="assets/img/etape_5.png" alt="etape 5 du fonctionnement de php" class="col-6">
+            </div>
+            <div class="row align-items-center mt-5 "> 
+                <p class="col-6"><span>Étape 6 -</span>  Et il renvoie la page Web au navigateur. </p> 
+                <img src="assets/img/etape_6.png" alt="etape 6 du fonctionnement de php" class="col-6">
+            </div>
+        </div>
+            <div class="col-12 mt-5">
+                <div class="alert alert-secondary">
+                    <p> Pour lancer les sites réalisé avec du langage php, on aura  manières pour le faire :</p>
+                    <ul>
+                        <li>À partir du terminal : après avoir installer PHP sur la machine on peut laces les application avec la ligne de commande <span>php -S localhost:numéroduport (ex: 8000)</span></li>
+                        <li>Depuis le navigateur : le dossier de la page ou l'application doit être placé dans le dossier xampp > htdocs (puisque qu'on utilise le logiciel xampp afin d'avoir un serveur en local) en suite via l'url il faut cherché la page : <span>localhost/nomdudossier</span> </li>
+                
+                    </ul>
+                    <p>Pour avoir live server avec du PHP : Avec l'extension <span>live server extension</span> de chrome : j'ouvre ma page en passant par l'url et le chemin via localhost/nomdudossier, je copie ce chemin et je le colle  dans l'input Actual Server Address, je lance ma page avec le go live de VS Code, je récupére le chemin de l'url et je le copie dans l'input Live Server Address de l'extension, enfin, je rafraichie l'extension ainsi que la page.</p>
+                </div>
+            </div>
+        </section>
+        <!-- fin section 2 -->
     </main>
     <footer>
 

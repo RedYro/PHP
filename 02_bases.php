@@ -91,7 +91,7 @@
                             print "Hello Print World !"
                         ?>
                     </div>
-                    <li>Les instructions <span>var_dump()</span> et print_r() : permettent d'afficher du contenu mais sert principalement pour le debug. Ces deux fonctions d'affichage permettent d'analyser dans le navigateur le contenu d'une variable par exemple</li>
+                    <li>Les instructions <span>var_dump()</span> et <span>print_r()</span> : permettent d'afficher du contenu mais sert principalement pour le debug. Ces deux fonctions d'affichage permettent d'analyser dans le navigateur le contenu d'une variable par exemple</li>
                 </ul>
             </div>
         </div>

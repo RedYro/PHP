@@ -13,7 +13,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo.png">
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="01_index.php"><img src="assets/img/logo.png" alt="Logo PHP"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -120,6 +120,17 @@
                     $red
                     </div>
                     </div>";
+                // Fin exercice //
+
+                echo '<h2 class = "mt-5">Opérateurs numérique</h2>';
+
+                $a = 10;
+                $b = 2;
+                echo "$a + $b = " . $a + $b . '<br>'; // Affiche 12 
+                echo "$a - $b = " . $a - $b . '<br>'; // Affiche 8
+                echo "$a * $b = " . $a * $b . '<br>'; // Affiche 20
+                echo "$a / $b = " . $a / $b . '<br>'; // Affiche 5
+                echo "$a % $b = " . $a % $b . '<br>'; // Affiche 0
             ?>
     </main>
     <footer>

@@ -13,7 +13,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo.png">
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="01_index.php"><img src="assets/img/logo.png" alt="Logo PHP"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -155,14 +155,14 @@
             </div>
             <div class="col-sm-12">
                 <h2>8- Les opérateurs  numériques </h2>
-                    <table  class="table table-dark table-hover table-bordered">
-                        <thead>
+                <table  class="table table-dark table-hover table-bordered">
+                    <thead>
                         <tr>
                             <th scope="col">Opérateur</th>
                             <th scope="col">Description</th>
                         </tr>
-                        </thead>
-                        <tbody>
+                    </thead>
+                    <tbody>
                         <tr>
                             <th scope="row">+</th>
                             <td>Addition</td>
@@ -205,8 +205,65 @@
                                 qui
                                 ajoute 1 après avoir utilisé la variable. </td>
                         </tr>
+                    </tbody>
+                </table>
+                <div class="col-12">
+                    <h2>9- Les opérateurs d'affectation combinés numérique</h2>
+                    <p>En plus de l'opérateur classique d'affection (=), il existe plusieurs opérateurs d'affectation
+                         combinés. Ces opérateurs réalisent à la fois une opération entre deux opérandes et l'affectation du
+                         résultat à l'opérande de gauche.</p>
+                    <table  class="table table-dark table-hover table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Opérateur</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">+=</th>
+                                <td>Addition puis affectation :<br>
+                                   $x += $y équivaut à $x = $x + $y<br>
+                                   $y peut être une expression complexe dont la valeur est un nombre.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">-=</th>
+                                <td>Soustraction puis affectation :<br>
+                                   $x -= $y équivaut à $x = $x - $y<br>
+                                   $y peut être une expression complexe dont la valeur est un nombre.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">*=</th>
+                                <td>Multiplication puis affectation :<br>
+                                   $x *= $y équivaut à $x = $x * $y<br>
+                                   $y peut être une expression complexe dont la valeur est un nombre.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">**=</th>
+                                <td>Puissance puis affectation<br>
+                                   $x**=2 équivaut à $x=($x)²</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">/=</th>
+                                <td>Division puis affectation :<br>
+                                   $x /= $y équivaut à $x = $x / $y<br>
+                                   $y peut être une expression complexe dont la valeur est un nombre différent de 0.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">%=</th>
+                                <td>Modulo puis affectation :<br>
+                                   $x %= $y équivaut à $x = $x % $y $y<br>
+                                   $y peut être une expression complexe dont la valeur est un nombre.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">.=</th>
+                                <td>Concaténation puis affectation :<br>
+                                   $x .= $y équivaut à $x = $x . $y<br>
+                                   $y peut être une expression littérale dont la valeur est une chaîne de caractères.</td>
+                            </tr>
                         </tbody>
                     </table>
+               </div>
             </div>
         </div>
     </main>

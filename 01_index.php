@@ -25,7 +25,7 @@
                         <a class="nav-link" aria-current="page" href="01_index.php">Introduction</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"></a>
+                        <a class="nav-link" href="02_bases.php">Bases PHP</a>
                     </li>
                 </ul>
             </div>
@@ -108,20 +108,24 @@
         </div>
             <div class="col-12 mt-5">
                 <div class="alert alert-secondary">
-                    <p> Pour lancer les sites réalisé avec du langage php, on aura  manières pour le faire :</p>
+                    <p> Pour lancer les sites réalisé avec du langage php, on aura 3  manières pour le faire :</p>
                     <ul>
-                        <li>À partir du terminal : après avoir installer PHP sur la machine on peut laces les application avec la ligne de commande <span>php -S localhost:numéroduport (ex: 8000)</span></li>
-                        <li>Depuis le navigateur : le dossier de la page ou l'application doit être placé dans le dossier xampp > htdocs (puisque qu'on utilise le logiciel xampp afin d'avoir un serveur en local) en suite via l'url il faut cherché la page : <span>localhost/nomdudossier</span> </li>
+                        <li>À partir du terminal : après avoir installer PHP sur la machine on peut lancer les application avec la ligne de commande <span>php -S localhost:numéroduport (ex: 8000)</span></li>
+                        <li>Depuis le navigateur : le dossier de la page ou l'application doit être placé dans le dossier xampp > htdocs (puisque qu'on utilise le logiciel xampp afin d'avoir un serveur en local) en suite via l'url il faut chercher la page : <span>localhost/nomdudossier</span> </li>
                 
                     </ul>
-                    <p>Pour avoir live server avec du PHP : Avec l'extension <span>live server extension</span> de chrome : j'ouvre ma page en passant par l'url et le chemin via localhost/nomdudossier, je copie ce chemin et je le colle  dans l'input Actual Server Address, je lance ma page avec le go live de VS Code, je récupére le chemin de l'url et je le copie dans l'input Live Server Address de l'extension, enfin, je rafraichie l'extension ainsi que la page.</p>
+                    <p>Pour avoir Live server avec du PHP : Avec l'extension <span>Live server extension</span> de chrome : on ouvre notre page en passant par l'url et le chemin via localhost/nomdudossier, je copie ce chemin et je le colle dans l'input Actual Server Address, on lance notre page avec le Go Live de VS Code, je récupére le chemin de l'url et je le copie dans l'input Live Server Address de l'extension, enfin, je rafraîchie l'extension ainsi que la page.</p>
                 </div>
             </div>
         </section>
         <!-- fin section 2 -->
     </main>
     <footer>
-
+        <div class="d-flex justify-content-evenly align-items-center bg-dark text-light p-3">
+            <a class="nav-link" target="_blank" href="https://www.php.net/manual/fr/">Documentation PHP</a>
+            <a class="nav-link" href="01_index.php"><img src="assets/img/logo.png" alt="Logo PHP"></a>
+            <a class="nav-link" target="_blank" href="https://devdocs.io/php/">DevDocs</a>
+        </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>

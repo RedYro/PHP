@@ -11,13 +11,13 @@ nav{
 }
 
 h1{
-    font-size: 3.1rem;
+    font-size: 3.1rem !important;
 }
 
 h2, h3{
-    color: #FF3366;
-    font-size: 2.9rem;
-    margin-bottom: 15px;
+    color: #FF3366 !important;
+    font-size: 2.9rem !important;
+    margin-bottom: 15px !important;
 }
 
 img[src="assets/img/logo.png"]{
@@ -26,4 +26,5 @@ img[src="assets/img/logo.png"]{
 
 span{
     color: #FF3366;
+    font-weight: bold;
 }

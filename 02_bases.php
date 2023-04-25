@@ -70,6 +70,30 @@
                     */
                 ?>
             </div>
+            <div class="col-sm-12">
+                <h2>3- Extensions ".php" vs ".html"</h2>
+                <p>En dehors des balises php, il est possible d'écrire du code HTML dans un fichier ayant l'extension ".php". Ce qui n'est pas possible dans un fichier ".html", cela est du au au faut que les fichiers ".php" sont traités par le serveur en tant que code PHP et peuvent inclure des instructions PHP et HTML, tandis que les fichiers ".html" ne sont pas traités comme du code PHP.</p>
+                <p>Si le ficher ".php" ne contient que du script PHP, il n'est pas obligatoire de fermer la balise <span>&lt;?php</span> à la fin du script. Cependant, il est recommandé de fermer la balise afin d'éviter tous problèmes potentiels avec l'affichage du contenu HTML ou des erreurs de syntaxe si vous l'on ajoute du code HTML après les instructions PHP dans le même fichier. De plus, certains standards de codage et bonnes pratiques recommandes de fermer toutes les balises PHP pour une meilleure lisibilité et maintenabilité du code.</p>
+            </div>
+            <div class="col-sm-12">
+                <h2>4- Affichage</h2>
+                <p>Pour afficher du texte sur notre page à partir d'un script PHP, on peut utiliser : </p>
+                <ul>
+                    <li>L'instruction <span>echo</span> : permet d'effectuer un affichage. On peut y insérer du code HTML (ex : voir code sur VSC)</li>
+                    <div class="alert alert-primary w-50">
+                        <?php 
+                            echo "Hello Echo World !";
+                        ?>
+                    </div>
+                    <li>L'instruction <span>print</span> : autre instruction permettant d'effectuer un affichage. On peut aussi y inséser du code HTML (ex : voir code sur VSC)</li>
+                    <div class="alert alert-primary w-50">
+                        <?php 
+                            print "Hello Print World !"
+                        ?>
+                    </div>
+                    <li>Les instructions <span>var_dump()</span> et print_r() : permettent d'afficher du contenu mais sert principalement pour le debug. Ces deux fonctions d'affichage permettent d'analyser dans le navigateur le contenu d'une variable par exemple</li>
+                </ul>
+            </div>
         </div>
     </main>
     <footer>

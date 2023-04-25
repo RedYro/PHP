@@ -40,7 +40,37 @@
     </header>
     <!-- fin header -->
     <main class="container-fluid px-5">
-        
+        <div class="row border p-5 mt-5">
+            <div class="col-sm-12 col-md-6">
+                <h2>1- Balises PHP</h2>
+                <p>Pour ouvrir un passage en PHP, on utilise la balise <span><code>&lt;?php</code></span></p>
+                <p>Pour fermer un passage en PHP, on utilise la balise <span><code>?></code></span></p>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <h2>2- Commentaires PHP</h2>
+                <p>Pour faire un commentaire sur une seule ligne, on utilise : </p>
+                <ul>
+                    <li><em>// commentaire</em></li>
+                    <li><em># commentaire</em></li>
+                </ul>
+                <?php
+                    // Un premier commentaire
+                    # Un deuxième commentaire 
+                ?>
+                <p>Pour faire des commentaires sur plusieurs lignes, on utilise : </p>
+                <ul>
+                    <li><em>/* commentaire */</em></li>
+                </ul>
+                <?php 
+                    /* 
+                    *commentaire multi-lignes 1
+                    *commentaire multi-lignes 2
+                    *commentaire multi-lignes 3
+                    *commentaire multi-lignes 4
+                    */
+                ?>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="d-flex justify-content-evenly align-items-center bg-dark text-light p-3">

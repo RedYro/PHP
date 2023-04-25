@@ -37,13 +37,47 @@
     <!-- fin navbar -->
     <header class="p-5 m-4 bg-light rounded-3 border ">
         <section class="container py-5">
-            <h1 class="display-5 fw-bold">Introduction au PHP</h1>
-            <p class="col-md-12 fs-4"> PHP, ce sigle est un acronyme récursif  <span>Préprocesseur Hypertexte PHP</span> (PHP Hypertext Preprocessor). Il s'agit d'un langage de script côté serveur open source utilisé pour le développement Web dynamique et peut être intégré dans des codes HTML, notez bien qu'un navigateur ne comprend pas le PHP.</p> 
+            <?php 
+                echo '<h1 class="display-5 fw-bold">Variables et Constantes en PHP</h1>'; 
+            ?>
         </section>
     </header>
     <!-- fin header -->
     <main class="container-fluid px-5">
-        
+            <?php 
+                echo '<h2>Variables utilisateurs / affectation / concaténation</h2>';
+                $number = 127; // Déclaration de la variable $number avec la valeur 127
+                echo 'La variable $number vaut : ' , $number , '<br>'; // Concaténation avec le point (.)
+                echo 'La variable $number vaut : ' . $number . '<br>'; // Concaténation avec le point (.)
+                // On peut voir le type d'une variable aved la fonction prédéfinie gettype().
+                echo 'Le type de la variable $number est : ' . gettype($number) . '<br>'; // ici => integer
+                ################
+                $double = 1.5;
+                echo 'La variable $double vaut : ' , $double , '<br>';
+                echo 'Le type de la variable $double est : ' , gettype($double) , '<br>';
+                ################
+                $chaine = 'Une Chaîne de caractères entre simples quotes';
+                echo 'La variable $chaine vaut : ' , $chaine , '<br>';
+                echo 'Le type de la variable $chaine est : ' , gettype($chaine) , '<br>'; // ici => string
+                ################
+                $chaine1 = "Une Chaîne de caractères entre doubles quotes";
+                echo 'La variable $chaine1 vaut : ' , $chaine1 , '<br>';
+                echo 'Le type de la variable $chaine1 est : ' , gettype($chaine1) , '<br>'; // ici => string
+                ################
+                $chaine2 = "127";
+                echo 'La variable $chaine2 vaut : ' , $chaine2 , '<br>';
+                echo 'Le type de la variable $chaine2 est : ' , gettype($chaine2) , '<br>'; // ici => string
+                ################
+                $chaine3 = `Une chaîne de caractère entre back quotes`; // Les back quotes en PHP https://www.php.net/manual/fr/language.operators.execution.php
+                echo 'La variable $chaine3 vaut : ' , $chaine3 , '<br>';
+                echo 'Le type de la variable $chaine3 est : ' , gettype($chain3) , '<br>'; // ici => NULL
+                ################
+                $boolean = true; // ou false // Le navigateur associe true à 1 et false à vide qui correpond à 0
+                echo 'La variable $boolean vaut : ' , $boolean, '<br>';
+                echo 'Le type de la variable $boolean est : ' , gettype($boolean) , '<br>'; // ici => boolean : permet de savoir si quelque chose est faux ou vrai.
+                ######################################################################################
+                // Concaténation, affectation et affectation combinée avec l'opérateur  ".="
+            ?>
     </main>
     <footer>
         <div class="d-flex justify-content-evenly align-items-center bg-dark text-light p-3">

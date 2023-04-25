@@ -37,8 +37,7 @@
     <!-- fin navbar -->
     <header class="p-5 m-4 bg-light rounded-3 border ">
         <section class="container py-5">
-            <h1 class="display-5 fw-bold">Introduction au PHP</h1>
-            <p class="col-md-12 fs-4"> PHP, ce sigle est un acronyme récursif  <span>Préprocesseur Hypertexte PHP</span> (PHP Hypertext Preprocessor). Il s'agit d'un langage de script côté serveur open source utilisé pour le développement Web dynamique et peut être intégré dans des codes HTML, notez bien qu'un navigateur ne comprend pas le PHP.</p> 
+            <h1 class="display-5 fw-bold">Bases du PHP</h1>
         </section>
     </header>
     <!-- fin header -->

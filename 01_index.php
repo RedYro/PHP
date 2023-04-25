@@ -27,6 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="02_bases.php">Bases PHP</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="03_variables_constantes.php">Variables et constantes</a>
+                    </li>
                 </ul>
             </div>
         </div>

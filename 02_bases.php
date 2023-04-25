@@ -27,6 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="02_bases.php">Bases PHP</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="03_variables_constantes.php">Variables et constantes</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -59,7 +62,7 @@
                 ?>
                 <p>Pour faire des commentaires sur plusieurs lignes, on utilise : </p>
                 <ul>
-                    <li><em>/* commentaire <br> multi <br> lignes <br> */</em></li>
+                    <li><em>/* <br> commentaire <br> multi <br> lignes <br> */</em></li>
                 </ul>
                 <?php 
                     /* 
@@ -92,6 +95,63 @@
                         ?>
                     </div>
                     <li>Les instructions <span>var_dump()</span> et <span>print_r()</span> : permettent d'afficher du contenu mais sert principalement pour le debug. Ces deux fonctions d'affichage permettent d'analyser dans le navigateur le contenu d'une variable par exemple</li>
+                </ul>
+            </div>
+            <div class="col-sm-12">
+                <h2>5- Concaténation</h2>
+                <p>En PHP, la concaténation se fait avec "<span>.</span>"</p>
+                <p>Dans une première variable, on stocke le mot 'Hello' et dans une deuxième le mot 'World', afin d'afficher la phrase complète, on concatène les deux variables avec un point "<span>.</span>" (ex : voir code sur VSC)</p>
+                <div class="alert alert-primary w-50">
+                    <?php 
+                        $word1 = 'Hello';
+                        $word2 = 'World !';
+                        echo $word1 . " " . $word2; // Affiche 'Hello World !'
+                    ?>
+                </div>
+                <div class="col-sm-12">
+                    <h2>6- Variables utilisateurs</h2>
+                    <p>Une variable est un espace mémoire qui porte un nom et permet de conserver une valeur. Cette valeur peut être de n'import quel type.</p>
+                    <p>Chaque varaible possède un identifiant particulier qui commence toujours par le caractère <span>$</span>.</p>
+                    <p>Ce caractère est suivi du nom de la variable. Il existe des règles de nommage des variables en PHP.</p>
+                    <ul>
+                        <li>Par convention un nom de variable commence par une minuscule puis on met une majuscule à chaque mot (cammelcase)</li>
+                        <li>Le nom commence par un caractère alphabétique, pris dans les ensembles [A_Z] ou [a_z] ou "<span>_</span>" (déconseillé car en PHP il existe des variables prédéfinies qui commencent par "<span>_</span>")</li>
+                        <li>Les caractères qui suivent peuvent être les mêmes avec en plus l'ensemble [0_9] (jamais au début)</li>
+                        <li>La longueur du nom de notre variable n'est pas limitée mais il convient d'être raisonnable, il est conseillé d'avoir des noms de variables les plus parlant possible. ex : <span>$nameClient</span> est plus parlant que <span>$x</span></li>
+                        <li>Les noms de variables sont sensibles à la casse : <span>$mavar</span> et <span>$maVar</span> ne seront pas les mêmes variables</li>
+                    </ul>
+                    <div class="row justify-content-center">
+                        <div class="col-sm-12 col-md-4 me-5 alert alert-success">
+                            <p>Les noms de variables suivants sont corrects : </p>
+                            <ul>
+                                <li><span>$mavar</span></li>
+                                <li><span>$_mavar</span></li>
+                                <li><span>$mavar2</span></li>
+                                <li><span>$M1</span></li>
+                                <li><span>$_123</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-sm-12 col-md-4 me-5 alert alert-danger">
+                            <p>Les noms de variables suivants sont interdites : </p>
+                            <ul>
+                                <li><span>$*mavar</span></li>
+                                <li><span>$5_mavar</span></li>
+                                <li><span>$mavar2+</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <h2>7- Affectation des variables utilisateurs</h2>
+                <p>Affecter une variable consiste à lui donner une valeur : lorsque vous déclarez une variable vous ne lui donnez pas de type c'est la valeur que vous lui affectez qui va déterminer son type</p>
+                <ul>
+                    <li>$maVar1 = 75; => integer</li>
+                    <li>$maVar2 = "Paris"; => string</li>
+                    <li>$maVar3 = 12.5; => double</li>
+                    <li>$maVar4 = true; => boolean</li>
                 </ul>
             </div>
         </div>

@@ -153,6 +153,61 @@
                     <li>$maVar4 = true; => boolean</li>
                 </ul>
             </div>
+            <div class="col-sm-12">
+                <h2>8- Les opérateurs  numériques </h2>
+                    <table  class="table table-dark table-hover table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Opérateur</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">+</th>
+                            <td>Addition</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">-</th>
+                            <td>Soustraction</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">*</th>
+                            <td>Multiplication</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">**</th>
+                            <td>Puissance (associatif à droite)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">/</th>
+                            <td>Division</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">%</th>
+                            <td>Modulo : reste de la division du premier opérande par le deuxième. Fonctionne aussi avec
+                                des
+                                opérandes décimaux. Dans ce cas, PHP ne tient compte que des parties entières de chacun
+                                des
+                                opérandes.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">--</th>
+                            <td>Décrémentation : soustrait une unité à la variable. Il existe deux possibilités, la
+                                prédécrémentation, qui soustrait avant d'utiliser la variable, et la postdécrémentation,
+                                qui
+                                soustrait après avoir utilisé la variable.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">++</th>
+                            <td>Incrémentation : ajoute une unité à la variable. Il existe deux possibilités, la
+                                préincrémentation, qui ajoute 1 avant d'utiliser la variable, et la postincrémentation,
+                                qui
+                                ajoute 1 après avoir utilisé la variable. </td>
+                        </tr>
+                        </tbody>
+                    </table>
+            </div>
         </div>
     </main>
     <footer>

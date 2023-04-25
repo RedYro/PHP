@@ -77,6 +77,49 @@
                 echo 'Le type de la variable $boolean est : ' , gettype($boolean) , '<br>'; // ici => boolean : permet de savoir si quelque chose est faux ou vrai.
                 ######################################################################################
                 // Concaténation, affectation et affectation combinée avec l'opérateur  ".="
+                $prenom = 'Nicolas ';
+                $prenom .= 'Thomas '; // Ajout de la valeur 'Thomas ' à la valeur 'Nicolas ' SANS remplacer celle-ci grâce à l'opérateur ".="
+                echo $prenom;
+                $salutation = 'Bonjour ';
+                echo $salutation . $prenom;
+                echo '<p>' . $salutation . $prenom . '</p>';
+                echo "<p>$salutation $prenom </p>"; // Affiche 'Bonjour Nicolas Thomas' => utilisation des double quotes pour éviter de concaténer avec des ".", dans les double quotes la variable est evaluée : c'est son contenu qui est affiché, c'est ce qu'on appelle la substitution de variable.
+                $age = 30;
+                echo "<p>$salutation $prenom tu as $age ans</p>";
+                echo '<p>'.$salutation.$prenom.'tu as '.$age.' ans'.'</p>';
+                echo 'Bonjour $prenom (test)'; // Dans des quotes simple, $prenom est considére comme une chaîne de caractères brute, on l'affiche littéralement
+                #################
+                // Échappement des apostrophes 
+                $message1 = "aujourd'hui";
+                $message2 = 'aujourd\'hui'; // On échape les apostrophes avec un anti-slash dans les simples quotes 
+                
+                // Exercice : Affichez Bleu-Blanc-Rouge en mettant le texte de chaque couleur dans des variables
+                $red = 'Red';
+                $blue = 'Blue';
+                $purple = 'Purple';
+                echo "<p> <span style=\"color: blue\">$blue</span> - <span style=\"color: purple\">$purple</span> - <span style=\"color: red\">$red</span> </p>";
+                echo '<p>' . '<span style="color: blue">' . $blue . '</span>' . ' - ' . '<span style="color: purple">' . $purple . '</span>' . ' - ' . '<span style="color: red">' . $red . '</span>'. '</p>';
+                // Sadek
+                $text = '<span style="color: blue">bleu</style></span>';
+                $text2 = '<span style="color: green">vert</style></span>';
+                $text3 = '<span style="color: red">rouge</style></span>';
+                echo $text.' - '.$text2.' - '.$text3;
+                // Choiab 
+                $blue = "blue";
+                $white = "white";
+                $red = "red";
+                echo 
+                    "<div class='d-flex justify-content-center bg-dark p-5 m-auto my-2 rounded' style='width: 40%;'>
+                    <div class='bg-primary text-center fw-bold' style='width: 50px; height: 80px; line-height: 80px'>
+                    $blue
+                    </div>
+                    <div class='bg-$white text-center fw-bold' style='width: 50px; height: 80px; line-height: 80px'>
+                    $white
+                    </div>
+                    <div class='bg-danger text-center fw-bold' style='width: 50px; height: 80px; line-height: 80px'>
+                    $red
+                    </div>
+                    </div>";
             ?>
     </main>
     <footer>

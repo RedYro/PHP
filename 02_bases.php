@@ -59,7 +59,7 @@
                 ?>
                 <p>Pour faire des commentaires sur plusieurs lignes, on utilise : </p>
                 <ul>
-                    <li><em>/* commentaire */</em></li>
+                    <li><em>/* commentaire <br> multi <br> lignes <br> */</em></li>
                 </ul>
                 <?php 
                     /* 

@@ -264,7 +264,7 @@
                         </tbody>
                     </table>
                     <div class="col-sm-12">
-                    <h2>10 - Les variables prédéfinies</h2>
+                    <h2>10- Variables prédéfinies</h2>
                     <p>PHP propose toute une série de variables qui sont déjà présentes dans le langage sans que vous n'ayez à les déclarer et  accessibles à tous vos scripts. Ces variables s'écrivent toujours en majuscules et nous fournissent divers renseignements.</p>
                     <p>Nous allons voir Les variables <span>Super-globales</span> qui sont des variables prédéfinies internes et sont toujours disponibles, quelque soit le contexte.</p>
                     <p> Il est inutile de faire <span>global $variable;</span> avant d'y accéder dans les fonctions ou les méthodes.</p>
@@ -339,6 +339,19 @@
                </div>
                </div>
             </div>
+            <div class="col-sm-12">
+                <h2>11- Constantes utilisateurs</h2>
+                <p>Une constante permet de conserver une valeur sauf que celle-ci est invariable. C'est-à-dire qu'on ne pourra pas la modifier durant l'exécution du script. Utile par exemple pour conserver les paramètres de connexion à la BDD de façon certaines.</p>
+                <p>Les constantes sont sensibles à la casse, par convention une constante s'écrit toujours en MAJ.</p>
+                <p>Pour définir une constante on la fonction <span>define()</span> dont la syntaxe sera la suivante : <code>define("NOM_CONSTANTE","Value const");</code> (ex : voir code VSC)</p>
+                <div class="alert alert-primary w-25">
+                    <?php
+                        define("CAPITALE_FRANCE","Paris"); // Déclaration de la constante 'CAPITALE_FRANCE' dans laquelle on stock la valeur 'Paris';
+                        echo CAPITALE_FRANCE; // Affiche 'Paris'
+                    ?>
+                </div>
+            </div>
+
         </div>
     </main>
     <footer>

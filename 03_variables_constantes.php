@@ -202,6 +202,12 @@
 
                 echo '<h2 class="mt-5">Constantes prédéfinies</h2>';
                 echo '<p>'.PHP_VERSION.'<p/>';
+                echo '<p>'.PHP_MAJOR_VERSION.'<p/>';
+                // phpinfo();
+
+                echo '<p>'.__LINE__.' /"fonction (__LINE__)"'.'</p>';
+                echo '<p>'.__DIR__.' /"fonction (__DIR__)"'.'</p>';
+
             ?>
             
     </main>

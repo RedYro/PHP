@@ -174,8 +174,36 @@
                 var_dump($string2); // Affiche 12.5 avec type 'float'
                 $string3 = (int)'13.5';
                 var_dump($string3); // Affiche 13 avec type 'int'
-                
+                echo '<br>';
+                echo '<h2 class="mt-5"> Constantes utilisateurs</h2>';
+                # Avec fonction prédéfinie 'define()'
+                // nom constante : CHAINE
+                // valeur constane : "value const CHAINE"
+                define("CHAINE","Value const CHAINE");
+                echo '<p>'.CHAINE.'</p>';
+                define("ENTIER",30);
+                echo '<p>'.ENTIER.'</p>';
+                echo '<p>'. gettype(ENTIER) .'</p>';
+                // Récupération d'une constante dans une chaîne de caractères 
+                echo "<p> J'ai ".ENTIER." ans !"; // Obligation de concaténer avec constante /!\ 
+
+                # Constante avec 'const'
+                // Avec 'const', il est possible de définir la valeur de de la constante en utilisant une expression scalaire qui contient d'autres constantes.
+                // nombre d'heures mensuelles = temps hebdomadaire * 52 semaines / 12 mois (35*52/12 = 151.67 par mois)
+                const SEMAINE = 52;
+                const HEBDOMADAIRE = 35;
+                const MOIS = 12;
+                const HEURE = (HEBDOMADAIRE * SEMAINE) / MOIS;
+                echo '<p>'.HEURE.'</p>';
+
+                // const NB_RANDOM = rand(1,10); // Impossible de stocker une fonction dans une 'const'
+                // defined("NOMBRES_RANDOM",rand(0,10));
+                // echo '<p>'. NOMBRES_RANDOM .'</p>';
+
+                echo '<h2 class="mt-5">Constantes prédéfinies</h2>';
+                echo '<p>'.PHP_VERSION.'<p/>';
             ?>
+            
     </main>
     <footer>
         <div class="d-flex justify-content-evenly align-items-center bg-dark text-light p-3">

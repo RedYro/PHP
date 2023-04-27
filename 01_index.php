@@ -30,6 +30,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="03_variables_constantes.php">Variables et constantes</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="04_conditions.php">Conditions</a>
+                    </li>
                 </ul>
             </div>
         </div>

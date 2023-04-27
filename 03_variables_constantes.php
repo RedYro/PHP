@@ -22,13 +22,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="01_index.php">Introduction</a>
+                        <a class="nav-link" aria-current="page" href="01_index.php" target="_blank">Introduction</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="02_bases.php">Bases PHP</a>
+                        <a class="nav-link" href="02_bases.php" target="_blank">Bases PHP</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="03_variables_constantes.php">Variables et constantes</a>
+                        <a class="nav-link" href="03_variables_constantes.php" target="_blank">Variables et constantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="04_conditions.php" target="_blank">Conditions</a>
                     </li>
                 </ul>
             </div>
@@ -214,7 +217,7 @@
     <footer>
         <div class="d-flex justify-content-evenly align-items-center bg-dark text-light p-3">
             <a class="nav-link" target="_blank" href="https://www.php.net/manual/fr/">Documentation PHP</a>
-            <a class="nav-link" href="01_index.php"><img src="assets/img/logo.png" alt="Logo PHP"></a>
+            <a class="nav-link" href="01_index.php" target="_blank"><img src="assets/img/logo.png" alt="Logo PHP"></a>
             <a class="nav-link" target="_blank" href="https://devdocs.io/php/">DevDocs</a>
         </div>
     </footer>

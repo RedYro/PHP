@@ -263,6 +263,80 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div class="col-sm-12">
+                    <h2>10 - Les variables prédéfinies</h2>
+                    <p>PHP propose toute une série de variables qui sont déjà présentes dans le langage sans que vous n'ayez à les déclarer et  accessibles à tous vos scripts. Ces variables s'écrivent toujours en majuscules et nous fournissent divers renseignements.</p>
+                    <p>Nous allons voir Les variables <span>Super-globales</span> qui sont des variables prédéfinies internes et sont toujours disponibles, quelque soit le contexte.</p>
+                    <p> Il est inutile de faire <span>global $variable;</span> avant d'y accéder dans les fonctions ou les méthodes.</p>
+                    <table class="table table-dark table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Super-globale</th>
+                                <th>Utilisation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                    <td>$GLOBALS</td>
+                                    <td>Elle contient le nom et la valeur de toutes les variables du script. Les noms de
+                                        variables sont les clés du tableau qui est renvoyé par cette variable. Pour appeler une
+                                        variable en particulier : <code>$GLOBALS["nomvariable"]</code>. Ce code permet de
+                                        récupérer la valeur de la variable en dehors de sa zone de visibilité. </td>
+                                </tr>
+                                <tr>
+                                    <td>$_COOKIE</td>
+                                    <td>Contient le nom et la valeur des cookies enregistrés sur le poste client. Comme pour
+                                        $GLOBALS, le clés de ce tableau sont les noms des cookies.</td>
+                                </tr>
+                                <tr>
+                                    <td>$_ENV</td>
+                                    <td>Contient le nom et la valeur de toutes les variables d'environnement qui changent selon
+                                        le serveur utilisé. </td>
+                                </tr>
+                                <tr>
+                                    <td>$_GET</td>
+                                    <td>Elle contient les informations passées à travers un url ou un formulaire ayant la méthod
+                                        GET. Dans ce cas, les clés du tableau sont le name des champs du formulaire.</td>
+                                </tr>
+                                <tr>
+                                    <td>$_POST</td>
+                                    <td>Contient le nom et la valeur des données issues d'un formulaire envoyé par la method
+                                        POST. Comme pour $_GET c'est le name des input qui sera la clé du tableau. </td>
+                                </tr>
+                                <tr>
+                                    <td>$_REQUEST</td>
+                                    <td>Contient l'ensemble des de ces variables : $_GET, $_POST, $_COOKIE, $_FILES</td>
+                                </tr>
+                                <tr>
+                                    <td>$_SERVER</td>
+                                    <td>Contient les informations liées au serveur web, tel le contenu des en-têtes HTTP ou le nom du script en cours d'exécution. Retenons les variables suivantes :
+                                        <ul>
+                                             <li><code>$_SERVER["HTTP_ACCEPT_LANGUAGE"]</code>, qui contient le code de langue du
+                                                  navigateur client.</li>
+                                             <li><code>$_SERVER["HTTP_COOKIE"]</code>, qui contient le nom et la valeur des
+                                                  cookies lus
+                                                  sur
+                                                  le poste client.</li>
+                                             <li><code>$_SERVER["HTTP_HOST"]</code>, qui donne le nom de domaine.</li>
+                                             <li><code>$_SERVER["SERVER_ADDR"]</code>, qui indique l'adresse IP du serveur.</li>
+                                             <li><code>$_SERVER["PHP_SELF"]</code>, qui contient le nom du script en cours. Nous
+                                                  l'utiliserons souvent dans les formulaires.</li>
+                                             <li><code>$_SERVER["QUERY_STRING"]</code>, qui contient la chaîne de la requête
+                                                  utilisée
+                                                  pour accéder au script.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>$_SESSION</td>
+                                    <td>Contient l'ensemble de nom de variables de session et leur valeur</td>
+                                </tr>
+                                <tr>
+                                    <td>$_FILES</td>
+                                    <td>Contient le nom des fichiers téléchargés.</td>
+                                </tr>
+                        </tbody>
+                    </table>
+               </div>
                </div>
             </div>
         </div>

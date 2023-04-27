@@ -131,6 +131,50 @@
                 echo "$a * $b = " . $a * $b . '<br>'; // Affiche 20
                 echo "$a / $b = " . $a / $b . '<br>'; // Affiche 5
                 echo "$a % $b = " . $a % $b . '<br>'; // Affiche 0
+
+                // Les opérateurs d'affectation combinés pour les valeurs numériques 
+
+                $a += $b; // $a = $a + $b
+                echo $a.'<br>';
+                $a -= $b; // 10 car $a = $a += $b = 12
+                echo $a.'<br>';
+                // Opérateurs '*=' , '/=' , '%='
+                ################
+                // Incrémentation et décrémentation
+                $i = 0;
+                $i++; // 1
+                echo 'echo $i++ = '.$i.'<br>';
+                $i--;
+                echo 'echo $i-- = '.$i.'<br>';
+
+                echo '<h2 class="mt-5">Variables prédéfinies : Super-globale </h2>';
+
+                echo $_SERVER["HTTP_HOST"];
+                echo '<pre>';
+                var_dump($_SERVER);
+                echo '</pre>';
+                // On veut afficher le contenu de la super_global $SERVER["HTTP_HOST"] dans une chaîne de caractères :
+                $message = "<p>Le nom de domaine à partir duquel on affiche la page c'est : <strong> {$_SERVER["HTTP_HOST"]}</strong></p> <br>";
+                echo $message; // On utilise les accolades pour intégrer la variable dans une chaîne de caractères "{$_SERVER["HTTP_HOST"]}"
+                /* 
+                * Si l'on veut afficher le contenu d'une variable et qu'elle soit collée à une chaîne de caractères
+                * Aujourd'hui il fait 32°C !
+                * Ici la '32' et '°C' sont collés pour le faire en utilisant le mécanisme de substitution des variables il faut mettre la variable entre accolades 
+                */
+                $temperature = 32;
+                $tempsajd = "<p>Aujourd'hui il fait {$temperature}°C !</p> <br>";
+                echo $tempsajd;
+                $tempsajd2 = '<p>'.'Aujourd\'hui il fait '.$temperature.'°C !'.'</p>'.'<br>';
+                echo $tempsajd2;
+                
+                echo '<h2 class="mt-5"> Transtypage des variables</h2>';
+                $string = (int)'100';
+                var_dump($string); // Affiche 100 avec type 'int'
+                $string2 = (float)'12.5'; 
+                var_dump($string2); // Affiche 12.5 avec type 'float'
+                $string3 = (int)'13.5';
+                var_dump($string3); // Affiche 13 avec type 'int'
+                
             ?>
     </main>
     <footer>

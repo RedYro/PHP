@@ -95,9 +95,9 @@
             <?php
                 if ($a == 8){ // Si la condition est vraie alors on exécute le code suivant
                     echo "<p class=\"alert alert-danger\">\"a\" est égal à 8.</p>";
-                } else if($a != 10){ // Sinon on exécute celui-ci
+                } else if($a != 10){ // Sinon si, on exécute celui-ci
                     echo "<p class=\"alert alert-danger\">\"a\" est différent de $a.</p>";
-                } else{
+                } else{ // Sinon on exécute celui-ci
                     echo "<p class=\"alert alert-success\">\"a\" est égal à $a.</p>";
                 }
             ?>

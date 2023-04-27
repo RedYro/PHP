@@ -93,7 +93,7 @@
             <h2>Condition multiple "if", "else if", "else"</h2>
             <p>Grâce à une condition multiple, on peut vérifier si "a" est strictement égal à 8, dans un second temps si "a" est différent de 10 et enfin si aucune de ces conditions n'est vrai</p>
             <?php
-                if ($a == 8){ // Si la condition est vraie alors on exécute le code suivant
+                if ($a === 8){ // Si la condition est vraie alors on exécute le code suivant
                     echo "<p class=\"alert alert-danger\">\"a\" est égal à 8.</p>";
                 } else if($a != 10){ // Sinon si, on exécute celui-ci
                     echo "<p class=\"alert alert-danger\">\"a\" est différent de $a.</p>";

@@ -22,6 +22,11 @@ h2, h3{
 
 img[src="assets/img/logo.png"]{
     width: 50px;
+    transition: linear 200ms;
+}
+
+img[src="assets/img/logo.png"]:hover{
+    scale: 1.2 !important;
 }
 
 span{

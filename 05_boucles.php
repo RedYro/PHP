@@ -59,9 +59,10 @@
                             echo "<p class=\"alert alert-primary\">Tour n°{$a}</p>"; // Affichage du nombre de tour
                             $a++; // Incrémentation de la variable $a afin que la condition d'entrée devienne "false" à un moment donné 
                         }
-                        echo "<p>Exercice</p>";
+                        echo "<p>Exercice : Afficher les années de 1920 à 2023</p>";
                         // Exercice
                         // À l'aide d'une boucle "while", afficher les années de 1920 à 2023 dans un menu déroulant.
+                        echo "<p>Méthode 1</p>";
                         $year = 1920;
                         echo "<form><select name=\"année\">";
                         while($year < 2024){
@@ -70,6 +71,7 @@
                         }
                         echo "</select></form>";
                     ?>
+                    <p>Méthode 2</p>
                     <form>
                         <select name="annee">
                         <?php
@@ -81,7 +83,8 @@
                         ?>
                         </select>
                     </form>
-                    <p>Exercice bonus</p>
+                    <p>Exercice bonus : Afficher les années de 2023 à 1920</p>
+                    <p>Méthode 1</p>
                     <form>
                         <select name="year">
                     <?php
@@ -94,6 +97,78 @@
                     ?>
                         </select>
                     </form>
+                    <p>Méthode 2</p>
+                    <?php $year3 = 2023;?>
+                    <form action="#">
+                        <select name="<?php echo $year3;?>">
+                            <?php
+                                while($year3 >= 1920){
+                            ?>
+                            <option value="<?php echo $year3;?>"><?php echo $year3;?></option>
+                            <option value="<?php echo $year3;?>"><?= $year3;?></option>
+                            <?php
+                                $year3--; 
+                                }
+                            ?>
+                        </select>
+                    </form>
+                    <p>Méthode 3</p>
+                    <?php $year4 = 2023;?>
+                    <form action="#">
+                        <select name="<?= $year4;?>">
+                            <?php
+                                while($year4 >= 1920){
+                            ?>
+                            <option value="<?= $year4;?>"><?= $year4;?></option>
+                            <?php
+                                $year4--; 
+                                }
+                            ?>
+                        </select>
+                    </form>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <h2>Boucle "do", "while"</h2>
+                    <p>Cette boucle fonctionne avec la même instruction que la boucle "<span>while</span>". Cependant pour cette boucle, la condition est testée à la fin et pas au début</p>
+                    <p>La boucle "<span>do</span>" "<span>while</span>" a la particularité de s'exécuter au moins une fois puis TANT QUE la condition de fin est vraie</p>
+                    <?php
+                        $i = 0; // Déclaration et initialisation de la variable 
+                        do{ // Ici on exécute d'abord cette première partie avant même de regarder la condition
+                            echo "<p class=\"alert alert-primary\">$i</p>"; // Affiche la valeur de $i
+                            $i++; // Incrémentation
+                        } while($i > 100) // Condition, si elle est true, le code s'arrête ici sinon la boucle s'exécute jusqu'à ce que la condition soit vraie
+                    ?>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <h2>Boucle "for"</h2>
+                    <p>La boucle "<span>for</span>", comme toutes les boucles, sert à répéter un morceau de code TANT QUE la condition n'est pas respecté. Sa structure est cependant différente : </p>
+                    <ol>
+                        <li><span>Initialisation de la variable</span></li>
+                        <li><span>Condition de sortie</span></li>
+                        <li><span>Incrémentation de la variable</span></li>
+                    </ol>
+                    <?php
+                        for($u = 1; $u <= 5; $u++){ // Lancement d'une boucle "for" avec les options ci-dessus 
+                            echo "<p class=\"alert alert-primary\">Tour n°{$u}</p>";
+                        }
+                        echo "<p>Exercice : Créer formulaire de sélection de date de naissance</p>";
+                        // Exercice : Créer en PHP un formulaire de sélection de date de naissance (jour - mois - année)
+                        echo "<form><label for=\"years-select\">Année</label><select name=\"année\">";
+                        for($years = 1920; $years < 2024; $years++){
+                            echo "<option value=\"$years\">{$years}</option>";
+                        }
+                        echo "</select>";
+                        echo "<label for=\"days-select\">Jours</label><select name=\"jour\">";
+                        for($days = 0; $days <= 31; $days++){
+                            echo "<option value=\"$days\">{$days}</option>";
+                        }
+                        echo "</select>";
+                        echo "<label for=\"months-select\">Mois</label><select name=\"mois\">";
+                        for($months = 0; $months <= 12; $months++){
+                            echo "<option value=\"$months\">{$months}</option>";
+                        }
+                        echo "</select></form>";
+                    ?>
                 </div>
             </div>
     </main>

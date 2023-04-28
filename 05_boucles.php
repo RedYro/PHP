@@ -87,10 +87,10 @@
                     <?php
                         // Exercice bonus : faire la même chose en décrémentant, de 2023 à 1920
                         $year2 = 2023;
-                            while($year2 >= 1920) {
+                        while($year2 >= 1920) {
                             echo "<option value=\"$year2\">$year2</option>";
-                            $year2--;
-                            }
+                            $year2--; // Décrémentation de la variable $year2 afin que la condition d'entrée devienne "false" à un moment donné 
+                        }
                     ?>
                         </select>
                     </form>

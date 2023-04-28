@@ -39,6 +39,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="06_inclusions.php" target="_blank">Importation de fichers</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="07_tableaux.php" target="_blank">Tableaux</a>
+                    </li>
                 </ul>
             </div>
         </div>

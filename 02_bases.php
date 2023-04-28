@@ -33,6 +33,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="04_conditions.php">Conditions</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="05_boucles.php" target="_blank">Boucles</a>
+                    </li>
                 </ul>
             </div>
         </div>

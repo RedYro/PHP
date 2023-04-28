@@ -53,20 +53,20 @@
                 $b = 5;
                 $c = 2;
                 if ($a > $b){ // Si la condition est vraie alors on exécute le code suivant
-                    echo "<p class=\"alert alert-success\">'a' qui contient $a est strictement supérieur à 'b' qui vaut $b</p>";
+                    echo "<p class=\"alert alert-success\">\"a\" qui contient $a est strictement supérieur à \"b\" qui vaut $b</p>";
                 } else{ // Sinon on exécute celui-ci
-                    echo "<p class=\"alert alert-danger\">b qui contient $b est strictement supérieur à a qui vaut $a</p>";
+                    echo "<p class=\"alert alert-danger\">\"b\" qui contient $b est strictement supérieur à \"a\" qui vaut $a</p>";
                 }
                 if ($a > $c){ // Si la condition est vraie alors on exécute le code suivant
-                    echo "<p class=\"alert alert-success\">'a' qui contient $a est strictement supérieur à 'c' qui vaut $c</p>";
+                    echo "<p class=\"alert alert-success\">\"a\" qui contient $a est strictement supérieur à \"c\" qui vaut $c</p>";
                 } else{ // Sinon on exécute celui-ci
-                    echo "<p class=\"alert alert-danger\">'c' qui contient $c est strictement supérieur à 'a' qui vaut $a</p>";
+                    echo "<p class=\"alert alert-danger\">\"c\" qui contient $c est strictement supérieur à \"a\" qui vaut $a</p>";
                 }
             ?>
             <h2>Condition simple "AND", "&&"</h2>
             <?php
                 if ($a > $b && $b > $c){ // Si la condition est vraie alors on exécute le code suivant
-                    echo "<p class=\"alert alert-success\">'a' qui contient $a est strictement supérieur à 'b' qui vaut $b et 'b' est strictement supérieur à 'c' qui vaut $c</p>";
+                    echo "<p class=\"alert alert-success\">\"a\" qui contient $a est strictement supérieur à 'b' qui vaut $b et 'b' est strictement supérieur à \"c\" qui vaut $c</p>";
                 } else{ // Sinon on exécute celui-ci
                     echo "<p class=\"alert alert-danger\">Une des deux conditions est fausse</p>";
                 }

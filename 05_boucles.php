@@ -36,6 +36,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="05_boucles.php" target="_blank">Boucles</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="06_inclusions.php" target="_blank">Importation de fichers</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -139,7 +142,7 @@
                         } while($i > 100) // Condition, si elle est true, le code s'arrête ici sinon la boucle s'exécute jusqu'à ce que la condition soit vraie
                     ?>
                 </div>
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-12 col-md-6 mt-5">
                     <h2>Boucle "for"</h2>
                     <p>La boucle "<span>for</span>", comme toutes les boucles, sert à répéter un morceau de code TANT QUE la condition n'est pas respecté. Sa structure est cependant différente : </p>
                     <ol>
@@ -168,7 +171,25 @@
                             echo "<option value=\"$months\">{$months}</option>";
                         }
                         echo "</select></form>";
+                        // Exercice : créer un tableau qui affiche 0 à 9 sur une seule ligne 
+                        echo "<p>Excercie : Créer un tableau qui affiche 0 à 9 sur une seule ligne</p>"; 
+                        // Solution 1 :
+                        echo "<table class=\"table table-bordered mt-5\"><tr>";
+                        for($i=1; $i<=10; $i++){
+                        echo"<td>Colonne numéro $i </td>";   
+                        }
+                        echo "</tr> <tr>";
+                        for($i=0; $i<10; $i++){
+                        echo"<td> $i </td>";   
+                        }
+                        echo "</tr></table>";
                     ?>
+                </div>
+                <div class="col-sm-12 col-md-6 mt-5">
+                    <h2>Boucle "foreach"</h2>
+                    <p>La boucle foreach sert à parcourir un tableau (array() ou []). On verra cette boucle plus en détails dans la page dédiée aux array().</p>
+                    <p class="alert alert-danger">Attention. Lorsque que vous faites une boucle, vérifiez votre condition de sortie ainsi que l'incrémentation de votre variable. Sans incrémentation, vous aurez une boucle infinie.</p>
+                    <p class="alert alert-secondary">A force d'utilier les boucles, il sera de plus en plus logique de choisir telle ou telle boucle pour tel ou tel usage.</p>
                 </div>
             </div>
     </main>

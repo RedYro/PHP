@@ -36,6 +36,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="05_boucles.php" target="_blank">Boucles</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="06_inclusions.php" target="_blank">Importation de fichers</a>
+                    </li>
                 </ul>
             </div>
         </div>

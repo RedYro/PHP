@@ -299,6 +299,42 @@
         </div>
         <div class="col-sm-12">
             <h3 class="text-primary text-center">Boucle "foreach"</h3>
+            <ul>
+                <li>La boucle "<span>foreach</span>" est un moyen simple de passer un revue un tableau de façon automatique. Cette boucle ne fonction que sur les tableaux et les objets.</li>
+                <li>Elle est efficace pour les tableaux associatifs mais fonctionne également pour les tableaux indexés.</li>
+                <li>Contrairement à la boucle "<span>for</span>", la boucle "<span>foreach()</span>" ne nécessite pas de connaître par avance le nombre d’éléments du tableau à lire. Sa syntaxe varie en fonction du type de tableau.</li>
+                <li>La structure "<span>foreach</span>" a deux formes. La première ne récupère que les valeurs. La deuxième récupère les clés et les valeurs.</li>                    
+            </ul>
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h4>Parcours des valeurs d'un tableau</h4>
+                    <code>
+                        <pre>
+                            foreach($tableau as $valeurs){ <br>
+                                // bloc de code utilisant les valeurs de la variable $tableau <br>
+                            }
+                        </pre>
+                    </code>
+                    <?php
+                        $myArray = ['HTML', 'CSS', 'JS', 'PHP'];
+                        echo "<ul>";
+                        foreach($myArray as $technologies){ // "as" /!\ OBLIGATOIRE /!\ // Parcours du tableau par ses valeurs, la variable $technologies prend les valeurs du tableau successivement à chaque tour de boucle. Le mot clé "as" fait partie de la syntaxe 
+                            echo "<li>\$technologies = $technologies</li>"; 
+                        };
+                        echo "</ul>";
+                    ?>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <h4>Parcours des clés et des valeurs du tableau</h4>
+                    <code>
+                        <pre>
+                            foreach($array as key => $value){ <br>
+                                // bloc de code utilisant les clés et les valeurs du tableau <br>
+                            }
+                        </pre>
+                    </code>
+                </div>
+            </div>
         </div>
     </div>
 </main>

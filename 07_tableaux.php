@@ -225,7 +225,34 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-12">
+                    <p class="alert alert-danger">Afin de parcourir un tableau il faut utiliser une boucle</p>
+                </div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <h2 class="text-center my-5">5- Parcourir les tableaux grâce au boucles</h2>
+        <div class="col-sm-12 col-md-6">
+            <h3 class="text-primary text-center">Boucle "for"</h3>
+            <ul>
+                <li>La boucle for va permettre de parcourir un array, et d'en extraire les données pour les afficher sous la forme demandée.</li>
+                <li>On utilise la boucle for dans les tableaux indexés</li>
+                <li>L’utilisation de la boucle for dans le parcours d’une table nécessite le calcule de la taille du tableau à chaque itération.</li>
+            </ul>
+            <?php
+                // Avec un tableau tableau unidimensionnel
+                $listeFournitures = ['stylo', 'crayons de papier', 'surligneurs', 'feutres', 'règle'];
+                echo '<pre>';
+                var_dump($listeFournitures);
+                echo '</pre>'; 
+                
+                echo "<p>Liste des fournitures : </p>";
+                echo "<ul>";
+                
+
+                echo "</ul>";
+            ?>
         </div>
     </div>
 </main>

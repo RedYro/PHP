@@ -236,23 +236,69 @@
         <div class="col-sm-12 col-md-6">
             <h3 class="text-primary text-center">Boucle "for"</h3>
             <ul>
-                <li>La boucle for va permettre de parcourir un array, et d'en extraire les données pour les afficher sous la forme demandée.</li>
-                <li>On utilise la boucle for dans les tableaux indexés</li>
-                <li>L’utilisation de la boucle for dans le parcours d’une table nécessite le calcule de la taille du tableau à chaque itération.</li>
+                <li>La boucle "<span>for</span>" va permettre de parcourir un array, et d'en extraire les données pour les afficher sous la forme demandée.</li>
+                <li>On utilise la boucle "<span>for</span>" dans les tableaux indexés</li>
+                <li>L’utilisation de la boucle "<span>for</span>" dans le parcours d’une table nécessite le calcul de la taille du tableau à chaque ittération.</li>
             </ul>
             <?php
                 // Avec un tableau tableau unidimensionnel
-                $listeFournitures = ['stylo', 'crayons de papier', 'surligneurs', 'feutres', 'règle'];
+                $listeFournitures = ['stylos', 'crayons de papier', 'surligneurs', 'feutres', 'règle'];
                 echo '<pre>';
                 var_dump($listeFournitures);
                 echo '</pre>'; 
-                
+
                 echo "<p>Liste des fournitures : </p>";
                 echo "<ul>";
-                
-
+                for ($i = 0; $i < sizeof($listeFournitures); $i++){ // Tant que "$i" est inférieur au nombre d'éléments du tableau on entre dans la boucle
+                // La fonction prédéfinie "sizeof()" permet de calculer le nombre d'élément dans un tableau. La fonction count() permet de faire la même chose  
+                    echo " <li>-> {$listeFournitures[$i]}</li>"; // $i représente l'index du tableau et c'est la raison pour laquelle on passe entre les crochets à la suite de $listeFournitures. On lui indique ainsi qu'en premier on veut afficher le premier élément du tableau et ainsi de suite  
+                }
                 echo "</ul>";
             ?>
+            <?php
+                $listeEleves = [
+                    0 => [
+                        'prenom' => 'Julien',
+                        'classe' => 'maternelle',
+                        'ecole' => 'Saint-Michel-sur-Orge',
+                    ],
+                    1 => [
+                        'prenom' => 'Théo',
+                        'classe' => 'élémentaire',
+                        'ecole' => 'Évry',
+                    ],
+                    2 => [
+                        'prenom' => 'Milina',
+                        'classe' => 'maternelle',
+                        'ecole' => 'Brétigny',
+                    ],
+                ];
+                echo "<p>Liste prénoms élèves</p>";
+                echo "<ul>";
+                for ($i = 0; $i < count($listeEleves); $i++) { 
+                    echo "<li>{$listeEleves[$i]['prenom']}</li>";
+                };
+                echo "</ul>";
+            ?>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <h3 class="text-primary text-center">Boucle "while"</h3>
+            <ul>
+                <li>"<span>while</span>" permet de parcourir un tableau d'une manière efficace dans le cas d'un tableau retourné après une requête sur une BDD</li>
+            </ul>
+            <?php
+                $apprenants = ['Bakary', 'Tatiana', 'Sadek', 'Zaahid'];
+                $i = 0;
+                while (isset($apprenants[$i])){ // "isset()" détermine si une variable existe
+                // Elle vérifie si la variable est délcaré et si elle est tout sauf "null"
+                // "isset()" renverra false si la valeur de notre variable est null 
+                    echo "<p>Le tableau \$apprenant contient : {$apprenants[$i]}</p>";
+                    $i++;
+                }
+            ?>
+        </div>
+        <div class="col-sm-12">
+            <h3 class="text-primary text-center">Boucle "foreach"</h3>
         </div>
     </div>
 </main>

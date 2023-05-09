@@ -140,7 +140,7 @@
             <h3 class="text-primary text-center my-5">Les tableaux multidimensionnels</h3>
             <div class="row">
                 <div class="col-sm-4">
-                    <h4>1- Tableau multidimentionnel : "<span>1ère dimension : indéxé / 2ème dimension ; indéxé</span>"</h4>
+                    <h4>1- Tableau multidimensionnel : "<span>1ère dimension : indexé / 2ème dimension ; indéxé</span>"</h4>
                     <?php
                         $tableau_multi_1 = [
                             0 => [
@@ -300,7 +300,7 @@
         <div class="col-sm-12">
             <h3 class="text-primary text-center">Boucle "foreach"</h3>
             <ul>
-                <li>La boucle "<span>foreach</span>" est un moyen simple de passer un revue un tableau de façon automatique. Cette boucle ne fonction que sur les tableaux et les objets.</li>
+                <li>La boucle "<span>foreach()</span>" est un moyen simple de passer un revue un tableau de façon automatique. Cette boucle ne fonction que sur les tableaux et les objets.</li>
                 <li>Elle est efficace pour les tableaux associatifs mais fonctionne également pour les tableaux indexés.</li>
                 <li>Contrairement à la boucle "<span>for</span>", la boucle "<span>foreach()</span>" ne nécessite pas de connaître par avance le nombre d’éléments du tableau à lire. Sa syntaxe varie en fonction du type de tableau.</li>
                 <li>La structure "<span>foreach</span>" a deux formes. La première ne récupère que les valeurs. La deuxième récupère les clés et les valeurs.</li>                    
@@ -333,9 +333,67 @@
                             }
                         </pre>
                     </code>
+                    <?php
+                        $myArray = ['HTML', 'CSS', 'JS', 'PHP'];
+                        echo "<ul>";
+                        foreach($myArray as $key => $technologies){ // On peut récupérer la clé et la valeur, que le tableau soit indexé ou associatif, quand il y a 2 variables après "as" celle de gauche parcourt les indices et celle de droite les valeurs 
+                            echo "<li>\$key = $key & \$technologies = $technologies</li>"; 
+                        };
+                        echo "</ul>";
+                    ?>
                 </div>
             </div>
         </div>
+        <p class="alert alert-secondary">La boucle "<span>foreach()</span>" s'écrit toujours de la même façon. Entre les parenthèses, nous retrouverons d'abord le nom de la variable contenant un tableau. Viens ensuite le mot clé "<code>as</code>", prédéfinit dans le langage PHP. Ensuite on trouve les deux variable qui remrésentent les indices du tableau et leurs valeurs. On peut donner le nom que l'on veut aux deux variables "<span>$key</span>" et "<span>$value</span>", c'est leur emplacement qui indique à quoi elles servent. Entre ces deux variables on retrouve la flèche "<code>=></code>" qui signifie "correspond à".</p>
+        <?php
+            // Exercice 1 : Déclarez un tableau associatif avec les indices prenom, nom, email, telephone et vous y mettez les valeurs correspondantes à un seul contact. Puis avec une boucle 'foreach', vous affichez les valeurs dans des <p>, sauf le prenom doit être dans un <h3>.
+            echo "<h4>Exercice 1</h4>";
+            $arrayInfo = [
+                'name' => 'John',
+                'surname' => 'Connor',
+                'email' => 'john@email',
+                'telephone' => '0101030405',
+            ];
+            foreach($arrayInfo as $key => $info){
+                if ($info == $arrayInfo['name']) {
+                    echo "<h3>$info</h3>";
+                } else{
+                    echo "<p>$key : $info</p>";
+                }
+            }
+            //--------------- Correction Sahar ---------------//
+            echo "<h5 class=\"alert alert-success w-25\">Correction Sahar</h5>";
+            foreach($arrayInfo as $key => $info){ 
+                if ($key == 'name') {
+                    echo "<h3>$info</h3>";
+                } else{
+                    echo "<p>$key : $info</p>";
+                }
+            }
+            //Exercice  2 :  vous déclarez un tableau avec les taille  S, M, L et XL, puis vous affichez les tailles dans un menu déroulant avec une boucle foreach.
+            echo "<h4>Exercice 2</h4>";
+            $arraySize = ['S', 'M', 'L', 'XL'];
+            echo "<form><label>Tailles</label><select>";
+            foreach($arraySize as $size){
+                echo "<option value=\"$size\">{$size}</option>";
+            }
+            echo "</select></form>";
+            //--------------- Correction Sahar ---------------//
+            echo "<h5 class=\"alert alert-success w-25\">Correction Sahar</h5>";
+            $taille = ['S', 'M', 'L', 'XL'];
+        ?>
+        <form>
+            <label>Tailles</label>
+            <select>
+                <?php
+                    foreach($taille as $values){
+                ?>
+                <option value="<?=$values?>"><?=$values?></option>
+                <?php
+                }
+                ?>
+            </select>
+        </form>
     </div>
 </main>
 <?php

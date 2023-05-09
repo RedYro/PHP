@@ -75,8 +75,8 @@
                     <div class="col-sm-12 col-md-6">
                         <h3 class="text-center text-primary">include()</h3>
                         <?php
-                        /**
-                        * On vas créer un dossier inc à la racine de notre dossier php
+                        /*
+                        * On va créer un dossier inc à la racine de notre dossier php
                         * Dans ce dossier inc on vas créer un fichier test1.inc.php
                         * On crée une balise p avec une phrase : Ceci est le premier fichier d'inclusion
                         */
@@ -88,7 +88,7 @@
                     <div class="col-sm-12 col-md-6">
                         <h3 class="text-center text-primary">include_once()</h3>
                         <?php
-                            /**
+                            /*
                             * Dans ce dossier inc on vas créer un fichier test2.inc.php
                             * On crée une balise p avec une phrase : Ceci est le deuxième fichier d'inclusion
                             */
@@ -105,7 +105,7 @@
                     <div class="col-sm-12 col-md-6">
                         <h3  class="text-center text-primary">require()</h3>
                         <?php
-                        /**
+                        /*
                         * On vas créer un dossier inc à la racine de notre dossier php
                         * Dans ce dossier inc on vas créer un fichier test3.inc.php
                         * On crée une balise p avec une phrase : Ceci est le troisième fichier d'inclusion
@@ -118,7 +118,7 @@
                     <div class="col-sm-12 col-md-6">
                         <h3  class="text-center text-primary">require_once()</h3>
                         <?php
-                        /**
+                        /*
                         * Dans ce dossier inc on vas créer un fichier test4.inc.php
                         * On crée une balise p avec une phrase : Ceci est le quatrième fichier d'inclusion
                         */

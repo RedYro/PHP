@@ -3,5 +3,18 @@
     $titleH1 = "Fonctions en PHP";
     $paragraphe = "Hello World !";
     require_once ("inc/header.inc.php");
+?>
+
+
+
+
+
+
+
+
+
+
+
+<?php
     require_once ("inc/footer.inc.php");
 ?>

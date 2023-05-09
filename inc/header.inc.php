@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="PHP Cours">
     <meta name="author" content="Lyfoung Grégory">
-    <title>PHP Cours - Tableaux</title>
+    <title>PHP Cours - <?=$title?></title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo.png">
 </head>
 <body>
@@ -49,8 +49,8 @@
     <!-- fin navbar -->
     <header class="p-5 m-4 bg-light rounded-3 border ">
         <section class="container py-5">
-            <h1 class="display-5 fw-bold"><?=$title;?></h1>
-            <p class="col-md-8 fs-4"><?=$paragraphe;?></p>
+            <h1 class="display-5 fw-bold"><?=$titleH1?></h1>
+            <p class="col-md-8 fs-4"><?=$paragraphe?></p>
         </section>
     </header>
     <!-- fin header -->

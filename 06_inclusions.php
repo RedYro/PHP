@@ -66,7 +66,6 @@
                     <li>dans certains cas, un header qui reviendrait sur plusieurs pages</li>
                     <li>notre connexion à la BDD : <code>init.inc.php</code></li>
                     <li>notre fichier de fonctions que nous avons créer nous même : <code>functions.inc.php</code>. Dans un fichier de fonctions on retrouvera par exemple des fonctions de debuggage, des fonctions de vérification de statut del'utilisateur et de connexion de l'utilisateur.</li>
-                
                 </ul>
             </div>
             <div class="col-sm-12 mt-5">

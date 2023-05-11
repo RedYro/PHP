@@ -42,6 +42,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="07_tableaux.php" target="_blank">Tableaux</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="08_fonctions.php" target="_blank">Fonctions</a>
+                    </li>
                 </ul>
             </div>
         </div>

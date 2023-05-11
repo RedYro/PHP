@@ -108,7 +108,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <ul>
-                        <li><span>array_push()</span> : permet d'ajouter plusieurs valeurs à la fin d' un tableau</li>
+                        <li><span>array_push()</span> : permet d'ajouter plusieurs valeurs à la fin d'un tableau</li>
                         <li class="alert alert-warning">Si on veut ajouter une seule valeur à la fin on utilise la syntaxe : <strong>$tableau[] = valeur_à_ajouter</strong> </li>
                         <li><span>array_unshift</span>: permet d'ajouter une valeur au début d'un tableau</li>
                         <li><span>array_pop</span>: permet de supprimer la dernière valeur d'un tableau</li>
@@ -119,17 +119,182 @@
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <ul>
-                        <li><span>array_chunk</span>: permet de déviser un tableau en plusieurs parties et avec un nombre de valeurs à définir</li>
-                        <li><span>count() / sizeof()</span> : permet de retourner la taille du tableau passé en paramètre.</li>
+                        <li><span>array_chunk</span>: permet de diviser un tableau en plusieurs parties et avec un nombre de valeurs à définir</li>
+                        <li><span>count() / sizeof()</span> : permet de retourner la taille du tableau passée en paramètre.</li>
                         <li><span>in_array()</span>: permet de vérifier qu'une valeur est présente dans un tableau.</li>
                         <li><span>array_key_exists()</span> : permet de vérifier si une clé existe dans un tableau.</li>
-                        <li><span>explode()</span> : permet de transformer une chaîne de caractère en tableau</li>
-                        <li><span>implode()</span> : permet de Transformer un tableau en chaîne de caractères.</li>
+                        <li><span>explode()</span> : permet de transformer une chaîne de caractères en tableau</li>
+                        <li><span>implode()</span> : permet de transformer un tableau en chaîne de caractères.</li>
                         <li><span>array_slice()</span> :  permet de récuperer une partie d'un tableau </li>
-     
                     </ul>
                 </div>
             </div>
+            <?php
+                $tableau = ["Red", "Blue", "Pink", "Purple"];
+                echo "<pre>";
+                var_dump($tableau);
+                echo "</pre>";
+
+                // Ajouter des valeurs à la fin du tableau
+                echo "<p class=\"alert alert-primary\">array_push()</p>";
+                // $tableau[] = "Green";
+                // echo "<pre>";
+                // var_dump($tableau);
+                // echo "</pre>";
+                array_push($tableau, "Green", "Black", "White"); // Paramètres fonction => variable contenant le tableau + valeur(s) à ajouter
+                echo "<pre>";
+                var_dump($tableau);
+                echo "</pre>";
+
+                // Ajouter des valeurs au début du tableau
+                echo "<p class=\"alert alert-primary\">array_unshift()</p>";
+                array_unshift($tableau, "Gray", "Yellow");
+                echo "<pre>";
+                var_dump($tableau);
+                echo "</pre>";
+
+                // Supprimer la dernière valeur du tableau
+                echo "<p class=\"alert alert-primary\">array_pop()</p>";
+                $valueDeleteLast = array_pop($tableau); // Suppression de la dernière valeur du tableau et possibilité de stockée celle-ci dans une variable
+                echo "<pre>";
+                var_dump($tableau);
+                echo "</pre>";
+
+                // Supprimer la première valeur du tableau 
+                echo "<p class=\"alert alert-primary\">array_shift()</p>";
+                $valueDeleteFirst = array_shift($tableau); // Suppression de la première valeur du tableau et possibilité de stockée celle-ci dans une variable
+                echo "<pre>";
+                var_dump($tableau);
+                echo "</pre>";
+
+                // Mélanger un tableau 
+                echo "<p class=\"alert alert-primary\">shuffle()</p>";
+                // shuffle($tableau);
+                echo "<pre>";
+                echo "array(7) {
+                [0]=>
+                string(3) \"Red\"
+                [1]=>
+                string(4) \"Pink\"
+                [2]=>
+                string(5) \"Green\"
+                [3]=>
+                string(5) \"Black\"
+                [4]=>
+                string(6) \"Purple\"
+                [5]=>
+                string(6) \"Yellow\"
+                [6]=>
+                string(4) \"Blue\"
+                }";
+                // var_dump($tableau);
+                echo "</pre>";
+
+                // Diviser un tableau en plusieurs parties
+                echo "<p class=\"alert alert-primary\">array_chunk()</p>";
+                $tableau2 = array_chunk($tableau, 2, true); // Division du tableau, paramètres fonction => variable tableau, nombre d'éléments dans les sous-tableaux, (facultatif) "true" permet de garder les indexs d'origine du tableau divisé 
+                echo "<pre>";
+                var_dump($tableau2);
+                echo "</pre>";
+
+                // Compter les éléments dans un tableau
+                echo "<p class=\"alert alert-primary\">count() & sizeof()</p>";
+                $nb1 = count($tableau);
+                $nb2 = sizeof($tableau);
+                echo "<pre>";
+                var_dump($tableau);
+                echo "</pre>";
+
+                // Vérifier une valeur dans un tableau
+                echo "<p class=\"alert alert-primary\">in_array()</p>";
+                $result = in_array("blue", $tableau); // in_array() => sensible à la casse
+                echo "<pre>";
+                var_dump($result); // false 
+                echo "</pre>";
+
+                // Vérifier une clé dans un tableau
+                echo "<p class=\"alert alert-primary\">array_key_exists()</p>";
+                $result = array_key_exists(4, $tableau);
+                echo "<pre>";
+                var_dump($result); // true
+                echo "</pre>";
+
+                // Créer un tableau à partir de 2 tableaux
+                echo "<p class=\"alert alert-primary\">\$fusionArray = [<span>...</span>\$tableau, <span>...</span>\$colors];</p>";
+                $colors = ["Orange", "LightBlue", "DarkRed"];
+                $fusionArray = [...$tableau, ...$colors]; // Décompisition de chaque tableau avec l'opérateur (...)
+                echo "<pre>";
+                var_dump($fusionArray); // La variable contient le nouveau tableau indexé créer à partir de 2 tableau
+                echo "</pre>";
+
+                echo "<p class=\"alert alert-primary\"><span>résultat différent avec cette syntaxe</span> => \$fusionArray = [\$tableau, \$colors];</p>";
+                $fusionArray = [$tableau, $colors];
+                echo "<pre>";
+                var_dump($fusionArray); // => tableau multidimensionnel
+                echo "</pre>";
+                
+                // Transformation d'une chaîne de caractères en tableau
+                echo "<p class=\"alert alert-primary\">explode()</p>";
+                $maChaine = "Transformation en tableau";
+                $chaineToTableau = explode(" ", $maChaine); // Paramètres fonction => caractère de séparation dans la chaîne, variable chaîne de caractères à scinder 
+                echo "<pre>";
+                var_dump($chaineToTableau); 
+                echo "</pre>";
+
+                // Transformation d'un tableau en chaîne de caractères
+                echo "<p class=\"alert alert-primary\">implode()</p>";
+                $stringArray = ["Hello", "World", "!", "Guess", "who's", "back", "!"];
+                $arrayToString = implode(" ", $stringArray); // Paramètres fonction => caractère de séparation dans chaîne, variable tableau à fusionner
+                echo "<pre>";
+                var_dump($arrayToString); 
+                echo "</pre>";
+
+                // Récupération d'une partie d'un tableau 
+                echo "<p class=\"alert alert-primary\">array_slice()</p>";
+                $array = [
+                    'a' => 1,
+                    'b' => 2,
+                    'c' => 3,
+                    'd' => 4,
+                ];
+                $newArray = array_slice($array, 1, 2); // Paramètres fonction => variable contenant le tableau, nombre pour le départ de la coupe, nombre d'élément à garder
+                echo "<pre>";
+                var_dump($newArray); 
+                echo "</pre>";
+            ?>
+        </div>
+        <div class="col-sm-12 mt-5">
+            <h3 class="text-primary text-center mb-5">Les fonctions <span>isset()</span> et <span>empty()</span></h3>    
+            <ul>
+                <li class="alert alert-success">Ces fonctions sont utiles lorsque vous souhaitez effectuer une validation de données.</li>
+            </ul>
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h4 class="text-success text-center">isset()</h4>
+                    <ul>
+                        <li>La fonction <span>isset()</span> détermine si une variable existe.</li>
+                        <li>La fonction vérifie si la variable est définie, et non NULL </li>
+                        <li>La fonction retourne true quand la variable testé est définie ou elle ne contient pas la valeur NULL</li>
+                    </ul>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <h4 class="text-success text-center">empty()</h4>
+                    <ul>
+                        <li>La fonction <span>empty()</span> vérifie si une variable est vide.</li>
+                        <li>La fonction retourne true si la variable testée est égale à : 
+                            <ul>
+                                <li><span>""</span> (une chaîne vide)</li> 
+                                <li><span>0</span> (0 en tant qu'entier)</li>
+                                <li><span>"0"</span> (0 en tant que chaîne de caractères)</li>
+                                <li><span>NULL</span></li>
+                                <li><span>false</span></li>
+                                <li><span>array()</span> (un tableau vide)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
         </div>
     </div>
 </main>

@@ -88,7 +88,7 @@
             <p class="alert alert-secondary"> On peut faire un tableau à une seule dimension, dans lequel les clés vont être successivement des entiers puis des chaînes </p>
         </div>
         <div class="col-sm-12 col-md-6">
-            <h3 class="text-primary text-center mt-5">Les tableaux indéxés</h3>
+            <h3 class="text-primary text-center mt-5">Les tableaux indexés</h3>
             <h4>1- Création d'un tableau avec "<span>indexation automatique</span>"</h4>
             <?php
                 $tableau1 = ['Red', 'Blue', 'Purple'];

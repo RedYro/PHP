@@ -295,6 +295,49 @@
                 </div>
             </div>
             <hr>
+            <?php
+                $var1 = 0;
+                $var1Bis = NULL;
+                $var1Ter = "";
+                $var2 = "";
+                $var2Bis = "test";
+                echo "<p class=\"alert alert-primary w-25\">isset(\$var1)</p>";
+                // $var1
+                if(isset($var1)){ // if true return
+                    echo "\$var1 existe et est non NULL <br>";
+                } else{
+                    echo "\$var1 n'existe pas ou est NULL <br>";
+                };
+                // $var1Bis
+                echo "<p class=\"alert alert-primary w-25\">isset(\$var1Bis)</p>";
+                if(isset($var1Bis)){ // if true return
+                    echo "\$var1Bis existe et est non NULL <br>";
+                } else{
+                    echo "\$var1 n'existe pas ou est NULL <br>";
+                };
+                // $var1Ter
+                echo "<p class=\"alert alert-primary w-25\">isset(\$var1Ter)</p>";
+                if(isset($var1Ter)){ // if true return
+                    echo "\$var1Ter existe et est non NULL <br>";
+                } else{
+                    echo "\$var1 n'existe pas ou est NULL <br>";
+                };
+                // $var2
+                echo "<p class=\"alert alert-primary w-25\">empty(\$var2)</p>";
+                if (empty($var2)){
+                    echo "\$var2 est vide (0, string vide, NULL, false, non définie) <br>";
+                } else{
+                    echo "\$var2 n'est pas vide (0, string vide, NULL, false, non définie) <br>";
+                }
+                // $var2Bis
+                echo "<p class=\"alert alert-primary w-25\">empty(\$var2Bis)</p>";
+                if (empty($var2Bis)){
+                    echo "\$var2 est vide (0, string vide, NULL, false, non définie) <br>";
+                } else{
+                    echo "\$var2 n'est pas vide (0, string vide, NULL, false, non définie) <br>";
+                }
+                // Différence entre "isset()" et "empty()", si on suppprime les déclarations des variables $var1 et $var2
+            ?>
         </div>
     </div>
 </main>

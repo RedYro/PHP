@@ -385,7 +385,7 @@
 
             // Exercice : Écrire une fonction qui multiplie un nombre 1 par un nombre 2 fournis lors de l'appel. Cette fonction retourne le résultat de la multiplication. Afficher le résultat
             // echo "<div class=\"col-sm-12\">";
-            echo "<p class=\"alert alert-secondary\">Exercice</p>";
+            echo "<p class=\"alert alert-secondary text-center\">Exercice</p>";
             // echo "</div>";
 
             // Méthode 1 "return"
@@ -429,6 +429,24 @@
             } <br>
             echo calculateExo3(30, 10);</code>";
             echo "</div>";
+
+            // Fonction avec paramètres optionnels //
+            echo "<p class=\"alert alert-secondary text-center\">Fonction avec paramètres optionnels</p>";
+            // Certains paramètres peuvent ne pas être passés. Une valeur fournie lors de la déclaration.
+            // Afin de se servir d'un paramètre optionnel il faut utiliser les arguments nommés
+            // Méthode 1
+            echo "<p class=\"alert alert-success\">Méthode 1</p>";
+            function hello3($bonjour = "Hi", $prenom, $nom){
+                echo "<p class=\"alert alert-info\">$bonjour $nom $prenom !</p>";
+            }
+            hello3(prenom :"Yro", nom: "Red", bonjour: "Hello");
+
+            // Méthode 2
+            echo "<p class=\"alert alert-success\">Méthode 2</p>";
+            function hello4($prenom, $nom, $bonjour = "Hi"){
+                echo "<p class=\"alert alert-info\">$bonjour $nom $prenom !</p>";
+            }
+            hello4("Yro", "Red");
         ?>
     </div>
 </main>

@@ -4,7 +4,6 @@
     $paragraphe = "Tableaux";
     require_once ("inc/header.inc.php");
 ?>
-
 <main class="container px-5 border border-dark">
     <div class="row">
         <h2 class="text-center my-5">1- Déclaration de tableaux</h2>

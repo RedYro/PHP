@@ -4,7 +4,6 @@
     $paragraphe = "Fonctions";
     require_once ("inc/header.inc.php");
 ?>
-
 <main class="container px-5 border border-dark">
     <div class="row">
         <h2 class="mt-5">1 - Les fonctions prédéfinies </h2>
@@ -106,7 +105,6 @@
         </div>
     </div>
 </main>
-
 <?php
     require_once ("inc/footer.inc.php");
 ?>

@@ -417,6 +417,18 @@
             } <br>
             calculateExo1(25, 10);</code>";
             echo "</div>";
+            // Méthode 3 "return" + concaténation
+            echo "<div class=\"col-sm-12 col-md-6\">";
+            echo "<p class=\"alert alert-success\">Méthode 3 \"return\" + concaténation</p>";
+            function calculateExo3($nb1, $nb2){
+                return "<p>$nb1 * $nb2 = ".$nb1 * $nb2 . "</p>";
+            }
+            echo calculateExo3(30, 10);
+            echo "<code>function calculateExo2(\$nb1, \$nb2){ <br>
+                return \$nb1 * \$nb2 = \". \$nb1 * \$nb2; <br>
+            } <br>
+            echo calculateExo3(30, 10);</code>";
+            echo "</div>";
         ?>
     </div>
 </main>

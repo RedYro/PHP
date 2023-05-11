@@ -362,8 +362,55 @@
 
             // Fonction sans return 
             function hello1($prenom, $nom){ // $prenom et $nom => paramètres de la fonction, permettent de recevoir une valeur
-                echo "<p class=\"alert alert-primary\">Hello $prenom $nom !</p>";
+                echo "<p class=\"alert alert-info\">Hello $nom $prenom !</p>";
             }
+            hello1("Yro", "Red"); // si la fonction attend des valeurs, il faut obligatoirement donner ces valeurs 
+
+            // Same function with return 
+
+            function hello2($prenom, $nom){
+                return "<p class=\"alert alert-info\">Hello $nom $prenom !</p>"; // return permet de sortir la phrase inscrite dans le code et de la renvoyer à l'endroit où la fonction est appelée 
+                // Après le "return" toutes les instructions ne seront pas exécuter 
+            }
+            echo hello2("Hada","Blue"); // echo obligatoire pour afficher la fonction avec return
+
+            // On peut remplacer les arguments par des variables provenant d'un formulaire par ex
+            $prenom1 = "Grégory";
+            $nom1 = "LYFOUNG";
+            echo hello2($prenom1, $nom1); // Les 2 arguments sont variables et peuvent recevoir n'importe quelle valeur 
+
+            $prenom1 = "Sahar";
+            $nom1 = "FERCHICHI";
+            echo hello2($prenom1, $nom1);
+
+            // Exercice : Écrire une fonction qui multiplie un nombre 1 par un nombre 2 fournis lors de l'appel. Cette fonction retourne le résultat de la multiplication. Afficher le résultat
+            echo "<p class=\"alert alert-secondary\">Exercice</p>";
+            
+            // Méthode 1 "return"
+            echo "<p class=\"alert alert-success w-25\">Méthode 1 \"return\"</p>";
+            function calculateExo1($nb1, $nb2){
+                $multiplication = $nb1 * $nb2;
+                return "<p>$nb1 * $nb2 = $multiplication</p>";
+            }
+            echo calculateExo1(23, 10);
+            echo "<code>function calculateExo1(\$nb1, \$nb2){ <br>
+                \$multiplication = \$nb1 * \$nb2; <br>
+                return \$nb1 * \$nb2 = \$multiplication; <br>
+            } <br>
+            echo calculateExo1(23, 10);</code>";
+
+            // Méthode 2 "echo"
+            echo "<p class=\"alert alert-success w-25\">Méthode 2 \"echo\"</p>";
+            function calculateExo2($nb1, $nb2){
+                $multiplication = $nb1 * $nb2;
+                echo "<p>$nb1 * $nb2 = $multiplication</p>";
+            }
+            calculateExo2(25, 10);
+            echo "<code>function calculateExo2(\$nb1, \$nb2){ <br>
+                \$multiplication = \$nb1 * \$nb2; <br>
+                echo \$nb1 * \$nb2 = \$multiplication; <br>
+            } <br>
+            calculateExo1(25, 10);</code>";
         ?>
     </div>
 </main>

@@ -17,11 +17,11 @@
                 <div class="col-sm-12 col-md-6">
                     <ul>
                         <!-- https://www.php.net/manual/en/function.rtrim.php -->
-                        <li><span>substr()</span> : permet d'extraire une partie d'une chaine de caractère</li>
-                        <li><span>strpos()</span>: permet de récuperer la position d'un caractère dans une chaîne de caractère </li>
-                        <li><span>strlen()</span> : permet de récupérer la taille d'une chaîne de carctére</li>
+                        <li><span>substr()</span> : permet d'extraire une partie d'une chaîne de caractères</li>
+                        <li><span>strpos()</span>: permet de récuperer la position d'un caractère dans une chaîne de caractères</li>
+                        <li><span>strlen()</span> : permet de récupérer la taille d'une chaîne de carctères</li>
                         <li><span>substr_replace()</span> : permet de remplacer un segment de la chaîne</li>
-                        <li><span>substr_ireplace()</span>: Version insensible à la casse de str_replace()</li>
+                        <li><span>substr_ireplace()</span>: version insensible à la casse de str_replace()</li>
                         <li><span>str_contains()</span> : permet de vérifier si la chaîne contient un mot particulier</li>
                         <li><span>str_starts_with()</span> : permet de vérifier si une chaîne commence par une sous-chaîne donnée</li>                                   
                     </ul>
@@ -29,11 +29,11 @@
                 <div class="col-sm-12 col-md-6">
                     <ul>
                         <li><span>str_ends_with()</span> : permet de vérifier si une chaîne se termine par une sous-chaîne donnée</li>
-                        <li><span>trim()</span> : permet de supprimer les espaces avant et après une chaîne de caractère </li>
-                        <li><span>strtolower()</span> : permet de retourner la chaîne en miniscule</li>
+                        <li><span>trim()</span> : permet de supprimer les espaces avant et après une chaîne de caractères</li>
+                        <li><span>strtolower()</span> : permet de retourner la chaîne en minuscule</li>
                         <li><span>strtoupper()</span> : permet de retourner la chaîne en majuscules</li>
                         <li><span>ucfirst()</span> : permet de mettre le premier caractère en majuscule. </li>
-                        <li><span>lcfirst()</span> : permet de mettre le premier caractère en miniscule. </li>
+                        <li><span>lcfirst()</span> : permet de mettre le premier caractère en minuscule. </li>
                     </ul>
                 </div>
             </div>

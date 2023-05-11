@@ -1,7 +1,7 @@
 <?php
     $title = "Tableaux";
     $titleH1 = "Tableaux en PHP";
-    $paragraphe = "Hello World !";
+    $paragraphe = "Tableaux";
     require_once ("inc/header.inc.php");
 ?>
 
@@ -33,7 +33,7 @@
                     /*
                     * "var_dump()" renvoie toutes les informations sur ce qui se trouve dans les variables 
                     * Il donne en premier lieu le type de la variable et si c'est un tableau, le nom des éléments connus 
-                    *  - Les éléments avec leur types et leur longueur
+                    *  - Les éléments avec leur type et leur longueur
                     * Cette fonction de debug sera utile pour vérifier si l'on a bien récupérer les informations dans une variable. 
                     */
                     $liste2 = ['Laurence', 'Grégory', 'Choaib', 'Maryam', 'Mana'];

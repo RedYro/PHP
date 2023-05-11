@@ -344,7 +344,27 @@
                 */
             ?>
         </div>
-        
+    </div>
+    <div class="row">
+        <h2 class="mt-5">2 - Fonctions Utilisateurs </h2>
+        <ul>
+            <li>Les fonctions utilisateurs sont des morceaux de code écrits dans des accolades et portant un nom.</li>
+            <li>On appelle une fonction au besoin pour exécuter le code qui s'y trouve.</li>
+            <li>Il est d'usage de créer des fonctions pour ne pas se répéter quand on veut exécuter plusieurs fois le même traitement. On parle alors de "factoriser" son code.</li>
+        </ul>
+        <?php
+            function separation(){ // Déclaration d'une fonction avec le mot clé "function" suivi du nom de la fonction et des "()" qui peuvent accueillir des paramètres ultérieurs
+                echo "<hr>";
+            };
+            separation(); // Pour exécuter une fonction il suffit de faire la même manipulation qu'en JS (nom fonction + "()" => "functionName()")
+
+            // Fonctions avec paramètres et return // 
+
+            // Fonction sans return 
+            function hello1($prenom, $nom){ // $prenom et $nom => paramètres de la fonction, permettent de recevoir une valeur
+                echo "<p class=\"alert alert-primary\">Hello $prenom $nom !</p>";
+            }
+        ?>
     </div>
 </main>
 <?php

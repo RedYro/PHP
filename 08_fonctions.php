@@ -103,6 +103,34 @@
 
             ?>
         </div>
+        <div class="col-sm-12 mt-5">
+            <h3 class="text-primary text-center mb-5">Les fonctions prédéfinies des tableaux </h3>
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <ul>
+                        <li><span>array_push()</span> : permet d'ajouter plusieurs valeurs à la fin d' un tableau</li>
+                        <li class="alert alert-warning">Si on veut ajouter une seule valeur à la fin on utilise la syntaxe : <strong>$tableau[] = valeur_à_ajouter</strong> </li>
+                        <li><span>array_unshift</span>: permet d'ajouter une valeur au début d'un tableau</li>
+                        <li><span>array_pop</span>: permet de supprimer la dernière valeur d'un tableau</li>
+                        <li><span>array_shift</span>: permet de supprimer la première valeur d'un tableau</li>
+                        <li><span>unset()</span>: permet de supprimer un élément d'un tableau</li>
+                        <li><span>shuffle</span>: permet de mélanger et réorganiser un tableau</li>
+                    </ul>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <ul>
+                        <li><span>array_chunk</span>: permet de déviser un tableau en plusieurs parties et avec un nombre de valeurs à définir</li>
+                        <li><span>count() / sizeof()</span> : permet de retourner la taille du tableau passé en paramètre.</li>
+                        <li><span>in_array()</span>: permet de vérifier qu'une valeur est présente dans un tableau.</li>
+                        <li><span>array_key_exists()</span> : permet de vérifier si une clé existe dans un tableau.</li>
+                        <li><span>explode()</span> : permet de transformer une chaîne de caractère en tableau</li>
+                        <li><span>implode()</span> : permet de Transformer un tableau en chaîne de caractères.</li>
+                        <li><span>array_slice()</span> :  permet de récuperer une partie d'un tableau </li>
+     
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 <?php

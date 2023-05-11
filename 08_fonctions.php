@@ -324,7 +324,7 @@
                 };
                 // $var2
                 echo "<p class=\"alert alert-primary w-25\">empty(\$var2)</p>";
-                if (empty($var2)){
+                if (empty($var2)){ // if true return
                     echo "\$var2 est vide (0, string vide, NULL, false, non définie) <br>";
                 } else{
                     echo "\$var2 n'est pas vide (0, string vide, NULL, false, non définie) <br>";
@@ -336,9 +336,15 @@
                 } else{
                     echo "\$var2 n'est pas vide (0, string vide, NULL, false, non définie) <br>";
                 }
-                // Différence entre "isset()" et "empty()", si on suppprime les déclarations des variables $var1 et $var2
+                // Différence entre "isset()" et "empty()", si on suppprime les déclarations des variables $var1 et $var2 : "empty()" reste "true" car $var2 n'est pas définie, "isset()" devient "false" car $var1 n'est pas définie
+                /*
+                * Utilisation : 
+                * "empty()" : pour valider et vérifier si les champs d'un formulaire sont remplis.
+                * "isset()" : pour vérifier l'existance d'une variable avant de l'utiliser
+                */
             ?>
         </div>
+        
     </div>
 </main>
 <?php

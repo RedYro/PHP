@@ -384,10 +384,13 @@
             echo hello2($prenom1, $nom1);
 
             // Exercice : Écrire une fonction qui multiplie un nombre 1 par un nombre 2 fournis lors de l'appel. Cette fonction retourne le résultat de la multiplication. Afficher le résultat
+            // echo "<div class=\"col-sm-12\">";
             echo "<p class=\"alert alert-secondary\">Exercice</p>";
-            
+            // echo "</div>";
+
             // Méthode 1 "return"
-            echo "<p class=\"alert alert-success w-25\">Méthode 1 \"return\"</p>";
+            echo "<div class=\"col-sm-12 col-md-6\">";
+            echo "<p class=\"alert alert-success\">Méthode 1 \"return\"</p>";
             function calculateExo1($nb1, $nb2){
                 $multiplication = $nb1 * $nb2;
                 return "<p>$nb1 * $nb2 = $multiplication</p>";
@@ -398,9 +401,11 @@
                 return \$nb1 * \$nb2 = \$multiplication; <br>
             } <br>
             echo calculateExo1(23, 10);</code>";
+            echo "</div>";
 
             // Méthode 2 "echo"
-            echo "<p class=\"alert alert-success w-25\">Méthode 2 \"echo\"</p>";
+            echo "<div class=\"col-sm-12 col-md-6\">";
+            echo "<p class=\"alert alert-success\">Méthode 2 \"echo\"</p>";
             function calculateExo2($nb1, $nb2){
                 $multiplication = $nb1 * $nb2;
                 echo "<p>$nb1 * $nb2 = $multiplication</p>";
@@ -411,6 +416,7 @@
                 echo \$nb1 * \$nb2 = \$multiplication; <br>
             } <br>
             calculateExo1(25, 10);</code>";
+            echo "</div>";
         ?>
     </div>
 </main>

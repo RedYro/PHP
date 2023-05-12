@@ -195,12 +195,12 @@
                 // nom constante : CHAINE
                 // valeur constane : "value const CHAINE"
                 define("CHAINE","Value const CHAINE");
-                echo '<p>'.CHAINE.'</p>';
+                echo '<p>'. CHAINE .'</p>';
                 define("ENTIER",30);
-                echo '<p>'.ENTIER.'</p>';
+                echo '<p>'. ENTIER .'</p>';
                 echo '<p>'. gettype(ENTIER) .'</p>';
                 // Récupération d'une constante dans une chaîne de caractères 
-                echo "<p> J'ai ".ENTIER." ans !"; // Obligation de concaténer avec constante /!\ 
+                echo "<p> J'ai ". ENTIER ." ans !"; // Obligation de concaténer avec constante /!\ 
 
                 # Constante avec 'const'
                 // Avec 'const', il est possible de définir la valeur de de la constante en utilisant une expression scalaire qui contient d'autres constantes.

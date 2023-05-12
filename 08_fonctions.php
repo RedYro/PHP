@@ -449,6 +449,70 @@
             hello4("Yro", "Red");
         ?>
     </div>
+    <div class="row">
+        <h2 class="my-5">3- Portée des variables dans les fonctions</h2>
+        <div class="col-sm-12 col-md-4">
+            <h3 class="text-primary text-center mb-5">Variable locale</h3>
+            <p>Les variables déclarées dans les scripts ne sont pas accessibles dans les fonctions et inversement.</p>
+            <?php
+                $a = 5;
+                function maFonction(){
+                    $b = 3;
+                    //echo $a; // Affiche undefined $a car non définie dans la fonction
+                    echo "<p class=\"alert alert-success\">La variable \$b = $b</p>"; // Ici on se trouve dans l'espace locale de la fonction, cette variable est donc "locale"
+                }
+                maFonction();
+                echo "<p class=\"alert alert-success\">La variable \$a = $a</p>";
+                //echo "<p class=\"alert alert-success\">La variable \$b = $b</p>"; // Affiche undefined $b car non définie en dehors de la fonction
+            ?>
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <h3 class="text-primary text-center mb-5">Variable globale</h3>
+            <p>Les variables déclarées dans le script peuvent être accessible dans les fonctions à condition d'être déclarées avec le mot clé "<span>global</span>".</p>
+            <?php
+                $a = 10;
+                function maFonction2(){
+                    global $a; // Permet d'aller la variable à l'extérieur de la fonction afin de pouvoir l'exploiter dans la fonction
+                    $b = 6;
+                    echo "<p class=\"alert alert-success\">La variable \$a = $a</p>"; // Affiche 10
+                    echo "<p class=\"alert alert-success\">La variable \$b = $b</p>"; // Affiche 6
+                    $a = 8;
+                }
+                maFonction2();
+                echo "<p class=\"alert alert-success\">La variable \$a = $a</p>"; // Affiche 8
+            ?>
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <h3 class="text-primary text-center mb-5">Variable statique</h3>
+            <p>Les variables d'une fonction sont rénitialisées après chaque appel de cette fonction.</p>
+            <p>Si l'on veut conserver la valeur précédente, il faut déclarer la variable comme "<span>static</span>"</p>
+            <?php
+                function maFonction3(){
+                    static $a = 9;
+                    $a++;
+                    echo "<p class=\"alert alert-success\">La variable \"static\" \$a = $a</p>"; // Affiche 10
+                }
+                maFonction3(); // Affiche 10
+                maFonction3(); // Affiche 11
+                maFonction3(); // Affiche 12
+            ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="my-5">4- Typage des paramètres dans les fonctions</h2>
+            <ul>
+                <li>Dans nos fonction on peut ajouter des contraintes de type sur les arguments et sur les valeurs de retour des fonctions</li>
+                <li>Le typage permet un debug du code plus rapide, si on ne transmet pas le bon type de paramètres à notre fonction ou si elle ne retourne pas le bon type; une erreur se déclenchera au niveau de la fonction. Sinon, l'on peut avoir une cascade d'erreurs non détectées et retournant un résultat faux.</li>
+            </ul>
+            <?php
+                function prix(int $value){
+                    echo "<p class=\"alert alert-info\">Cet objet coûte $value €</p>";
+                }
+                prix("50");
+            ?>
+        </div>
+    </div>
 </main>
 <?php
     require_once ("inc/footer.inc.php");

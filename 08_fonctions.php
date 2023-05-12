@@ -506,10 +506,26 @@
                 <li>Le typage permet un debug du code plus rapide, si on ne transmet pas le bon type de paramètres à notre fonction ou si elle ne retourne pas le bon type; une erreur se déclenchera au niveau de la fonction. Sinon, l'on peut avoir une cascade d'erreurs non détectées et retournant un résultat faux.</li>
             </ul>
             <?php
-                function prix(int $value){
+                function prix(int $value) : void{ // La fonction attend un entier en argument (int $value) et ne retourne rien "void"
                     echo "<p class=\"alert alert-info\">Cet objet coûte $value €</p>";
                 }
-                prix("50");
+                prix(5); // Affiche la chaîne de caractères avec la substitution de la variable à l'intérieur
+                // prix("Zaahid"); // L'appel avec une chaîne de caractères déclenche un Typeerror car la fonction attends un nombre entier en tant que paramètre
+
+                function cout(int|string $value) : void{
+                    echo "<p class=\"alert alert-info\">Cet objet coûte $value €</p>";
+                }
+                cout("six");
+                cout("Red");
+
+                echo "<p class=\"alert alert-secondary text-center\">Exercice</p>";
+                // Exercice : faire une fonction qui fait une division de 2 nombres avec un return en utilisant le typage (int)
+                function division(int $nb1, int $nb2){
+                    $div = $nb1 / $nb2;
+                    return $div;
+                }
+                echo "<p class=\"alert alert-secondary text-center\">La division est égale à : " . division(80, 5) . "</p>";
+                
             ?>
         </div>
     </div>

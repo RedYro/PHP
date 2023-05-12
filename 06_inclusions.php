@@ -115,7 +115,7 @@
                         require "inc/test3.inc.php" ;
                         require ("inc/test3.inc.php" );             
                         ?>
-                        <p>Ici nous avons inclus notre fichier test3.inc.php  grâce à la fonction <code>require</code>. Cette fonction prendra comme seul argument le chemin de notre fichier.Nous remarquons aussi deux syntaxes possibles pour chacune d'elles. Les parenthèses sont facultatives </p>
+                        <p>Ici nous avons inclus notre fichier test3.inc.php grâce à la fonction <code>require</code>. Cette fonction prendra comme seul argument le chemin de notre fichier. Nous remarquons aussi deux syntaxes possibles pour chacune d'elles. Les parenthèses sont facultatives </p>
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <h3  class="text-center text-primary">require_once()</h3>

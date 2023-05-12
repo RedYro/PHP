@@ -390,7 +390,7 @@
 
             // Méthode 1 "return"
             echo "<div class=\"col-sm-12 col-md-6\">";
-            echo "<p class=\"alert alert-success\">Méthode 1 \"return\"</p>";
+            echo "<p class=\"alert alert-success text-center\">Méthode 1 \"return\"</p>";
             function calculateExo1($nb1, $nb2){
                 $multiplication = $nb1 * $nb2;
                 return "<p>$nb1 * $nb2 = $multiplication</p>";
@@ -405,7 +405,7 @@
 
             // Méthode 2 "echo"
             echo "<div class=\"col-sm-12 col-md-6\">";
-            echo "<p class=\"alert alert-success\">Méthode 2 \"echo\"</p>";
+            echo "<p class=\"alert alert-success text-center\">Méthode 2 \"echo\"</p>";
             function calculateExo2($nb1, $nb2){
                 $multiplication = $nb1 * $nb2;
                 echo "<p>$nb1 * $nb2 = $multiplication</p>";
@@ -419,7 +419,7 @@
             echo "</div>";
             // Méthode 3 "return" + concaténation
             echo "<div class=\"col-sm-12 col-md-6\">";
-            echo "<p class=\"alert alert-success\">Méthode 3 \"return\" + concaténation</p>";
+            echo "<p class=\"alert alert-success text-center\">Méthode 3 \"return\" + concaténation</p>";
             function calculateExo3($nb1, $nb2){
                 return "<p>$nb1 * $nb2 = ".$nb1 * $nb2 . "</p>";
             }
@@ -435,14 +435,14 @@
             // Certains paramètres peuvent ne pas être passés. Une valeur fournie lors de la déclaration.
             // Afin de se servir d'un paramètre optionnel il faut utiliser les arguments nommés
             // Méthode 1
-            echo "<p class=\"alert alert-success\">Méthode 1</p>";
+            echo "<p class=\"alert alert-success text-center\">Méthode 1</p>";
             function hello3($bonjour = "Hi", $prenom, $nom){
                 echo "<p class=\"alert alert-info\">$bonjour $nom $prenom !</p>";
             }
             hello3(prenom :"Yro", nom: "Red", bonjour: "Hello");
 
             // Méthode 2
-            echo "<p class=\"alert alert-success\">Méthode 2</p>";
+            echo "<p class=\"alert alert-success text-center\">Méthode 2</p>";
             function hello4($prenom, $nom, $bonjour = "Hi"){
                 echo "<p class=\"alert alert-info\">$bonjour $nom $prenom !</p>";
             }
@@ -525,7 +525,11 @@
                     return $div;
                 }
                 echo "<p class=\"alert alert-secondary text-center\">La division est égale à : " . division(80, 5) . "</p>";
-                
+                echo "<p class=\"alert alert-success text-center\">Correction Sahar</p>";
+                function division2(int $nb1, int $nb2) :int{
+                    return $nb1 / $nb2;
+                }
+                echo "<p class=\"alert alert-secondary text-center\">La division est égale à : " . division2(9, 2) . "</p>";
             ?>
         </div>
     </div>

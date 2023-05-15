@@ -202,6 +202,7 @@
             // echo $nbEmployes;
         ?>
         <h5>Employés de l'entreprise embauchés à partir de 2010</h5>
+        <p>Méthode 1 :</p>
         <table class="table table-secondary">
             <tr>
                 <th>ID</th>
@@ -223,6 +224,43 @@
                 <?php
                     }
                 ?>
+            </tr>
+            <?php
+                }
+            ?>
+        </table>
+        <p>Méthode 2 :</p>
+        <table class="table table-secondary">
+            <tr>
+                <th>ID</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Genre</th>
+                <th>Service</th>
+                <th>Date d'embauche</th>
+                <th>Salaire</th>
+            </tr>
+            <?php
+                $request = $pdo->query("SELECT * FROM employes WHERE date_embauche > '2010-01-01'");
+                while($employes2 = $request->fetch()){
+            ?>
+            <tr>
+                <?php
+                    foreach($employes2 as $key => $values){
+                        if($key == 'sexe'){
+                            if($values == 'f'){
+                                echo "<td>Femme</td>";
+                            } else{
+                                echo "<td>Homme</td>";
+                            }
+                        } else if($key == 'date_embauche'){
+                            echo "<td>" . date('d/m/y', strtotime($values)) . "</td>";
+                        } else {
+                            echo "<td>$values</td>";
+                        }
+                    }
+                ?>
+            
             </tr>
             <?php
                 }

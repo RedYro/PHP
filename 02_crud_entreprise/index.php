@@ -54,6 +54,7 @@
                 // $pdo = new PDO("mysql:host=localhost;dbname=entreprise;charset=utf8", "root", ""); // la variable et les constantes 
                 $pdo = new PDO($dsn, DBUSER, DBPASSWORD); // Avec la variable et les constantes
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
                 debug(get_class_methods($pdo));
                 echo "<p class=\"alert alert-success\">Connexion avec succès</p>";
             } catch(PDOException $e){ // "PDOException" est une classe qui représente une erreur émise par PDO et "$e" est l'objet de la classe qui va stocker l'erreur
@@ -85,7 +86,37 @@
         <h2 class="text-danger my-5">4- Requête d'affichage</h2>
         <?php
             //------ Requête d'affichage ------//
-            // On va utiliser la 
+            // Utilisation de la méthode "query()" ; au contraire de "exec()", "query()" est utilisé pour faire des requêtes qui retrournent un ou plusieurs résultats : "SELECT" on peut aussi l'utiliser avec "DELETE", "UPDATE" et "INSERT".
+            /*
+            * Valeur de retrour :
+            *   succès : "query()" retrourne un nouvel objet qui provient de la classe PDOStatement
+            *   échec : "false" 
+            */
+            //------ Récupération et affiche d'une seule donnée de la DB ------//
+            // Sélection des informations de l'employé "Daniel"
+            echo "<p class=\"alert alert-secondary\">Sélection des informations de l'employé \"Daniel\"</p>";
+            $request = $pdo->query("SELECT * FROM employes WHERE prenom = 'Daniel'"); 
+            debug($request); // Affiche la requête 
+            // Possibilité de compter le nombre de lignes retourner par la requête avec la méthode "rowCount()"
+            debug($request->rowCount()); // Dans cette requête et avec la condtion, on récupère un seul employé 
+            // Dans cette objet "$request", on ne voit pas les données concercant "Daniel". Elles s'y trouvent et pour y accéder il faut utilisr la méthode "fetch()" (Pour un seul résultat seulement)
+            // Il existe aussi la méthode "fetchAll()" (récupère toutes les données à partir de l'objet)
+            // $employe = $request->fetch(PDO::FETCH_ASSOC); // "fetch()" transforme l'objet résultat en tableau et ici on le stock dans une variable "$employé"
+            // debug($employe);
+            // Le paramètre "PDO::FETCH_ASSOC" permet de transformer l'objet en un array "ASSOCIATIF", on y trouve en indices le nom des champs de la requête SQL.
+            /*
+            * Information : on peut mettre dans les parenthèses de "fetch()"
+            * PDO: :FETCH_NUM pour obtenir un tableau aux indices numérique
+            * PDO: :FETCH_OBJ pour obtenir un dernier objet
+            * ou encore des "()" vides pour obtenir un mélange de tableau associatif et indexé
+            */
+            // On peut éviter de mettre cette constante comme paramètre de la méthode "fetch()" à chaque fois en la définissant dans la connexion de la DB par défaut (dans le try de la connexion à la DB)
+            $employe = $request->fetch();
+            debug($employe);
+
+            // Exercice : Afficher "Je suis Daniel Chevel du service informatique"
+            echo "<p class=\"alert alert-secondary\">Je suis $employe[prenom] $employe[nom] du service $employe[service].</p>"
+            
         ?>
     </main>
     <footer>

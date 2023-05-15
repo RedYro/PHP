@@ -55,7 +55,7 @@
                 $pdo = new PDO($dsn, DBUSER, DBPASSWORD); // Avec la variable et les constantes
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 debug(get_class_methods($pdo));
-                echo "Connexion avec succès";
+                echo "<p class=\"alert alert-success\">Connexion avec succès</p>";
             } catch(PDOException $e){ // "PDOException" est une classe qui représente une erreur émise par PDO et "$e" est l'objet de la classe qui va stocker l'erreur
                 die($e->getMessage()); // "die()" permet d'arrêter PHP et d'afficher une erreur en utilisant la méthode "getMessage()" de l'objet "$e"
             }
@@ -71,13 +71,21 @@
             // $request = $pdo->exec("INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) VALUES ('Tintin', 'Milou', 'm', 'informatique', '2023-05-12', 2000)");
             // debug($request);
 
+            echo "<p class=\"alert alert-success\"><code>\$request = \$pdo->exec(\"INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) VALUES ('Tintin', 'Milou', 'm', 'informatique', '2023-05-12', 2000)\");</code></p>";
             echo "<p class=\"alert alert-success\">Employé 'Tintin' bien inséré dans la BDD</p>";
 
             // echo "Dernier id généré dans la BDD : " . $pdo->lastInsertId();
-
+        ?>
+        <h2 class="text-danger my-5">3- Requête de suppression</h2>
+        <?php
             //------ Requête de suppression ------//
             // $request = $pdo->exec("DELETE FROM employes WHERE prenom = 'Tintin'");
-
+            echo "<p class=\"alert alert-success\"><code>\$request = \$pdo->exec(\"DELETE FROM employes WHERE prenom = 'Tintin'\");</code></p>";
+        ?>
+        <h2 class="text-danger my-5">4- Requête d'affichage</h2>
+        <?php
+            //------ Requête d'affichage ------//
+            // On va utiliser la 
         ?>
     </main>
     <footer>

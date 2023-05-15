@@ -92,10 +92,12 @@
             *   succès : "query()" retrourne un nouvel objet qui provient de la classe PDOStatement
             *   échec : "false" 
             */
-            //------ Récupération et affiche d'une seule donnée de la DB ------//
+            //------ Récupération et affichage d'une seule donnée de la DB ------//
+            echo "<h5>Récupération et affichage d'une seule donnée de la DB</h5>";
             // Sélection des informations de l'employé "Daniel"
             echo "<p class=\"alert alert-secondary\">Sélection des informations de l'employé \"Daniel\"</p>";
             $request = $pdo->query("SELECT * FROM employes WHERE prenom = 'Daniel'"); 
+            echo "<p class=\"alert alert-success\"><code>\$request = \$pdo->query(\"SELECT * FROM employes WHERE prenom = 'Daniel'\");</code></p>";
             debug($request); // Affiche la requête 
             // Possibilité de compter le nombre de lignes retourner par la requête avec la méthode "rowCount()"
             debug($request->rowCount()); // Dans cette requête et avec la condtion, on récupère un seul employé 
@@ -115,9 +117,117 @@
             debug($employe);
 
             // Exercice : Afficher "Je suis Daniel Chevel du service informatique"
-            echo "<p class=\"alert alert-secondary\">Je suis $employe[prenom] $employe[nom] du service $employe[service].</p>"
+            echo "<p>Excercice : Afficher \"Je suis Daniel Chevel du service informatique\" en utilisant le tableau associatif de la variable \"\$employe\"</p>";
+            echo "<p class=\"alert alert-secondary\">Je suis $employe[prenom] $employe[nom] du service $employe[service].</p>";
+
+            // Exercice : Afficher le service de l'employé dont l'id_employes est 417
+            echo "<p>Excercice : Afficher le service de l'employé dont l'id_employes est 417</p>";
+            $request = $pdo->query("SELECT service FROM employes WHERE id_employes = 417");
+            $employeService = $request->fetch();
+            debug($employeService);
+            echo "<p class=\"alert alert-secondary\">Le service de l'employé ayant l'id 417 est $employeService[service].</p>";
+            echo "<p class=\"alert alert-info\"><code>\$request = \$pdo->query(\"SELECT service FROM employes WHERE id_employes = 471\"); <br> \$employeService = \$request->fetch();</code></p>";
             
+            //------ Récupération et affichage de plusieurs données de la DB ------//
+            echo "<h5>Récupération et affichage de plusieurs données de la DB</h5>";
+            $request = $pdo->query("SELECT * FROM employes");
+            $allEmployesCount = $request->rowCount();
+            echo "<p class=\"alert alert-secondary\">Nombre d'employés dans l'entreprise : $allEmployesCount</p>";
+
+            // Affichage des données des employés dans un tableau '$allEmployesInfo' avec "fetchAll()"
+            // $allEmployesInfo = $request->fetch(); // Affiche seulement les données de la première ligne de la DB
+            // $allEmployesInfo = $request->fetchAll(); // Affiche toutes les données de la DB
+            // debug($allEmployesInfo);
+            echo "<h5>Avec \"fetch()\", la boucle \"while()\" est nécessaire pour parcourir le tableau dans son intégralité.</h5>";
+            echo "<div class=\"row\">";
+            while ($allEmployesInfo2 = $request->fetch()){
+                echo "<div class=\"col-sm-12 col-md-3\">";
+                echo "<div>id_employes : $allEmployesInfo2[id_employes]</div>";
+                echo "<div>Nom et prénom : $allEmployesInfo2[nom] $allEmployesInfo2[prenom]</div>";
+                echo "<div>Service : $allEmployesInfo2[service]</div>";
+                echo "<div>Salaire : $allEmployesInfo2[salaire]</div>";
+                echo "<hr>";
+                echo "</div>";
+            }
+            echo "</div>";
+            /*
+            * Si la requête ne donne qu'un seul résultat (exemple : par id), alors on ne fait pas de boucle 
+            * Si la requête donne plusieurs résultats, alors on fait une boucle (on obtient seuelement le premier résultat sinon)
+            */
+            // Excercice : Afficher la liste des différents services dans une liste, en mettant un service par <li>
+            echo "<p>Exercices :</p>";
+            echo "<p>Afficher la liste des différents services dans une liste, en mettant un service par \"li\" :</p>";
+            $request = $pdo->query("SELECT DISTINCT(service) FROM employes");
+            // $serviceEntreprise = $request->fetch();
+            // debug($serviceEntreprise);
+            echo "<p>Les différents service de la DB \"entreprise\" :</p>";
+            echo "<ul>";
+            while($serviceEntreprise = $request->fetch()){
+                echo "<li>$serviceEntreprise[service]</li>";
+            }
+            echo "</ul>";
+
+            // Récupérer et afficher les différents salaires dans la table "employes"
+            echo "<p>Récupérer et afficher les différents salaires dans la table \"employes\" :</p>";
+            $request = $pdo->query("SELECT DISTINCT(salaire) FROM employes ORDER BY salaire DESC");
+            $salairesEntreprise = $request->fetchAll();
+            // debug($salairesEntreprise);
+            // Ici il n'y a que 2 façons de faire : ???????????????
+                // 1ère méthode : boucle "foreach()"
+            echo "<p>Liste des différents salaires dans l'entreprise :</p>";
+            echo "<ul>";
+            foreach ($salairesEntreprise as $key => $value) {
+                // echo "<li>" . $salairesEntreprise[$key]['salaire'] . "</li>";
+                echo "<li>{$salairesEntreprise[$key]['salaire']}</li>";
+            }
+            echo "</ul>";
+            
+            // Afficher tous les employés femmes et qui gagnent un salaire supérieur à 2000 avec un fetchAll() et une boucle "foreach()"
+            $request = $pdo->query("SELECT prenom, nom, salaire, sexe FROM employes WHERE sexe = 'f' AND salaire >= 2000");
+            $femmesEntreprise = $request->fetchAll();
+            // debug($femmesEntreprise);
+            echo "<p>Liste des employés femmes gagnant un salaire supérieur à 2000€ dans l'entreprise : (foreach)</p>";
+            echo "<ul>";
+            foreach ($femmesEntreprise as $key => $value){
+                echo "<li>" . $femmesEntreprise[$key]['prenom'] . " " . $femmesEntreprise[$key]['nom'] . " : <br> " . "genre : " . $femmesEntreprise[$key]['sexe'] . "<br> salaire : " . $femmesEntreprise[$key]['salaire'] . "</li>";
+            }
+            echo "</ul>";
+            
+            // Afficher les résultats de la requête dans une table HTML // 
+
+            // Avec "foreach"
+            $request = $pdo->query("SELECT * FROM employes WHERE date_embauche > '2010-01-01'");
+            // $nbEmployes = $request->fetchAll();
+            // $nbEmployes = $request->rowCount();
+            // echo $nbEmployes;
         ?>
+        <h5>Employés de l'entreprise embauchés à partir de 2010</h5>
+        <table class="table table-secondary">
+            <tr>
+                <th>ID</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Genre</th>
+                <th>Service</th>
+                <th>Date d'embauche</th>
+                <th>Salaire</th>
+            </tr>
+            <?php
+                while($employes = $request->fetch()){
+            ?>
+            <tr>
+                <?php
+                    foreach($employes as $key => $values){
+                ?>
+                <td><?=$values?></td>
+                <?php
+                    }
+                ?>
+            </tr>
+            <?php
+                }
+            ?>
+        </table>
     </main>
     <footer>
 

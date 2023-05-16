@@ -584,6 +584,19 @@
                 echo "</tr>";
             }
             echo "</table>";
+
+            // Insertion en utilisant les requêtes préparées et les marqueurs //
+            // $request = $pdo->prepare("INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) VALUES (:prenom, :nom, :sexe, :service, :date_embauche, :salaire)");
+            // $request->execute(array(':prenom' => 'Joe', ':nom' => 'DALTON', ':sexe' => 'm', ':service' => 'commercial', ':date_embauche' => '2023-05-16', ':salaire' => 1000));
+            $request = $pdo->prepare("UPDATE employes SET salaire = ? WHERE prenom = ?");
+            $salaire = 15000;
+            $prenom = 'Joe';
+            $request->execute(array($salaire, $prenom));
+            $request = $pdo->prepare("UPDATE employes SET nom = ? , salaire = ? WHERE prenom = ?");
+            $nom = "Dalton";
+            $salaire = 150;
+            $prenom = 'Joe';
+            $request->execute(array($nom, $salaire, $prenom));
         ?>
 
     </main>

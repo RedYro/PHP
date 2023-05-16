@@ -532,14 +532,70 @@
             <li>2- Lien du marqueur à la requête</li>
             <li>3- Exécution de la requête</li>
         </ul>
-        <h3 class="mt-5">Requête préparée avec "bindParam()"</h3>
+        <h4 class="mt-5">Requête préparée avec "bindParam()"</h4>
         <?php
+            // 1- Préparation de la requête :
+                $request = $pdo->prepare("SELECT * FROM employes WHERE prenom = :prenom");
+                // "prepare()" est une méthode qui permet de préparer la requête sans l'exécuter; contient un marqueur : $prenom => vide (en attente d'une valeur)
+                // $request est à cette ligne un objet PDOStatement
+
+            // 2- Liaison du marqueur à la variable :
+                $prenom = 'Damien';
+                $request->bindParam(':prenom', $prenom); // "bindParam()" permet de lier le marqueur à la variable $prenom, cette méthode ne reçoit qu'une variable, impossible d'y mettre une valeur fixe comme par exemple "Damien"
+                // exemple : // $request->bindParam(':prenom', 'Damien'); // => impossible
+                // Si on veut lier le marqueur à une valeur fixe, alors il faut utiliser la méthode "bindValue()"
+                // exemple : // $request->bindValue(':prenom', 'Damien'); 
             
+            // 3- Exécution de la requête :
+                $request->execute(); // "execute()" permet d'exécuter toute la requête préparée avec "prepare()"
+                $employe = $request->fetch();
+                // debug($employe);
+                echo "<p class=\"alert alert-secondary\">Employé : {$employe['prenom']} ; service : {$employe['service']}</p>";
+            
+            // Façon différente de déclarer des marqueurs dans une requête préparée avec "bindParam()" //
+                $request = $pdo->prepare("SELECT * FROM employes WHERE prenom = ? AND service = ?");
+                $prenom = 'Celine';
+                $service = 'commercial';
+                $request->bindParam(1,$prenom);
+                $request->bindParam(2,$service);
+                $request->execute();
+                $employe = $request->fetch();
+                // debug($employe);
+                echo "<p class=\"alert alert-secondary\">Employé : {$employe['prenom']} ; service : {$employe['service']}</p>";
+        ?>
+        <h4 class="mt-5">Requête préparée sans "bindParam()"</h4>
+        <?php
+            $request = $pdo->prepare("SELECT * FROM employes WHERE prenom = :prenom AND nom = :nom"); // Préparation de la requête
+            $request->execute(array("prenom" => "Julien", "nom" => "Cottet")); // Sans passer par "bindParam()" on peut associer les marqueurs à leurs valeurs directement dans un tableau passé en argument de "execute()"
+            $employe = $request->fetch();
+            echo "<p class=\"alert alert-secondary\">Employé : {$employe['prenom']} ; service : {$employe['service']}</p>";
+
+            // Autre façon de déclraer des marqueurs dans une requête préparée sans "bindParam()" //
+            $request = $pdo->prepare("SELECT * FROM employes  WHERE sexe = ? AND service = ?");
+            $genre = "f";
+            $service = "commercial";
+            $request->execute(array($genre, $service));
+            echo "<table class=\"table table-secondary table-bordered\">";
+            while($employe = $request->fetch()){
+                echo "<tr>";
+                foreach($employe as $key => $values){
+                    echo "<td>$values</td>";  
+                }
+                echo "</tr>";
+            }
+            echo "</table>";
         ?>
 
     </main>
-    <footer>
-
+    <footer style="background-color : #EEA545;">
+        <div class="container">
+            <hr>
+            <div class="row text-center">
+                <div class="col-sm-12">
+                    <p>&copy; Entreprise - <?=date('Y')?></p>
+                </div>
+            </div>
+        </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>

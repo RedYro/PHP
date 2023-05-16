@@ -202,8 +202,8 @@
             // echo $nbEmployes;
         ?>
         <h5>Employés de l'entreprise embauchés à partir de 2010</h5>
-        <p>Méthode 1 :</p>
-        <table class="table table-secondary">
+        <p>Méthode 1 : HTML PHP foreach() while()</p>
+        <table class="table table-secondary table-bordered">
             <tr>
                 <th>ID</th>
                 <th>Prénom</th>
@@ -229,8 +229,8 @@
                 }
             ?>
         </table>
-        <p>Méthode 2 :</p>
-        <table class="table table-secondary">
+        <p>Méthode 2 : HTML PHP foreach() while() if() else if()</p>
+        <table class="table table-secondary table-bordered">
             <tr>
                 <th>ID</th>
                 <th>Prénom</th>
@@ -241,31 +241,230 @@
                 <th>Salaire</th>
             </tr>
             <?php
+                // Lignes du tableau (row) 
                 $request = $pdo->query("SELECT * FROM employes WHERE date_embauche > '2010-01-01'");
-                while($employes2 = $request->fetch()){
+                while($employes2 = $request->fetch()){ // while avec petch => permet de parcourir l'objet $request, création d'un tableau associatif $employes2 à chaque tour de boucle
             ?>
             <tr>
                 <?php
-                    foreach($employes2 as $key => $values){
-                        if($key == 'sexe'){
+                    // Quand on fait 1 tour de "while", on fait à l'intérieur 7 tours de "foreach" pour parcourir un employé 
+                    // Quand "while" parcourt la totalité des lignes de retour de la requête $request, alors "fetch" retourne "false" et "while" se stop
+                    foreach($employes2 as $key => $values){ // $employes => tableau que l'on peut parcourir avec "foreach", la variable $values prends les valeurs successivement à chaque tour de boucle
+                        if($key == 'sexe'){ // Nécessité de l'index "sexe" afin d'établir une condition sur l'affichage des valeurs "f" et "m" => "f" = femme "m" = homme
                             if($values == 'f'){
                                 echo "<td>Femme</td>";
                             } else{
                                 echo "<td>Homme</td>";
                             }
-                        } else if($key == 'date_embauche'){
-                            echo "<td>" . date('d/m/y', strtotime($values)) . "</td>";
+                        } else if($key == 'date_embauche'){ // Nécessité de l'index de la condition sur le champ "date_embauche"
+                            echo "<td>" . date('d/m/y', strtotime($values)) . "</td>"; // Utilisation de la fonction prédéfinie "date()", prend 2 arguments : 1- format de la date; 2- date à modifier avec la fonction "strtotime()" qui attend de recevoir une chaîne de caractères contenant un format de date anglais et essaiera d'analyser ce format dans un horodatage Unix, on peut préciser une date nous-même ou alors récupérer une date de la DB
                         } else {
-                            echo "<td>$values</td>";
+                            echo "<td>$values</td>"; // Affichage de la valeur des autres clés (sans conditions) dans des "td"
                         }
                     }
                 ?>
-            
             </tr>
             <?php
                 }
             ?>
         </table>
+        <?php
+            echo "<p>Méthode 3 : PHP while() foreach() fetch()</p>";
+            echo "<table class=\"table table-secondary table-bordered\">";
+            echo "<tr>";
+            echo "<th>ID</th>";
+            echo "<th>Prénom</th>";
+            echo "<th>Nom</th>";
+            echo "<th>Genre</th>";
+            echo "<th>Service</th>";
+            echo "<th>Date d'embauche</th>";
+            echo "<th>Salaire</th>";
+            echo "</tr>";
+            $request = $pdo->query("SELECT * FROM employes WHERE date_embauche > '2010-01-01'");
+            while($employes3 = $request->fetch()){
+                echo "<tr>";
+                foreach($employes3 as $key => $values){
+                    echo "<td>$values</td>";
+                }
+                echo "</tr>";
+            }
+            echo "</table>";
+        ?>
+        <?php
+            echo "<p>Méthode 4 : PHP foreach() fetchAll()</p>";
+            echo "<table class=\"table table-secondary table-bordered\">";
+            echo "<tr>";
+            echo "<th>ID</th>";
+            echo "<th>Prénom</th>";
+            echo "<th>Nom</th>";
+            echo "<th>Genre</th>";
+            echo "<th>Service</th>";
+            echo "<th>Date d'embauche</th>";
+            echo "<th>Salaire</th>";
+            echo "</tr>";
+            $request = $pdo->query("SELECT * FROM employes WHERE date_embauche > '2010-01-01'");
+            $employes4 = $request->fetchAll();
+                foreach($employes4 as $key => $values){
+                    echo "<tr>";
+                    echo "<td>{$employes4[$key]['id_employes']}</td><td>{$employes4[$key]['prenom']}</td><td>{$employes4[$key]['nom']}</td><td>{$employes4[$key]['sexe']}</td><td>{$employes4[$key]['service']}</td><td>{$employes4[$key]['date_embauche']}</td><td>{$employes4[$key]['salaire']}</td>";
+                    echo "</tr>";
+                }
+            echo "</table>";
+        ?>
+        <?php
+            echo "<p>Méthode 5 : PHP fetchAll() foreach() switch()</p>";
+            echo "<table class=\"table table-secondary table-bordered\">";
+            echo "<tr>";
+            echo "<th>ID</th>";
+            echo "<th>Prénom</th>";
+            echo "<th>Nom</th>";
+            echo "<th>Genre</th>";
+            echo "<th>Service</th>";
+            echo "<th>Date d'embauche</th>";
+            echo "<th>Salaire</th>";
+            echo "</tr>";
+            $request = $pdo->query("SELECT * FROM employes WHERE date_embauche > '2010-01-01'");
+            $employes5 = $request->fetchAll();
+            // debug($employes5);
+                foreach($employes5 as $key => $values){
+                    echo "<tr>";
+                    foreach($values as $key2 => $indexValues){
+                        switch ($key2){
+                            case 'id_employes':
+                                echo "<td>{$employes5[$key]['id_employes']}</td>";
+                                break;
+                            case 'prenom':
+                                echo "<td>{$employes5[$key]['prenom']}</td>";
+                                break;
+                            case 'nom':
+                                echo "<td>{$employes5[$key]['nom']}</td>";
+                                break;
+                            case 'sexe':
+                                echo "<td>{$employes5[$key]['sexe']}</td>";
+                                break;
+                            case 'service':
+                                echo "<td>{$employes5[$key]['service']}</td>";
+                                break;
+                            case 'date_embauche':
+                                echo "<td>{$employes5[$key]['date_embauche']}</td>";
+                                break;
+                            case 'salaire':
+                                echo "<td>{$employes5[$key]['salaire']}</td>";
+                                break;                            
+                        }
+                    }
+                    echo "</tr>";
+                }
+            echo "</table>";
+        ?>
+        <?php
+            echo "<p>Méthode 6 : PHP fetch() foreach() while()</p>";
+            echo "<table class=\"table table-secondary table-bordered\">";
+            echo "<tr>";
+            echo "<th>ID</th>";
+            echo "<th>Prénom</th>";
+            echo "<th>Nom</th>";
+            echo "<th>Genre</th>";
+            echo "<th>Service</th>";
+            echo "<th>Date d'embauche</th>";
+            echo "<th>Salaire</th>";
+            echo "</tr>";
+            $request = $pdo->query("SELECT * FROM employes WHERE date_embauche > '2010-01-01'");
+            while($employes6 = $request->fetch()){
+                echo "<tr>";
+                foreach($employes6 as $key => $values){
+                    echo "<td>$values</td>";
+                }
+                echo "</tr>";
+            }
+            echo "</tr>";
+            echo "</table>";
+        ?>
+        <?php
+            echo "<p>Méthode 7 : PHP fetch() while()</p>";
+            echo "<table class=\"table table-secondary table-bordered\">";
+            echo "<tr>";
+            echo "<th>ID</th>";
+            echo "<th>Prénom</th>";
+            echo "<th>Nom</th>";
+            echo "<th>Genre</th>";
+            echo "<th>Service</th>";
+            echo "<th>Date d'embauche</th>";
+            echo "<th>Salaire</th>";
+            echo "</tr>";
+            $request = $pdo->query("SELECT * FROM employes WHERE date_embauche > '2010-01-01'");
+            while($employes7 = $request->fetch()){
+                echo "<tr>";
+                    echo "<td>$employes7[id_employes]</td>";
+                    echo "<td>$employes7[prenom]</td>";
+                    echo "<td>$employes7[nom]</td>";
+                    // echo "<td>$employes7[sexe]</td>";
+                    echo "<td>";
+                    echo ($employes7['sexe'] == 'f')? 'f' : 'm';
+                    echo "</td>";
+                    echo "<td>$employes7[service]</td>";
+                    echo "<td>";
+                    echo date('d/m/y', strtotime($employes7['date_embauche']));
+                    echo "</td>";
+                    echo "<td>$employes7[salaire]</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
+        ?>
+        <?php
+            echo "<p>Méthode 8 (Bakary) : PHP fetchAll() for()</p>";
+            echo "<table class=\"table table-secondary table-bordered\">";
+            echo "<tr>";
+            echo "<th>ID</th>";
+            echo "<th>Prénom</th>";
+            echo "<th>Nom</th>";
+            echo "<th>Genre</th>";
+            echo "<th>Service</th>";
+            echo "<th>Date d'embauche</th>";
+            echo "<th>Salaire</th>";
+            echo "</tr>";
+            $request = $pdo->query("SELECT * FROM employes WHERE date_embauche > '2010-01-01'");
+            $employes8 = $request->fetchAll();
+            for($i = 0; $i < count($employes8); $i++){
+                echo "<tr>";
+                echo "<td>{$employes8[$i]['id_employes']}</td>".
+                "<td>{$employes8[$i]['prenom']}</td>".
+                "<td>{$employes8[$i]['nom']}</td>".
+                "<td>{$employes8[$i]['sexe']}</td>".
+                "<td>{$employes8[$i]['service']}</td>".
+                "<td>{$employes8[$i]['date_embauche']}</td>".
+                "<td>{$employes8[$i]['salaire']}</td>";
+                echo '</tr>';
+            }
+            echo "</table>";
+        ?>
+        <?php
+            echo "<p>Méthode 9 (Choaib) : PHP fetchAll() for() foreach() if() else if()</p>";
+            echo "<table class=\"table table-secondary table-bordered\">";
+            echo "<tr>";
+            echo "<th>ID</th>";
+            echo "<th>Prénom</th>";
+            echo "<th>Nom</th>";
+            echo "<th>Genre</th>";
+            echo "<th>Service</th>";
+            echo "<th>Date d'embauche</th>";
+            echo "<th>Salaire</th>";
+            echo "</tr>";
+            $request = $pdo->query("SELECT * FROM employes WHERE date_embauche > '2010-01-01'");
+            $employes8 = $request->fetchAll();
+            for($i = 0; $i < count($employes8); $i++){
+                echo "<tr>";
+                echo "<td>{$employes8[$i]['id_employes']}</td>".
+                "<td>{$employes8[$i]['prenom']}</td>".
+                "<td>{$employes8[$i]['nom']}</td>".
+                "<td>{$employes8[$i]['sexe']}</td>".
+                "<td>{$employes8[$i]['service']}</td>".
+                "<td>{$employes8[$i]['date_embauche']}</td>".
+                "<td>{$employes8[$i]['salaire']}</td>";
+                echo '</tr>';
+            }
+            echo "</table>";
+        ?>
     </main>
     <footer>
 

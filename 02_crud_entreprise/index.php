@@ -451,20 +451,92 @@
             echo "<th>Salaire</th>";
             echo "</tr>";
             $request = $pdo->query("SELECT * FROM employes WHERE date_embauche > '2010-01-01'");
-            $employes8 = $request->fetchAll();
-            for($i = 0; $i < count($employes8); $i++){
+            $employes9 = $request->fetchAll();
+            $employes9Length = count($employes9);
+            for($i = 0; $i < $employes9Length; $i++){
                 echo "<tr>";
-                echo "<td>{$employes8[$i]['id_employes']}</td>".
-                "<td>{$employes8[$i]['prenom']}</td>".
-                "<td>{$employes8[$i]['nom']}</td>".
-                "<td>{$employes8[$i]['sexe']}</td>".
-                "<td>{$employes8[$i]['service']}</td>".
-                "<td>{$employes8[$i]['date_embauche']}</td>".
-                "<td>{$employes8[$i]['salaire']}</td>";
+                foreach($employes9[$i] as $key => $values){
+                    if($key == 'sexe'){
+                        if($values == 'f'){
+                            echo "<td>Femme</td>";
+                        } else{
+                            echo "<td>Homme</td>";
+                        }
+                    } else if($key == 'date_embauche'){
+                        echo "<td>" . date('d/m/y', strtotime($values)) . "</td>";
+                    } else{
+                        echo "<td>$values</td>";
+                    }
+                }
                 echo '</tr>';
             }
             echo "</table>";
         ?>
+        <?php
+            echo "<p>Méthode 10 (Sahar) : PHP fetchAll() foreach() switch()</p>";
+            echo "<table class=\"table table-secondary table-bordered\">";
+            echo "<tr>";
+            echo "<th>ID</th>";
+            echo "<th>Prénom</th>";
+            echo "<th>Nom</th>";
+            echo "<th>Genre</th>";
+            echo "<th>Service</th>";
+            echo "<th>Date d'embauche</th>";
+            echo "<th>Salaire</th>";
+            echo "</tr>";
+            $request = $pdo->query("SELECT * FROM employes WHERE date_embauche > '2010-01-01'");
+            $employes5 = $request->fetchAll();
+            // debug($employes5);
+                foreach($employes5 as $key => $values){
+                    echo "<tr>";
+                    foreach($values as $key2 => $indexValues){
+                        switch ($key2){
+                            case 'sexe':
+                                if($indexValues == 'f'){
+                                    echo "<td>Femme</td>";
+                                } else{
+                                    echo "<td>Homme</td>";
+                                }
+                                break;
+                            case 'date_embauche':
+                                echo "<td>" . date('d/m/y', strtotime($indexValues)) ."</td>";
+                                break;
+                            default :
+                            echo "<td>$indexValues</td>";                           
+                        }
+                    }
+                    echo "</tr>";
+                }
+            echo "</table>";
+        ?>
+        <h2 class="text-danger my-5">5- Requête de modification</h2>
+        <?php
+            //------ Récupération de modification ------//
+            // Augmentation du salaire de "Julien"
+            echo "<p>Augmentation du salaire de l'employé Julien</p>";
+            $request = $pdo->exec("UPDATE employes SET salaire = 1500 WHERE prenom = 'Julien'");
+            echo "<p class=\"alert alert-success\">Le salaire de l'employé Julien a bien été augmenté.</p>";
+            echo "<p class=\"alert alert-secondary\"><code>\$request = \$pdo->exec(\"UPDATE employes SET salaire = 1500 WHERE prenom = 'Julien'\");</code></p>";
+
+            // Requête avec "query", diminution du salaire de l'employé avec l'identifiant 350
+            echo "<p>Diminution du salaire de l'employé avec l'id 350</p>";
+            $request = $pdo->query("UPDATE employes SET salaire = 5000 WHERE id_employes = 350");
+            echo "<p class=\"alert alert-success\">Le salaire de l'employé Jean-Pierre a bien été diminué.</p>";
+            echo "<p class=\"alert alert-secondary\"><code>\$request = \$pdo->query(\"UPDATE employes SET salaire = 5000 WHERE id_employes = 350\");</code></p>";
+        ?>
+        <h2 class="text-danger my-5">6- Requête préparée</h2>
+        <p class="alert alert-info">Les requêtes préparées sont préconisées si on exécute plusieurs fois la même requête. Ainsi on évite au système de gestion de base de données de répéter toutes les phrases, <span class="text-danger">analyse / interprétation / exécution de la requête</span> (Gain de performance). Les requêtes sont aussi utilisées pour nettoyer les données et se prémunir des injections de type SQL <span class="text-success">(chapitre ultérieur)</span></p>
+        <ul>
+            <p>Une requête préparée se prépare en 3 étapes :</p>
+            <li>1- Préparation de la requête</li>
+            <li>2- Lien du marqueur à la requête</li>
+            <li>3- Exécution de la requête</li>
+        </ul>
+        <h3 class="mt-5">Requête préparée avec "bindParam()"</h3>
+        <?php
+            
+        ?>
+
     </main>
     <footer>
 

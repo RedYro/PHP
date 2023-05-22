@@ -2,7 +2,7 @@
 <?php
     //------ Fonction debug ------//
     function debug($var){
-        echo "<pre class=\"border border-dark bg-light text-primary w-50 p-3\">";
+        echo "<pre>";
         var_dump($var);
         echo "</pre>";
     }
@@ -20,11 +20,10 @@
             // DSN (Data Source Name)
             $dsn = "mysql:host=". DBHOST . ";dbname=" . DBNAME . ";charset=utf8";
             try{
-                $pdo = new PDO($dsn, DBUSER, DBPASSWORD); // Avec la variable et les constantes
+                $pdo = new PDO($dsn, DBUSER, DBPASSWORD);
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-                // debug(get_class_methods($pdo));
-                echo "<p class=\"alert alert-success\">Connexion avec succès</p>";
+                echo "<p>Connexion avec succès</p>";
             } catch(PDOException $e){
                 die($e->getMessage());
             }

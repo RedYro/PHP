@@ -16,14 +16,14 @@
     <header>
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid">
-                <h1><a href="index.php" class="navbar-brand">MOVIES</a></h1>
+                <h1><a href="<?=RACINE_SITE?>index.php" class="navbar-brand">MOVIES</a></h1>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                          <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav w-100 d-flex justify-content-end">
                         <li class="nav-item"><a href="<?=RACINE_SITE?>index.php" class="nav-link">Accueil</a></li>
-                        <li class="nav-item"><a href="<?=RACINE_SITE?>admin/dashboard.php" class="nav-link">Back-office</a></li>
+                        <li class="nav-item"><a href="<?=RACINE_SITE?>admin/dashboard.php?dashboard_php" class="nav-link">Back-office</a></li>
                         <!-- <li class="nav-item"><a href="" class="nav-link"></a></li> -->
                     </ul>
                 </div>

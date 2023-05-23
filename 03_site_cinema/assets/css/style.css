@@ -58,3 +58,48 @@ main{
     font-weight: bolder;
     box-shadow: var(--box-shadow-light) !important;
 }
+
+h2{
+    font-size: 5rem !important;
+    color: var(--red);
+    font-weight: bolder;
+}
+
+/* formulaire gestion de données */
+
+form.back {
+    width: 50%;
+    margin: 0 auto;
+    box-shadow: var(--box-shadow-light) !important;
+}
+
+form.back > div.row {
+    font-size: 1.8rem;    
+}
+
+form.back .row {
+    padding: 2.5rem;
+    background-color: #212529;
+   
+}
+
+form.back  label:not(.form-check-label) {
+    margin-bottom: 1.6rem;
+    font-weight: bolder;
+    color: var(--black);
+    
+}
+form.back .form-control {
+    font-size: 1.5rem !important;
+}
+
+form.back button {
+    font-size: 1.4rem !important;
+}
+
+/* footer */
+
+footer{
+    background-color: var(--black);
+    height: 70px !important;
+}

@@ -32,11 +32,42 @@
     connectionDB();
 
     //------ Tables ------//
+
     //------ Fonctions création de tables ------//
+    // table "categories" //
     function creationTableCategories(){
         $pdo = connectionDB();
         $sql = "CREATE TABLE IF NOT EXISTS categories (id_category INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(50) NOT NULL, description TEXT NULL)";
         $request = $pdo->exec($sql);
     }
     creationTableCategories();
+
+    // table "users" // 
+    function creationTableUsers(){
+        $pdo = connectionDB();
+        $sql = "CREATE TABLE IF NOT EXISTS users (id_user INT PRIMARY KEY AUTO_INCREMENT, first_name VARCHAR(30) NOT NULL, last_name VARCHAR(30) NOT NULL, pseudo VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, password VARCHAR(255) NOT NULL, phone VARCHAR(30) NOT NULL, civility ENUM('f','m')NOT NULL, birthday DATE NOT NULL, address VARCHAR(50) NOT NULL, zip VARCHAR(50) NOT NULL, city VARCHAR(50) NOT NULL, country VARCHAR(50) NOT NULL)";
+        $request = $pdo->exec($sql);
+    } 
+    creationTableUsers();
+
+    // table "films" //
+    function createTableFilms(){
+        $pdo = connectionDB();
+        $sql = "CREATE TABLE IF NOT EXISTS films (id_film INT PRIMARY KEY AUTO_INCREMENT, category_id INT, title VARCHAR(50) NOT NULL, director VARCHAR(50) NOT NULL, actors VARCHAR(100) NOT NULL, duration TIME NOT NULL,synopsis TEXT NOT NULL, date_film DATE NOT NULL, image VARCHAR(255) NOT NULL, price FLOAT NOT NULL, stock INT NOT NULL, ageLimit VARCHAR(5) NULL)";
+        $request = $pdo->exec($sql);
+    }
+    createTableFilms();
+
+    //------ Fonctions création "foreign key" ------//
+    // $tableForeign : table où l'on va créer la clé étrangère
+    // $tablePrimary : table à partir de laquelle on récupère la clé primaire
+    // $foreign : nom de la clé étrangère
+    // $primary : nom de la clé primaire
+    function createForeignKey(string $tableForeign, string $foreign, string $tablePrimary, string $primary){
+        $pdo = connectionDB();
+        $sql = "ALTER TABLE $tableForeign ADD CONSTRAINT FOREIGN KEY ($foreign) REFERENCES $tablePrimary ($primary)";
+        $request = $pdo->exec($sql);
+    }
+    // Création de la clé étrangère dans la table "films"
+    createForeignKey("films", "category_id", "categories", "id_category");
 ?>

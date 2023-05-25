@@ -2,7 +2,7 @@
 <?php
     //------ Fonction debug ------//
     function debug($var){
-        echo "<pre>";
+        echo "<pre class=\"border border-dark bg-light text-primary w-50 p-3\">";
         var_dump($var);
         echo "</pre>";
     }
@@ -56,7 +56,7 @@
         $sql = "CREATE TABLE IF NOT EXISTS users (id_user INT PRIMARY KEY AUTO_INCREMENT, first_name VARCHAR(30) NOT NULL, last_name VARCHAR(30) NOT NULL, pseudo VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, password VARCHAR(255) NOT NULL, phone VARCHAR(30) NOT NULL, civility ENUM('f','m')NOT NULL, birthday DATE NOT NULL, address VARCHAR(50) NOT NULL, zip VARCHAR(50) NOT NULL, city VARCHAR(50) NOT NULL, country VARCHAR(50) NOT NULL)";
         $request = $pdo->exec($sql);
     } 
-    creationTableUsers();
+    // creationTableUsers();
 
     // table "films" //
     function createTableFilms(){
@@ -77,5 +77,25 @@
         $request = $pdo->exec($sql);
     }
     // Création de la clé étrangère dans la table "films"
-    createForeignKey("films", "category_id", "categories", "id_category");
+    // createForeignKey("films", "category_id", "categories", "id_category");
+
+    //------ Fonctions ajouter "catégorie" ------//
+    function addCategory(string $nameCategory, string $descriptionCategory) : void{
+        $pdo = connectionDB();
+        $sql = "INSERT INTO categories (name, description) VALUES (:name, :description)"; // requête d'insertion préparée et stocké dans une variable
+        $request = $pdo->prepare($sql); // préparation de la fonction et exécution de celle-ci
+        $request->execute(array(
+            ':name' => $nameCategory ,
+            ':description' => $descriptionCategory
+        ));
+    }
+    
+    //------ Fonctions récupération de toutes les catégories ------//
+    function allCategories(){
+        $pdo = connectionDB();
+        $sql = "SELECT * FROM categories";
+        $request = $pdo->query($sql);
+        $result = $request->fetchAll(); // Utilisation de "fetchAll()" pour récupérer toutes les lignes en même temps
+        return $result; // retourne un tableau avec les données récupérées de la DB
+    }
 ?>

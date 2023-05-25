@@ -42,6 +42,15 @@
                 // Expression régulière [0-9]+ recherche une séquence d'un ou plusieurs chiffres dans la chaîne de caractères, fonction preg_match() renvoie 1 si la correspondance est trouvé sinon elle renvoie 0 
                 $info = alert("Champs \"nom\" de la catégorie invalide", "danger");
             }
+            if(strlen($descriptionCategory) < 50){
+                $info .= alert("Champs \"description\" de la catégorie invalide, veuillez renseigner davantage d'informations", "danger");
+            }
+            if(empty($info)){
+                $nameCategory = htmlspecialchars($nameCategory);
+                $descriptionCategory = htmlspecialchars($descriptionCategory);
+                addCategory($nameCategory, $descriptionCategory);
+                header("location:dashboard.php?categories_php"); 
+            }
         }
     }
 ?>
@@ -68,5 +77,35 @@
                 <button type="submit" id="description" class="btn btn-danger p-3">Ajouter catégorie</button>
             </div>
         </form>
+    </div>
+    <div class="col-sm-12 col-md-6 d-flex flex-column mt-5 pe-3">  
+        <!-- tableau pour afficher toutes les catégories avec des boutons de suppression et de modification -->
+        <h2 class="text-center fw-bolder mb-5 text-danger">Liste des catégories</h2>
+        <?php
+            $categories = allCategories(); // Récupération des catégories de la DB et stockage de celles-ci dans une variable
+            debug($categories);
+        ?>
+        <table class="table table-dark table-bordered mt-5 " >
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Supprimer</th>
+                    <th>Modifier</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    foreach($categories as $key => $category){
+                ?>
+                <tr>
+                    <td></td>
+                </tr>
+                <?php
+                    }
+                ?>
+            </tbody>
+        </table>
     </div>
 </div>

@@ -22,6 +22,7 @@
                         <a href="?users_php" class="nav-link text-light">Utilisateurs</a>
                     </li>
                 </ul>
+                <hr>
             </div>
         </div>
         <?php
@@ -30,7 +31,7 @@
         <div class="w-50 m-auto">
             <h2>Bonjour Yro</h2>
             <p>Bienvenue sur le Back-office</p>
-            <img src="<?=RACINE_SITE?>assets/img/affiches-films-bleu-orange-2.jpg" alt="Affiche films back-office" width="500" height="800">
+            <img src="<?=RACINE_SITE?>assets/img/Red_Test_v1.png" alt="Affiche films back-office" width="500" height="800">
         </div>
         <?php
             }

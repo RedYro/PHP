@@ -59,6 +59,10 @@ main{
     box-shadow: var(--box-shadow-light) !important;
 }
 
+.sidebarre-active{
+    background-color: #B42851 !important;
+}
+
 h2{
     font-size: 5rem !important;
     color: var(--red);

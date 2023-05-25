@@ -7,6 +7,11 @@
         echo "</pre>";
     }
 
+    //------ Fonction "alert" ------//
+    function alert(string $contenu, string $class){
+        return "<div class=\"alert alert-$class alert-dismissible fade show text-center w-50 m-auto mb-5\" role=\"alert\">$contenu<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>";
+    }
+
     //------ Constante pour définir le chemin du site ------//
     define("RACINE_SITE", "/php_cours/03_site_cinema/"); // constante définissant les dossiers dans lesquels se situe le site pour pouvoir déterminer des chemins absolus à partir de "localhost" (ne pas prendre "localhost"), on écrit ainsi tous les chemins (exemple : src, href) en absolu avec cette constante
 

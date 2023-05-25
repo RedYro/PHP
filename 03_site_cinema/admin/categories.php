@@ -40,13 +40,13 @@
         <form action="" method="post" class="back">
             <div class="row">
                 <div class="col-md-8 mb-5">
-                    <label for="name">Nom de la catégorie</label>
+                    <label for="name" class="text-light">Nom de la catégorie</label>
                     <input type="text" id="name" name="name" class="form-control">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 mb-5">
-                    <label for="description">Description</label>
+                    <label for="description" class="text-light">Description</label>
                     <textarea name="description" id="description" cols="30" rows="10"></textarea>
                 </div>
             </div>

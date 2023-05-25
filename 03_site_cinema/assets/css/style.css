@@ -59,14 +59,16 @@ main{
     box-shadow: var(--box-shadow-light) !important;
 }
 
-.sidebarre-active{
-    background-color: #B42851 !important;
-}
-
 h2{
     font-size: 5rem !important;
     color: var(--red);
     font-weight: bolder;
+}
+
+/* active class JS pour les "a" */
+
+.sidebarre-active{
+    background-color: #B42851 !important;
 }
 
 /* formulaire gestion de données */
@@ -99,6 +101,10 @@ form.back .form-control {
 
 form.back button {
     font-size: 1.4rem !important;
+}
+
+#description{
+    resize: none !important;
 }
 
 /* footer */

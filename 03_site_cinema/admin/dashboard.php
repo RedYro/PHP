@@ -37,7 +37,7 @@
         ?>
         <div class="col-sm-12">
             <?php
-                /**
+                /*
                  * $_GET représente les données qui transitent par l'URL, c'est une superglobal et comme toutes autres superglobal c'est un tableau(array)
                  * "superglobal" signifie que cette variable est disponible partout dans le script y compris au sein des fonctions
                  * Transition des informations dans l'URL selon la syntaxe suivante : 

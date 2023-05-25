@@ -18,7 +18,7 @@
      // constante mot de passe (serveur local) => empty
     define("DBPASSWORD","");
     // constante nom BDD 
-     define("DBNAME","cinema"); 
+    define("DBNAME","cinema"); 
     function connectionDB(){
         // DSN (Data Source Name)
         $dsn = "mysql:host=". DBHOST . ";dbname=" . DBNAME . ";charset=utf8";

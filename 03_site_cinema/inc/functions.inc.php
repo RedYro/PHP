@@ -110,25 +110,27 @@
     }
 
     //------ Fonctions modification catégories ------//
+    function updateCategories(int $id, string $nom, string $description) :void{
+        $pdo = connectionDB();
+        $sql = "UPDATE categories SET name= :nom, description= :description WHERE id_category = :id";
+        $request = $pdo->prepare($sql);
+        $request->execute(array(
+            ':nom' => $nom,
+            ':description' => $description,
+            ':id' => $id
+        ));
+    }
 
-    // function selectCategories(int $id){
-    //     $pdo = connectionDB();
-    //     $sql = "SELECT * FROM categories WHERE id_category = :id";
-    //     $request = $pdo->prepare($sql);
-    //     $request->execute(array(
-    //         ':id' => $id
-    //     ));
-    // }
-
-    // function updateCategories(int $id, string $nom, string $description) :void{
-    //     $pdo = connectionDB();
-    //     $sql = "UPDATE categories SET name= :nom, description= :description WHERE id_category = :id";
-    //     $request = $pdo->prepare($sql);
-    //     $request->execute(array(
-    //         ':nom' => $nom,
-    //         ':description' => $description,
-    //         ':id' => $id
-    //     ));
-    // }
+    // Récupération d'une catégorie //    
+    function showCategories(int $id) : array{
+        $pdo = connectionDB();
+        $sql = "SELECT * FROM categories WHERE id_category = :id";
+        $request = $pdo->prepare($sql);
+        $request->execute(array(
+            ':id' => $id 
+        ));
+        $result = $request->fetch(); // fetch() pour récupérer une ligne bien déterminée grâce à l'id 
+        return $result; // fonction retournant un tableau avec une seule ligne
+    }
 
 ?>

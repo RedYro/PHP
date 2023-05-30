@@ -83,7 +83,7 @@
         <h2 class="text-center fw-bolder mb-5 text-danger">Liste des catégories</h2>
         <?php
             $categories = allCategories(); // Récupération des catégories de la DB et stockage de celles-ci dans une variable
-            debug($categories);
+            // debug($categories);
         ?>
         <table class="table table-dark table-bordered mt-5 " >
             <thead>
@@ -100,6 +100,8 @@
                     foreach($categories as $key => $category){
                 ?>
                 <tr>
+                    <td></td>
+                    <td></td>
                     <td></td>
                 </tr>
                 <?php

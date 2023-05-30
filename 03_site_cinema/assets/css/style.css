@@ -103,9 +103,10 @@ form.back button {
     font-size: 1.4rem !important;
 }
 
-/* #description{
-    resize: none !important;
-} */
+.bi{
+    color: var(--red);
+    font-size: 1.8rem;
+}
 
 /* footer */
 

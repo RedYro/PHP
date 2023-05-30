@@ -46,8 +46,8 @@
                 $info .= alert("Champs \"description\" de la catégorie invalide, veuillez renseigner davantage d'informations", "danger");
             }
             if(empty($info)){
-                $nameCategory = htmlspecialchars($nameCategory);
-                $descriptionCategory = htmlspecialchars($descriptionCategory);
+                $nameCategory = htmlentities($nameCategory);
+                $descriptionCategory = htmlentities($descriptionCategory);
                 addCategory($nameCategory, $descriptionCategory);
                 header("location:dashboard.php?categories_php"); 
             }
@@ -97,12 +97,16 @@
             </thead>
             <tbody>
                 <?php
+                    // fetch() se passe dans la fonctions "allCategories()", on boucle sur le tableau avec "foreach()"S
                     foreach($categories as $key => $category){
+                        // Récupération des valeurs dans le tableau $category dans les "td"
                 ?>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><?=$category['id_category']?></td>
+                    <td><?=html_entity_decode($category['name'])?></td>
+                    <td><?=substr(html_entity_decode($category['description']), 0, 50)."..."?></td>
+                    <td class="text-center"><a href="categories.php?action=delete&id_categorie=<?=$category['id_category']?>"><i class="bi bi-trash3-fill"></i></a></td>
+                    <td class="text-center"><a href="categories.php?action=update&id_categorie=<?=$category['id_category']?>"><i class="bi bi-pencil-fill"></i></a></td>
                 </tr>
                 <?php
                     }

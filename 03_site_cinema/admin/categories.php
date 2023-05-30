@@ -1,30 +1,22 @@
 <?php
     $title = "Categories";
     require_once("../inc/functions.inc.php");
-    // require_once("../inc/header.inc.php");
+    require_once("../inc/header.inc.php");
 
-    // Suppression catégories // 
         if(isset($_GET['action']) && isset($_GET['id_category'])){
+            // Suppression catégories // 
             if(!empty($_GET['action']) && $_GET['action'] == 'delete' && !empty($_GET['id_category'])){
                 $idCategory = htmlentities($_GET['id_category']);
-                deleteCategories($idCategory);
+                deleteCategory($idCategory);
                 header("location:dashboard.php?categories_php");
+            } else if(!empty($_GET['action']) && $_GET['action'] == 'update' && !empty($_GET['id_category'])){
+            // Update catégories //
+                $idCategory = htmlentities($_GET['id_category']);
+                $category = showCategory($idCategory);
             } else{
                 header("location:dashboard.php?categories_php");
             }
         }
-
-    // Update catégories // 
-        // if(!empty($_GET)){
-        //     if(isset($_GET['action']) && $_GET['action'] == 'update' && isset($_GET['id_category']) && !empty($_GET['id_category'])){
-        //         $idCategory = strip_tags($_GET['id_category']);
-        //         $idCategoryBis = strip_tags($_GET['name']);
-        //         $idCategoryTer = strip_tags($_GET['description']);
-        //         selectCategory($idCategory);
-        //         updateCategories($idCategory, $idCategoryBis, $idCategoryTer);
-        //         header("location:dashboard.php?categories_php");
-        //     } 
-        // }
 
     //--------------------------
     // La superglobale $_POST
@@ -70,15 +62,21 @@
                 $info .= alert("Champs \"description\" de la catégorie invalide, veuillez renseigner davantage d'informations", "danger");
             }
             if(empty($info)){
-                $nameCategory = htmlentities($nameCategory);
-                $descriptionCategory = htmlentities($descriptionCategory);
-                addCategory($nameCategory, $descriptionCategory);
-                header("location:dashboard.php?categories_php"); // méthode permettant d'envoyer des requêtes HTTP donc rafraîchie et supprime les données enregistrées
+                $nameCategory = strip_tags($nameCategory);
+                $descriptionCategory = strip_tags($descriptionCategory);
+                if(!empty($_GET['action']) && $_GET['action'] == 'update' && !empty($_GET['id_category'])){
+                    $idCategory = htmlentities($_GET['id_category']);
+                    updateCategory($idCategory, $nameCategory, $descriptionCategory); // Mise à jour avec fonction updateCategory()
+                    header("location:dashboard.php?categories_php");
+                } else{
+                    addCategory($nameCategory, $descriptionCategory);
+                    header("location:dashboard.php?categories_php"); // méthode permettant d'envoyer des requêtes HTTP donc rafraîchie et supprime les données enregistrées
+                }
             }
         }
     }
 ?>
-<div class="row mt-5">
+<div class="row mt-5" style="padding-top: 8rem;">
     <div class="col-sm-12 col-md-6 mt-5">
         <h2 class="text-center fw-bolder text-danger">Gestion des catégories</h2>
         <?php
@@ -88,17 +86,17 @@
             <div class="row">
                 <div class="col-md-8 mb-5">
                     <label for="name" class="text-light">Nom de la catégorie</label>
-                    <input type="text" id="name" name="name" class="form-control">
+                    <input type="text" id="name" name="name" class="form-control" value="<?=$category['name'] ?? '';?>">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 mb-5">
                     <label for="description" class="text-light">Description</label>
-                    <textarea name="description" id="description" class="form-control" cols="30" rows="10"></textarea>
+                    <textarea name="description" id="description" class="form-control" cols="30" rows="10"><?=$category['description'] ?? '';?></textarea>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <button type="submit" id="description" class="btn btn-danger p-3">Ajouter catégorie</button>
+                <button type="submit" id="description" class="btn btn-danger p-3"><?=(isset($category)) ? 'Modifier catégorie' : 'Ajouter catégorie'?></button>
             </div>
         </form>
     </div>
@@ -127,8 +125,8 @@
                 ?>
                 <tr>
                     <td><?=$category['id_category']?></td>
-                    <td><?=html_entity_decode($category['name'])?></td>
-                    <td><?=substr(html_entity_decode($category['description']), 0, 50)."..."?></td>
+                    <td><?=html_entity_decode(ucfirst($category['name']))?></td>
+                    <td><?=substr(html_entity_decode(ucfirst($category['description'])), 0, 40)."..."?></td>
                     <td class="text-center"><a href="categories.php?action=delete&id_category=<?=$category['id_category']?>"><i class="bi bi-trash3-fill"></i></a></td>
                     <td class="text-center"><a href="categories.php?action=update&id_category=<?=$category['id_category']?>"><i class="bi bi-pencil-fill"></i></a></td>
                 </tr>

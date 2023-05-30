@@ -32,15 +32,22 @@ h1 {
     margin: .8rem 4rem;
     font-weight: bolder;
 }
+
 h1 a{
     font-size: 4rem !important;
     color: var(--red) !important;
     font-family: 'Roboto Condensed', sans-serif !important;
 }
+
 nav li a{
     color: #fff !important;
     margin: 0.8rem ;
 }
+
+li a{
+    font-size: 2rem !important;
+}
+
 nav .navbar-toggler {
     background-color: var(--red);
     font-size: 1.7rem;

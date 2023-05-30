@@ -100,7 +100,7 @@
     }
 
     //------ Fonctions suppression catégories ------//
-    function deleteCategories(int $id) :void{
+    function deleteCategory(int $id) :void{
         $pdo = connectionDB();
         $sql = "DELETE FROM categories WHERE id_category = :id";
         $request = $pdo->prepare($sql);
@@ -110,9 +110,9 @@
     }
 
     //------ Fonctions modification catégories ------//
-    function updateCategories(int $id, string $nom, string $description) :void{
+    function updateCategory(int $id, string $nom, string $description) :void{
         $pdo = connectionDB();
-        $sql = "UPDATE categories SET name= :nom, description= :description WHERE id_category = :id";
+        $sql = "UPDATE categories SET name= :nom , description= :description WHERE id_category = :id";
         $request = $pdo->prepare($sql);
         $request->execute(array(
             ':nom' => $nom,
@@ -122,7 +122,7 @@
     }
 
     // Récupération d'une catégorie //    
-    function showCategories(int $id) : array{
+    function showCategory(int $id) : array{
         $pdo = connectionDB();
         $sql = "SELECT * FROM categories WHERE id_category = :id";
         $request = $pdo->prepare($sql);

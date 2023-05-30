@@ -72,6 +72,14 @@ h2{
     font-weight: bolder;
 }
 
+a.btn {
+    background-color: var(--red);
+    color: white !important;
+    padding: .8rem;
+    font-size: 1.3rem !important;
+    font-weight: bold;
+}
+
 /* active class JS pour les "a" */
 
 .sidebarre-active{

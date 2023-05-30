@@ -98,4 +98,37 @@
         $result = $request->fetchAll(); // Utilisation de "fetchAll()" pour récupérer toutes les lignes en même temps
         return $result; // retourne un tableau avec les données récupérées de la DB
     }
+
+    //------ Fonctions suppression catégories ------//
+    function deleteCategories(int $id) :void{
+        $pdo = connectionDB();
+        $sql = "DELETE FROM categories WHERE id_category = :id";
+        $request = $pdo->prepare($sql);
+        $request->execute(array(
+            ':id' => $id
+        ));
+    }
+
+    //------ Fonctions modification catégories ------//
+
+    // function selectCategories(int $id){
+    //     $pdo = connectionDB();
+    //     $sql = "SELECT * FROM categories WHERE id_category = :id";
+    //     $request = $pdo->prepare($sql);
+    //     $request->execute(array(
+    //         ':id' => $id
+    //     ));
+    // }
+
+    // function updateCategories(int $id, string $nom, string $description) :void{
+    //     $pdo = connectionDB();
+    //     $sql = "UPDATE categories SET name= :nom, description= :description WHERE id_category = :id";
+    //     $request = $pdo->prepare($sql);
+    //     $request->execute(array(
+    //         ':nom' => $nom,
+    //         ':description' => $description,
+    //         ':id' => $id
+    //     ));
+    // }
+
 ?>

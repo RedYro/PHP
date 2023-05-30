@@ -1,7 +1,31 @@
 <?php
     $title = "Categories";
-    // require_once("../inc/functions.inc.php");
+    require_once("../inc/functions.inc.php");
     // require_once("../inc/header.inc.php");
+
+    // Suppression catégories // 
+        if(isset($_GET['action']) && isset($_GET['id_category'])){
+            if(!empty($_GET['action']) && $_GET['action'] == 'delete' && !empty($_GET['id_category'])){
+                $idCategory = htmlentities($_GET['id_category']);
+                deleteCategories($idCategory);
+                header("location:dashboard.php?categories_php");
+            } else{
+                header("location:dashboard.php?categories_php");
+            }
+        }
+
+    // Update catégories // 
+        // if(!empty($_GET)){
+        //     if(isset($_GET['action']) && $_GET['action'] == 'update' && isset($_GET['id_category']) && !empty($_GET['id_category'])){
+        //         $idCategory = strip_tags($_GET['id_category']);
+        //         $idCategoryBis = strip_tags($_GET['name']);
+        //         $idCategoryTer = strip_tags($_GET['description']);
+        //         selectCategory($idCategory);
+        //         updateCategories($idCategory, $idCategoryBis, $idCategoryTer);
+        //         header("location:dashboard.php?categories_php");
+        //     } 
+        // }
+
     //--------------------------
     // La superglobale $_POST
     //---------------------------
@@ -49,7 +73,7 @@
                 $nameCategory = htmlentities($nameCategory);
                 $descriptionCategory = htmlentities($descriptionCategory);
                 addCategory($nameCategory, $descriptionCategory);
-                header("location:dashboard.php?categories_php"); 
+                header("location:dashboard.php?categories_php"); // méthode permettant d'envoyer des requêtes HTTP donc rafraîchie et supprime les données enregistrées
             }
         }
     }
@@ -105,8 +129,8 @@
                     <td><?=$category['id_category']?></td>
                     <td><?=html_entity_decode($category['name'])?></td>
                     <td><?=substr(html_entity_decode($category['description']), 0, 50)."..."?></td>
-                    <td class="text-center"><a href="categories.php?action=delete&id_categorie=<?=$category['id_category']?>"><i class="bi bi-trash3-fill"></i></a></td>
-                    <td class="text-center"><a href="categories.php?action=update&id_categorie=<?=$category['id_category']?>"><i class="bi bi-pencil-fill"></i></a></td>
+                    <td class="text-center"><a href="categories.php?action=delete&id_category=<?=$category['id_category']?>"><i class="bi bi-trash3-fill"></i></a></td>
+                    <td class="text-center"><a href="categories.php?action=update&id_category=<?=$category['id_category']?>"><i class="bi bi-pencil-fill"></i></a></td>
                 </tr>
                 <?php
                     }

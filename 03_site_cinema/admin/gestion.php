@@ -2,9 +2,80 @@
     $title = "Gestion / Film";
     require_once("../inc/functions.inc.php");
     require_once("../inc/header.inc.php");
+
+    // $_POST => ne prends pas en compte les champs de type "file"
+    // $_FILES => permet de prendre en compte les champs de type "file" 
+
+    $info = ""; // Variable qui recevra les messages d'alerte, déclaration dans le script en général avec une valeur vide pour ne pas engendrer d'erreur sur la page 
+
+    if(!empty($_POST)){
+        $verif = true;
+        foreach($_POST as $key => $value){
+            if(empty(trim($value))){
+                $verif = false;
+            }
+        }
+        // superglobale "$_FILES" a un indice "image" qui correspond au "name" de l'input type="file" du formulaire, ainsi qu'un indice "name" qui contient le nom du fichier en cours de téléchargement.
+        if(!empty($_FILES['image']['name'])){ // si le nom du fichier en cours de téléchargement n'est pas vide, alors c'est qu'on est en train de télécharger une photo
+            $image = 'img/'.$_FILES['image']['name']; // $image contient le chemin relatif de la photo et sera enregistré en BDD. On utilise ce chemin pour les "src" des balises <img>.
+            copy($_FILES['image']['tmp_name'], '../assets/'. $image);
+            // enregistrement du fichier image qui se trouve à l'adresse contenue dans $_FILES['image']['tmp_name'] vers la destination qui est le dossier "img" à l'adresse "../assets/nom_du_fichier.jpg".
+        }
+        if(!$verif || empty($image)){ // vérification de la valeur final de la variable $verif et de la valeur de la variable $image : si $verif est false ou $image est vide je stock un message d'erreur dans $info
+            $info = alert("Tous les champs sont requis", "danger");
+        } else{
+            //si tout est renseigné je commence la validation des champs
+            /* on vérifie l'image : 
+            // $_FILES['image']['name'] Nom
+            // $_FILES ['image']['type'] Type
+            // $_FILES ['image']['size'] Taille
+            // $_FILES ['image']['tmp_name'] Emplacement temporaire
+            // $_FILES ['image']['error'] Erreur si oui/non l'image a été réceptionné */
+
+            if($_FILES['image']['error'] != 0 ||$_FILES['image']['size'] == 0 ||!isset($_FILES['image']['type'])){
+                $info .= alert("Image non valide", "danger");
+            }
+            $titleFilm = trim($_POST['title']);
+            $director = trim($_POST['director']);
+            $actors = trim($_POST['actors']);
+            $duration = trim($_POST['duration']);
+            $synopsis= trim($_POST['synopsis']);
+            $dateSortie = trim($_POST['date']);
+            $imageFilm = trim($_POST['image']);
+            $price = trim($_POST['price']);
+            $stock = trim($_POST['stock']);
+            // $ageLimit = trim($_POST['ageLimit']);
+            if(strlen($director) < 3 || preg_match('/[0-9]+/', $director)){
+                // longueur > 1 / 
+                $info .= alert("Champ Réalisateur non valide", "danger");
+            }
+            //Explications: 
+                //    .* : correspond à n'importe quel nombre de caractères (y compris zéro caractère), sauf une nouvelle ligne.
+                //     \/ : correspond au caractère /. Le caractère / doit être précédé d'un backslash \ car il est un caractère spécial en expression régulière. Le backslash est appelé caractère d'échappement et il permet de spécifier que le caractère qui suit doit être considéré comme un caractère ordinaire.
+                //     .* : correspond à n'importe quel nombre de caractères (y compris zéro caractère), sauf une nouvelle ligne.
+            if(strlen($actors) < 3 || preg_match('/[0-9]+/', $actors) || !preg_match('/.*\/.*/', $actors)){ // valider que l'utilisateur a bien inséré le symbole '/' : chaîne de caractères qui contient au moins un caractère avant et après le symbole /.
+                // longueur > 1 / 
+                $info .= alert("Champ Réalisateur non valide", "danger");
+            }
+            if(strlen($synopsis) < 50){ 
+                $info .= alert("Le résumé doit faire plus de 50 caractères", "danger");
+            }
+            if(!is_numeric($price)){
+                $info .= alert("Le prix n'est pas valide", "danger");
+            }
+            // S'il n'y aucune erreur sur le formulaire
+            if(empty($info)){
+
+            }
+        }
+    }
+
 ?>
 
 <h2 class="text-center fw-bolder mb-5 text-danger">Ajouter un film</h2>
+<?php
+    echo $info;
+?>
 <form action="" method="post" enctype="multipart/form-data" class="back">
     <!-- "enctype" spécifie que le formulaire envoie des fichiers en plus des données "text" : permet d'uploader un fichier (image etc.) => obligatoire pour faire cela -->
     <div class="row">
@@ -15,7 +86,7 @@
         </div>
         <div class="col-md-6 mb-5">
             <label for="iamge">Photo</label>
-            <input type="file" name="iamge" id="image">
+            <input type="file" name="image" id="image">
             <!-- "type=file" ne pas oublier attribut enctype="multipart/form-data" dans la balise form -->
         </div>
     </div>
@@ -32,7 +103,7 @@
     <div class="row">
         <!-- raccourci bs5 select multiple -->
         <div class="mb-3">
-            <label for="ageLimite" class="form-label">Age limite</label>
+            <label for="ageLimite" class="form-label">Âge limite</label>
             <select multiple class="form-select form-select-lg" name="ageLimite" id="ageLimite">
                 <option value="10" >10</option>
                 <option value="13" >13</option>
@@ -87,3 +158,7 @@
         <button type="submit" class="btn btn-danger p-3 w-25">Ajouter Film</button>
     </div>
 </form>
+<?php
+    debug($_POST);
+    debug($_FILES);
+?>

@@ -72,8 +72,8 @@
                 $duration = htmlentities($duration);
                 $synopsis = htmlentities($synopsis);
                 $category = htmlentities($category); // $category => récupération du nom de la catégorie avec le btn radio 
-                $price = htmlentities($price);
-                $stock = htmlentities($stock);
+                $price = (float) htmlentities($price); // conversion de la valeur de la variable "$price" en "float"
+                $stock = (int) htmlentities($stock); // conversion de la valeur de la variable "$stock" en "int"
                 $dateSortie = htmlentities($dateSortie);
                 // Pour index "category" superglobal "$_POST", récupération de "id_category" afin de l'insérer dans la table "films"
                 $idCategory = idCategory($category); // Récupération avec fonction "idCategory()" d'un tableau avec un seul élément qui contient l'id de la catégorie choisie

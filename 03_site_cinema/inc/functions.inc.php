@@ -14,8 +14,8 @@
 
     // Fonction String to Array //
     function stringToArray(string $string) :array{
-        $array = explode('/', $string);
-        return $array;
+        $array = explode('/', trim($string, '/')); // Transformation de la chaîne de caractères en tableau et suppression des "/" autour de la chaîne de caractères
+        return $array; // retourne un tableau
     }
 
     //------ Fonction "alert" ------//

@@ -16,7 +16,7 @@
                 <th>Affiche</th>
                 <th>Réalisateur</th>
                 <th>Acteurs</th>
-                <th>Àge limite</th>
+                <th>Âge limite</th>
                 <th>Genre</th>
                 <th>Durée</th>
                 <th>Prix</th>
@@ -24,17 +24,33 @@
                 <th>Synopsis</th>
                 <th>Date de sortie</th>
                 <th>Supprimer</th>
-                <th> Modifier</th>
+                <th>Modifier</th>
             </tr>
         </thead>
         <tbody>
             <?php
                 foreach($films as $key => $film){
                     // Avant affichage des données, formatage 
-                    $actors = stringToArray($film['actors']);
+                    $actors = stringToArray($film['actors']); // Transformation de la chaîne de caractères récupérer à partir de $film['actors'] du tableau $film en un tableau avec la fonction "stringToArray()"
+                    // catégorie du film
+                    $category = showCategory($film['category_id']);
+                    $categoryName = $category['name'];
+                    // Gestion affichage "duration"
+                    $date_time = new DateTime($film['duration']); // Création d'un nouvel objet "DateTime" en passant la valeur de l'input de type "time" en tant que paramètre
+                    $duration = $date_time->format('H:i'); // Utilisation de la méthode format() pour extraire l'heure et les minutes au format 'H:i'
+
             ?>
             <tr>
-                <td><?=$actors?></td>
+                <td><?=$film['id_film']?></td>
+                <td><?=$film['title']?></td>
+                <td><img src="<?=RACINE_SITE."assets/".$film['image']?>" alt="Affiche du film"></td>
+                <td><?=$film['title']?></td>
+                <td><?=$film['title']?></td>
+                <td><?=$film['title']?></td>
+                <td><?=$film['title']?></td>
+                <td><?=$film['title']?></td>
+                <td><?=$film['title']?></td>
+                <td><?=$film['title']?></td>
             </tr>
             <?php
                 }

@@ -7,6 +7,17 @@
         echo "</pre>";
     }
 
+    // //------ Fonction sécurité ------//
+    // function security($variable){
+    //     $variable = htmlentities(trim($variable));
+    // }
+
+    // Fonction String to Array //
+    function stringToArray(string $string) :array{
+        $array = explode('/', $string);
+        return $array;
+    }
+
     //------ Fonction "alert" ------//
     function alert(string $contenu, string $class){
         return "<div class=\"alert alert-$class alert-dismissible fade show text-center w-50 m-auto mb-5\" role=\"alert\">$contenu<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>";
@@ -131,6 +142,50 @@
         ));
         $result = $request->fetch(); // fetch() pour récupérer une ligne bien déterminée grâce à l'id 
         return $result; // fonction retournant un tableau avec une seule ligne
+    }
+
+    //------ Fonctions récupération id_category ------//
+    function idCategory(string $name) :array{
+        $pdo = connectionDB();
+        $sql = "SELECT id_category FROM categories WHERE name = :name";
+        $request = $pdo->prepare($sql);
+        $request->execute(array(
+            ':name' => $name
+        ));
+        $result = $request->fetch();
+        return $result;
+    }
+
+    //------ Fonctions insertion film ------//
+    function addFilm(string $title, string $director, string $actors, string $ageLimit, int $category_id, string $duration, string $date, string $synopsis, string $image, float $price, int $stock) : void{
+        $pdo = connectionDB();  
+        $sql = "INSERT INTO films
+        (title, director, actors, ageLimit, category_id, duration, date, synopsis, image, price, stock)
+        VALUES
+        (:title , :director, :actors, :ageLimit, :category_id, :duration, :date, :synopsis, :image, :price, :stock)";
+        $request = $pdo->prepare($sql);
+        $request->execute(array( 
+                        ':title'=> $title,
+                        ':director' => $director,
+                        ':actors' => $actors,
+                        ':ageLimit' => $ageLimit,
+                        ':category_id' => $category_id,
+                        ':duration' => $duration,
+                        ':date'=> $date,
+                        ':synopsis' => $synopsis,
+                        ':image' => $image,
+                        ':price'=> $price,
+                        ':stock' => $stock,
+                    ));
+    }
+
+    //------ Fonctions films ------//
+    function allFilm(): array {
+        $pdo = connectionDB();
+        $sql = "SELECT * FROM films";
+        $request = $pdo->query($sql);
+        $result = $request->fetchAll();// j'utilise le fetchAll pour récuperer tout les ligne à la fois
+        return $result; // ma fonction retourne un tableau avec les donées récupérer de la BDD
     }
 
 ?>

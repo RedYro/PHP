@@ -3,6 +3,22 @@
     require_once("../inc/functions.inc.php");
     require_once("../inc/header.inc.php");
 
+    if(isset($_GET['action']) && isset($_GET['id_film'])){
+        // Suppression catégories // 
+        if(!empty($_GET['action']) && $_GET['action'] == 'delete' && !empty($_GET['id_film'])){
+            $idFilm = htmlentities($_GET['id_film']);
+            deleteFilm($idFilm);
+            header("location:dashboard.php?film_php");
+        } else if(!empty($_GET['action']) && $_GET['action'] == 'update' && !empty($_GET['id_film'])){
+        // Update catégories //
+            $idFilm = htmlentities($_GET['id_film']);
+            $film= showFilm($idFilm);
+            // debug($film);
+        } else{
+            header("location:dashboard.php?films_php");
+        }
+    }
+
     // $_POST => ne prends pas en compte les champs de type "file"
     // $_FILES => permet de prendre en compte les champs de type "file" 
 
@@ -65,7 +81,7 @@
             }
             // S'il n'y aucune erreur sur le formulaire
             if(empty($info)){
-                $title = htmlentities($title);
+                $titleFilm = htmlentities($titleFilm);
                 $director = htmlentities($director);
                 $actors = htmlentities($actors);
                 $ageLimit = htmlentities($ageLimit);
@@ -78,15 +94,23 @@
                 // Pour index "category" superglobal "$_POST", récupération de "id_category" afin de l'insérer dans la table "films"
                 $idCategory = idCategory($category); // Récupération avec fonction "idCategory()" d'un tableau avec un seul élément qui contient l'id de la catégorie choisie
                 $category_id = $idCategory['id_category'];
-                $result = addFilm($title, $director, $actors, $ageLimit, $category_id, $duration, $dateSortie, $synopsis, $image, $price, $stock);// insertion d'un film avec la fonction addFilm() créée dans le fichier fonctions.php
-
+                // $result = addFilm($title, $director, $actors, $ageLimit, $category_id, $duration, $dateSortie, $synopsis, $image, $price, $stock);// insertion d'un film avec la fonction addFilm() créée dans le fichier fonctions.php
+                if(isset($_GET['action']) && $_GET['action']=='update' && isset($_GET['id_film']) && !empty($_GET['id_film'])){ // je vérifie l'action dans l'url et l'id 
+                    $idFilm = htmlentities($film['id_film']);
+                    $result = updateFilm($idFilm,$titleFilm,$director,$actors,$ageLimit,$category_id,$duration,$dateSortie,$synopsis,$image,$price,$stock);   // j'effectue la modification avec la fonction updateFilm() créé dans le fichier des fonctions
+                    header("location:dashboard.php?films_php");
+                }else{
+                    $result = addFilm($titleFilm,$director,$actors,$ageLimit,$category_id,$duration,$dateSortie,$synopsis,$image,$price,$stock);// j'insére mon film avec la fonction addFilm() créée dans le fichier fonctions.php  
+                    header("location:dashboard.php?films_php");
+                }
+                header("location:dashboard.php?films_php");
             }
         }
     }
 
 ?>
 <main>
-    <h2 class="text-center fw-bolder mb-5 text-danger">Ajouter un film</h2>
+    <h2 class="text-center fw-bolder mb-5 text-danger"><?=(isset($film)) ? 'Modifier film' : 'Ajouter film'?></h2>
     <?php
         echo $info;
     ?>
@@ -95,23 +119,23 @@
         <div class="row">
             <div class="col-md-6 mb-5">
                 <label for="title">Titre du film</label>
-                <input type="text" name="title" id="title" class="form-control"> 
+                <input type="text" name="title" id="title" class="form-control" value="<?=$film['title'] ?? '';?>"> 
                 <!-- "name" => lien avec DB (PHP) -->
             </div>
             <div class="col-md-6 mb-5">
                 <label for="iamge">Photo</label>
-                <input type="file" name="image" id="image">
+                <input type="file" name="image" id="image" value="<?=RACINE_SITE."assets/".$film['image'] ?? '';?>">
                 <!-- "type=file" ne pas oublier attribut enctype="multipart/form-data" dans la balise form -->
             </div>
         </div>
         <div class="row">                         
             <div class="col-md-6 mb-5">
                 <label for="director">Réalisateur</label>
-                <input type="text" class="form-control" id="director" name="director">
+                <input type="text" class="form-control" id="director" name="director" value="<?=$film['director'] ?? '';?>">
             </div>
             <div class="col-md-6">
                 <label for="actors">Acteur(s)</label>
-                <input type="text" class="form-control" id="actors" name="actors"  placeholder="séparez les noms d'acteurs avec un /">
+                <input type="text" class="form-control" id="actors" name="actors" placeholder="séparez les noms d'acteurs avec un /" value="<?=$film['actors'] ?? '';?>">
             </div>   
         </div>
         <div class="row">
@@ -119,9 +143,9 @@
             <div class="mb-3">
                 <label for="ageLimit" class="form-label">Âge limite</label>
                 <select multiple class="form-select form-select-lg" name="ageLimit" id="ageLimit">
-                    <option value="7" >7</option>
-                    <option value="12" >12</option>
-                    <option value="16" >16</option>
+                    <option value="10" <?php if(isset($film['ageLimit']) && $film['ageLimit'] == 10) echo 'selected'?>>10</option>
+                    <option value="13" <?php if(isset($film['ageLimit']) && $film['ageLimit'] == 13) echo 'selected'?>>13</option>
+                    <option value="16" <?php if(isset($film['ageLimit']) && $film['ageLimit'] == 16) echo 'selected'?>>16</option>
                 </select>
             </div>
         </div>
@@ -132,7 +156,7 @@
                 foreach ($categories as $key => $category){
             ?>
             <div class="form-check col-sm-12 col-md-4">
-                <input class="form-check-input" type="radio" name="categories" id="categories" value="<?=$category['name']?>">
+                <input class="form-check-input" type="radio" name="categories" id="categories" value="<?=$category['name']?>" <?php if(isset($film['category_id']) && $film['category_id'] == $category['id_category'])echo 'checked';?>>
                 <label class="form-check-label" for="categories"><?=$category['name']?></label>
             </div>
             <?php
@@ -142,30 +166,30 @@
         <div class="row">
             <div class="col-md-6 mb-5">
                 <label for="duration">Durée film</label>
-                <input type="time" class="form-control" id="duration" name="duration">
+                <input type="time" class="form-control" id="duration" name="duration" value="<?=$film['duration'] ?? '';?>">
             </div>
             <div class="col-md-6 mb-5">
                 <label for="date">Date sortie</label>
-                <input type="date" name="date" id="date" class="form-control">
+                <input type="date" name="date" id="date" class="form-control" value="<?=$film['date'] ?? '';?>">
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 mb-5">
                 <label for="price">Prix</label>
                 <div class=" input-group">
-                    <input type="text" class="form-control" id="price" name="price" aria-label="Euros amount (with dot and two decimal places)">
+                    <input type="text" class="form-control" id="price" name="price" aria-label="Euros amount (with dot and two decimal places)" value="<?=$film['price'] ?? '';?>">
                     <span class="input-group-text">€</span>
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="stock">Stock</label>
-                <input type="number" name="stock" id="stock" class="form-control" min ="0"> <!-- Pas de stock négatif donc on rajoute min="0" -->
+                <input type="number" name="stock" id="stock" class="form-control" min ="0" value="<?=$film['stock'] ?? '';?>"> <!-- Pas de stock négatif donc on rajoute min="0" -->
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <label for="synopsis">Synopsis</label>
-                <textarea type="text" class="form-control" id="synopsis" name="synopsis" rows="10"></textarea>
+                <textarea type="text" class="form-control" id="synopsis" name="synopsis" rows="10"><?=$film['synopsis'] ?? '';?></textarea>
             </div>
         </div>
         <div class="row justify-content-center">

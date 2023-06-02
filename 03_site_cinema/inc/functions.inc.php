@@ -188,4 +188,63 @@
         return $result; // ma fonction retourne un tableau avec les donées récupérer de la BDD
     }
 
+    //------ Fonctions delete films ------//
+    function deleteFilm(int $id) :void{
+        $pdo = connectionDB();
+        $sql = "DELETE FROM films WHERE id_film = :id";
+        $request = $pdo->prepare($sql);
+        $request->execute(array(
+            ':id' => $id
+        ));
+    }
+
+    // Récupération d'un film //    
+    function showFilm(int $id) : array{
+        $pdo = connectionDB();
+        $sql = "SELECT * FROM films WHERE id_film = :id";
+        $request = $pdo->prepare($sql);
+        $request->execute(array(
+            ':id' => $id 
+        ));
+        $result = $request->fetch(); // fetch() pour récupérer une ligne bien déterminée grâce à l'id 
+        return $result; // fonction retournant un tableau avec une seule ligne
+    }
+
+    // Update film //    
+
+    function updateFilm(int $id, string $title, string $director, string $actors, string $ageLimit, int $category_id, string $duration, string $date, string $synopsis, string $image, float $price, int $stock): void
+    {
+        $pdo = connectionDB();
+        $sql = "UPDATE films SET
+                            id_film = :id,
+                            title = :title,
+                            director = :director,
+                            actors = :actors,
+                            ageLimit = :ageLimit,
+                            category_id = :category_id,
+                            duration = :duration,
+                            date = :date,
+                            synopsis = :synopsis,
+                            image = :image,
+                            price = :price,
+                            stock = :stock
+                WHERE id_film = :id";
+            
+        $request = $pdo->prepare($sql);     
+        $request->execute(array( 
+                        ':id'       => $id,
+                        ':title'    => $title,
+                        ':director' => $director,
+                        ':actors'   => $actors,
+                        ':ageLimit' => $ageLimit,
+                        ':category_id'    => $category_id,
+                        ':duration' => $duration,
+                        ':date'     => $date,
+                        ':synopsis' => $synopsis,
+                        ':image'    => $image, // Attention, l'image ne doit pas venir de $_POST, mais de $_FILES
+                        ':price'    => $price,
+                        ':stock'    => $stock
+                        ));
+    
+    }
 ?>

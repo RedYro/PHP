@@ -26,6 +26,7 @@
                     <ul class="navbar-nav w-100 d-flex justify-content-end">
                         <li class="nav-item"><a href="<?=RACINE_SITE?>index.php" class="nav-link">Accueil</a></li>
                         <li class="nav-item"><a href="<?=RACINE_SITE?>admin/dashboard.php?dashboard_php" class="nav-link">Back-office</a></li>
+                        <li class="nav-item"><a href="<?=RACINE_SITE?>register.php" class="nav-link">Register</a></li>
                         <!-- <li class="nav-item"><a href="" class="nav-link"></a></li> -->
                     </ul>
                 </div>

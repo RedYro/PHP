@@ -3,7 +3,7 @@
     require_once("inc/functions.inc.php");
     require_once("inc/header.inc.php");
 ?>
-<main style="background:url(assets/img/5818.png) no-repeat; background-size: cover; background-attachment: fixed;"> 
+<main style="background:url(assets/img/Ahri_Arcana.jpg) no-repeat; background-size: cover; background-attachment: fixed;"> 
     <div class="w-75 m-auto p-5" style="background: rgba(20, 20, 20, 0.9);">
         <h2 class="text-center mb-5 p-3">Créer un compte</h2>
         <?php
@@ -41,8 +41,8 @@
                     </div>
                     <div class="col-md-6 mb-5">
                         <label for="confirmMdp" class="form-label mb-3">Confirmation mot de passe</label>
-                        <input type="password" class="form-control fs-5 mb-3" id="confirmMdp" name="confirmMdp" placeholder="Confirmer votre mot de passe " >
-                        <input type="checkbox" onclick="myFunction()"> <span class="text-danger">Afficher/masquer le mot de passe</span>
+                        <input type="password" class="form-control fs-5 mb-3" id="confirmMdp" name="confirmMdp" placeholder="Confirmer votre mot de passe">
+                        <input type="checkbox" onclick="myFunction()"><span class="text-danger">Afficher / masquer le mot de passe</span>
                     </div>
                </div>
                <div class="row mb-3">

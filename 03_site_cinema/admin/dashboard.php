@@ -31,7 +31,7 @@
         <div class="w-50 m-auto">
             <h2>Bonjour Yro</h2>
             <p>Bienvenue sur le Back-office</p>
-            <img src="<?=RACINE_SITE?>assets/img/Red_Test_v1.png" alt="Affiche films back-office" width="500" height="800" class="dashboard-img">
+            <img src="/php_cours/03_site_cinema/assets/img/Test1.png" alt="Affiche films back-office" width="500" height="800" class="dashboard-img" style="border-radius: 10px;" onclick="changeImg()">
         </div>
         <?php
             }

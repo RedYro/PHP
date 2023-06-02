@@ -3,7 +3,7 @@
     require_once("../inc/functions.inc.php");
     require_once("../inc/header.inc.php");
 ?>
-<main>
+<main style="background:url(<?=RACINE_SITE?>assets/img/LoL_Wild_Rift.jpg) no-repeat; background-size: cover; background-attachment: fixed;">
     <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-2">
             <div class="d-flex flex-column p-3 text-bg-dark sidebarre">
@@ -31,7 +31,7 @@
         <div class="w-50 m-auto">
             <h2>Bonjour Yro</h2>
             <p>Bienvenue sur le Back-office</p>
-            <img src="/php_cours/03_site_cinema/assets/img/Test1.png" alt="Affiche films back-office" width="500" height="800" class="dashboard-img" style="border-radius: 10px;" onclick="changeImg()">
+            <img src="/php_cours/03_site_cinema/assets/img/Blure1.png" alt="Affiche films back-office" width="500" height="800" class="dashboard-img" onclick="changeImg()">
         </div>
         <?php
             }

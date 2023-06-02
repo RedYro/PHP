@@ -3,7 +3,7 @@
     require_once("inc/functions.inc.php");
     require_once("inc/header.inc.php");
 ?>
-<main style="background:url(assets/img/Ahri_Arcana.jpg) no-repeat; background-size: cover; background-attachment: fixed;"> 
+<main style="background:url(assets/img/Ahri-ASU-Fox-Fire-Ahri.jpg) no-repeat; background-size: cover; background-attachment: fixed;"> 
     <div class="w-75 m-auto p-5" style="background: rgba(20, 20, 20, 0.9);">
         <h2 class="text-center mb-5 p-3">Créer un compte</h2>
         <?php

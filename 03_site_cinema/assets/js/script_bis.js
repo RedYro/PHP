@@ -13,10 +13,9 @@ function myFunction(){
 
 let imgDashBoard = document.querySelector(`.dashboard-img`);
 let i = 0;
-// imgDashBoard.addEventListener('click', changeImg());
 function changeImg(){
     i++;
-    imgDashBoard.setAttribute(`src`, `/php_cours/03_site_cinema/assets/img/Test` + i + `.png`);
+    imgDashBoard.setAttribute(`src`, `/php_cours/03_site_cinema/assets/img/Blure` + i + `.png`);
     if(i == 2){
         i = 0;
     }

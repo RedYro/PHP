@@ -66,6 +66,12 @@ main{
     box-shadow: var(--box-shadow-light) !important;
 }
 
+.dashboard-img{
+    box-shadow:  -1px -1px 10px 0px black !important;
+    border-radius: 10px;
+    /* opacity: .9; */
+}
+
 h2{
     font-size: 5rem !important;
     color: var(--red);

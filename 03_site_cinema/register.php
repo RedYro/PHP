@@ -16,7 +16,7 @@
                     <input type="text" class="form-control fs-5" id="lastName" name="lastName">
                 </div>
                 <div class="col-md-6 mb-5">
-                    <label for="firstName" class="form-label mb-3">Prenom</label>
+                    <label for="firstName" class="form-label mb-3">Prénom</label>
                     <input type="text" class="form-control fs-5" id="firstName" name="firstName" >
                 </div>
             </div>
@@ -66,11 +66,11 @@
                </div>
                <div class="row mb-3">
                     <div class="col-md-3">
-                        <label for="zip" class="form-label mb-3">Code postale</label>
+                        <label for="zip" class="form-label mb-3">Code postal</label>
                         <input type="text" class="form-control fs-5" id="zip" name="zip">
                     </div>
                     <div class="col-md-5">
-                        <label for="city" class="form-label mb-3">Cité</label>
+                        <label for="city" class="form-label mb-3">Ville</label>
                         <input type="text" class="form-control fs-5" id="city" name="city">
                     </div>
                     <div class="col-md-4">
@@ -80,7 +80,7 @@
                </div>
                <div class="row mt-5">
                     <button class="w-25 m-auto btn btn-danger btn-lg fs-5" type="submit">S'inscrire</button>
-                    <p class="mt-5 text-center">Vous avez dèjà un compte ! <a href="authentification.php" class=" text-danger">connectez-vous ici</a></p>
+                    <p class="mt-5 text-center">Vous avez dèjà un compte ? <a href="authentification.php" class=" text-danger">Connectez-vous ici !</a></p>
                </div>
           </form>
    </div>

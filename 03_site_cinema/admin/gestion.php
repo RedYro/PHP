@@ -201,3 +201,6 @@
         // debug($_FILES);
     ?>
 </main>
+<?php
+    require_once("inc/footer.inc.php");
+?>

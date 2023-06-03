@@ -107,7 +107,7 @@
             $categories = allCategories(); // Récupération des catégories de la DB et stockage de celles-ci dans une variable
             // debug($categories);
         ?>
-        <table class="table table-dark table-bordered mt-5 " >
+        <table class="table table-dark table-bordered" style="box-shadow: -1px -1px 10px 0px #EFE8E8;">
             <thead>
                 <tr>
                     <th>ID</th>

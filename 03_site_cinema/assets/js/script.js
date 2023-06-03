@@ -1,3 +1,5 @@
+// sidebarre dashboard active class //
+
 let links = document.querySelectorAll(`.sidebarre a`);
 
 let activePage = window.location.href; // Récupère, définit l'emplacement ou l'URL en cours de l'objet de fenêtre

@@ -8,7 +8,7 @@
 <div class="d-flex flex-column m-auto mt-5">
     <h2 class="text-center fw-bolder mb-5 text-danger">Liste films</h2>
     <a href="gestion.php" class="btn align-self-end">Ajouter film</a>
-    <table class="table table-dark table-bordered mt-5 ">
+    <table class="table table-dark table-bordered mt-5" style="box-shadow: -1px -1px 10px 0px #EFE8E8;">
         <thead>
             <tr class="fw-bolder fs-3">
                 <th class="text-center">ID</th>

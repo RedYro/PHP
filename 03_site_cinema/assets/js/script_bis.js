@@ -2,7 +2,6 @@
 
 let showPassword = document.querySelector(`#mdp`);
 let showPasswordConfirm = document.querySelector(`#confirmMdp`);
-
 function myFunction(){
     if(showPassword.type === `password` && showPasswordConfirm.type === `password`){
         showPassword.type = `text`;
@@ -28,8 +27,7 @@ function changeImg(){
 // header active class //
 
 let linksHeader = document.querySelectorAll(`.nav-item > a`);
-
-let activePageHeader = window.location.href; // Récupère, définit l'emplacement ou l'URL en cours de l'objet de fenêtre
+let activePageHeader = window.location.href;
 for (let i = 0; i < linksHeader.length; i++){
     if(activePageHeader.includes(linksHeader[i].href)){
         linksHeader[i].classList.add(`header-active`);

@@ -69,6 +69,55 @@
     } 
     // creationTableUsers();
 
+    //------ Fonctions vérification email dans DB ------//
+
+    function checkMailUsers(string $mail) :mixed{ // "mixed" => précise que le retour de la fonction peut être en boolean ou array  
+        $pdo = connectionDB();
+        $sql = "SELECT * FROM users WHERE email = :email";
+        $request = $pdo->prepare($sql);
+        $request->execute(array(
+            ':email' => $mail
+        ));
+        $result = $request->fetch();
+        return $result;
+    }
+
+    //------ Fonctions vérification pseudo dans DB ------//
+
+    function checkPseudoUsers(string $pseudo) :mixed{
+        $pdo = connectionDB();
+        $sql = "SELECT * FROM users WHERE pseudo = :pseudo";
+        $request = $pdo->prepare($sql);
+        $request->execute(array(
+            ':pseudo' => $pseudo
+        ));
+        $result = $request->fetch();
+        return $result;
+    }
+
+    //------ Fonctions inscription user ------//
+
+    function inscriptionUser(string $firstName, string $lastName, string $pseudo, string $password,  string $email, string $phone, string $civility, string $birthday, string $address, string $zip, string $city, string $country){
+        $pdo = connectionDB();
+        $sql = "INSERT INTO users (first_name, last_name, pseudo, email, password, phone, civility, birthday, address, zip, city, country) VALUES (:firstName, :lastName, :pseudo, :email, :password, :phone, :civility, :birthday, :address, :zip, :city, :country)";
+        $request = $pdo->prepare($sql);
+        $request->execute(array( 
+            ':firstName'=> $firstName,
+            ':lastName' => $lastName,
+            ':pseudo' => $pseudo,
+            ':email' => $email,
+            ':password' => $password,
+            ':phone'=> $phone,
+            ':civility' => $civility,
+            ':birthday' => $birthday,
+            ':address'=> $address,
+            ':zip' => $zip,
+            ':city' => $city,
+            ':country' => $country,
+        ));
+    }
+
+
     // table "films" //
     function createTableFilms(){
         $pdo = connectionDB();

@@ -21,7 +21,7 @@ for (let i = 0; i < linksHeader.length; i++){
 
 let showPassword = document.querySelector(`#mdp`);
 let showPasswordConfirm = document.querySelector(`#confirmMdp`);
-function myFunction(){
+function mdpInscription(){
     if(showPassword.type === `password` && showPasswordConfirm.type === `password`){
         showPassword.type = `text`;
         showPasswordConfirm.type = `text`;

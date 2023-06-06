@@ -27,7 +27,7 @@
                         <li class="nav-item"><a href="<?=RACINE_SITE?>index.php" class="nav-link">Accueil</a></li>
                         <li class="nav-item"><a href="<?=RACINE_SITE?>admin/dashboard.php?dashboard_php" class="nav-link">Back-office</a></li>
                         <li class="nav-item"><a href="<?=RACINE_SITE?>register.php" class="nav-link">Register</a></li>
-                        <!-- <li class="nav-item"><a href="" class="nav-link"></a></li> -->
+                        <li class="nav-item"><a href="<?=RACINE_SITE?>authentification.php" class="nav-link">Login</a></li>
                     </ul>
                 </div>
             </div>

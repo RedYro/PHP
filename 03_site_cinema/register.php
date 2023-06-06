@@ -148,7 +148,7 @@
                     <div class="col-md-6 mb-5">
                         <label for="confirmMdp" class="form-label mb-3">Confirmation mot de passe</label>
                         <input type="password" class="form-control fs-5 mb-3" id="confirmMdp" name="confirmMdp" placeholder="Confirmer votre mot de passe">
-                        <input type="checkbox" onclick="myFunction()"><span class="text-danger">Afficher / masquer le mot de passe</span>
+                        <input type="checkbox" onclick="mdpInscription()"><span class="text-danger">Afficher / masquer le mot de passe</span>
                     </div>
                </div>
                <div class="row mb-3">

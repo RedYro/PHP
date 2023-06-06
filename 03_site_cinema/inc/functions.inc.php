@@ -117,6 +117,11 @@
         ));
     }
 
+    //------ Fonctions check user ------//
+
+    function checkUser(string $email, string $pseudo) :mixed{
+
+    }
 
     // table "films" //
     function createTableFilms(){

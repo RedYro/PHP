@@ -1,5 +1,7 @@
 <!-- Fichier contenant les fonctions du site -->
 <?php
+    //------ Session Start ------//
+    session_start();
     //------ Fonction debug ------//
     function debug($var){
         echo "<pre class=\"border border-dark bg-light text-primary w-50 p-3\">";
@@ -95,6 +97,20 @@
         return $result;
     }
 
+     //------ Fonctions check user ------//
+
+     function checkUser(string $email, string $pseudo) :mixed{
+        $pdo = connectionDB();
+        $sql = "SELECT * FROM users WHERE pseudo = :pseudo AND email = :email";  ;
+        $request = $pdo->prepare($sql);
+        $request->execute(array(
+            ':pseudo' => $pseudo,
+            ':email' => $email
+        ));
+        $result = $request->fetch();
+        return $result;
+    }
+
     //------ Fonctions inscription user ------//
 
     function inscriptionUser(string $firstName, string $lastName, string $pseudo, string $password,  string $email, string $phone, string $civility, string $birthday, string $address, string $zip, string $city, string $country){
@@ -115,12 +131,6 @@
             ':city' => $city,
             ':country' => $country,
         ));
-    }
-
-    //------ Fonctions check user ------//
-
-    function checkUser(string $email, string $pseudo) :mixed{
-
     }
 
     // table "films" //

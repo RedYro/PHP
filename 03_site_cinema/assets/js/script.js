@@ -17,7 +17,7 @@ for (let i = 0; i < linksHeader.length; i++){
     }
 }
 
-// function show password //
+// function show password inscription //
 
 let showPassword = document.querySelector(`#mdp`);
 let showPasswordConfirm = document.querySelector(`#confirmMdp`);
@@ -28,6 +28,17 @@ function mdpInscription(){
     } else{
         showPassword.type = `password`;
         showPasswordConfirm.type = `password`;
+    }
+}
+
+// function show password log in //
+
+let showPasswordLog = document.querySelector(`#password`);
+function showPasswordLogIn(){
+    if(showPasswordLog.type === `password`){
+        showPasswordLog.type = `text`;
+    } else{
+        showPasswordLog.type = `password`;
     }
 }
 

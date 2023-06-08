@@ -109,7 +109,7 @@
     }
 
 ?>
-<main>
+<main style="background:url(<?=RACINE_SITE?>assets/img/LoL_Wild_Rift.jpg) no-repeat; background-size: cover; background-attachment: fixed;">
     <h2 class="text-center fw-bolder mb-5 text-danger"><?=(isset($film)) ? 'Modifier film' : 'Ajouter film'?></h2>
     <?php
         echo $info;

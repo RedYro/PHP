@@ -253,7 +253,7 @@
     }
 
     // Récupération d'un film //    
-    function showFilm(int $id) : array{
+    function showFilm(int $id) : mixed{
         $pdo = connectionDB();
         $sql = "SELECT * FROM films WHERE id_film = :id";
         $request = $pdo->prepare($sql);

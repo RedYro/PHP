@@ -258,9 +258,6 @@ h2{
      padding-bottom: .8rem;
      color: var(--gray);
 }
-img {
-     width: 100%;
-}
 
 a.btn, input.btnpanier{
      background-color: var(--red) !important;

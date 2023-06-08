@@ -1,5 +1,5 @@
 <?php
-    $title = "Authentication";
+    $title = "Authentification";
     require_once("inc/functions.inc.php");
     require_once("inc/header.inc.php");
 
@@ -17,7 +17,7 @@
         } else{
             $pseudo = trim($_POST['pseudo']);
             $email = trim($_POST['email']);
-            $password = trim($_POST['password']);
+            $mdp = trim($_POST['password']);
             // Vérification des données passées dans le formulaire dans la DB, récupération de celles-ci dans la DB si elles existent
             $user = checkUser($email, $pseudo);
             // Je vérifie si le mot de passe est bon
@@ -69,10 +69,9 @@
                     </div>
                     <div class="col-12 mb-5">
                         <label for="password" class="form-label mb-3">Mot de passe</label>
-                        <input type="password" class="form-control fs-5 mb-3" id="password" name="password" >
+                        <input type="password" class="form-control fs-5 mb-3" id="password" name="mdp" >
                         <input type="checkbox" onclick="showPasswordLogIn()"> <span class="text-danger">Afficher / masquer le mot de passe</span>
                     </div>
-                  
                         <button class="w-25 m-auto btn btn-danger btn-lg fs-5" type="submit">Se connecter</button>
                         <p class="mt-5 text-center">Vous n'avez pas encore de compte ! <a href="register.php" class=" text-danger">créer un compte ici</a></p>
                 </div>

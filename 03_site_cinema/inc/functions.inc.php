@@ -133,6 +133,9 @@
         ));
     }
 
+    //------ Fonctions logout user ------//
+
+
     // table "films" //
     function createTableFilms(){
         $pdo = connectionDB();

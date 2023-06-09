@@ -7,6 +7,9 @@
         header('location:'.RACINE_SITE.'authentification.php');
         // exit;
     }
+    if($_SESSION['user']['role'] == 'ROLE_USER'){
+        header('location:'.RACINE_SITE.'profil.php');
+    }
 ?>
 <main style="background:url(<?=RACINE_SITE?>assets/img/LoL_Wild_Rift.jpg) no-repeat; background-size: cover; background-attachment: fixed;">
     <div class="row">

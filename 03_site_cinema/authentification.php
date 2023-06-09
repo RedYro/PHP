@@ -48,7 +48,7 @@
                     header('location:profil.php');
                 } else{
                     $info = alert("Les identifiants sont incorrects", "danger");
-                    debug($user);
+                    // debug($user);
                 }
             } else{
                 $info = alert("Les identifiants sont incorrects", "danger");

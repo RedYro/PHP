@@ -6,6 +6,9 @@
         header('location:'.RACINE_SITE.'authentification.php');
         // exit;
     }
+    if($_SESSION['user']['role'] == 'ROLE_USER'){
+        header('location:'.RACINE_SITE.'profil.php');
+    }
 
         if(isset($_GET['action']) && isset($_GET['id_category'])){
             // Suppression catégories // 

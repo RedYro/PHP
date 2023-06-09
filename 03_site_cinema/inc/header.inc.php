@@ -33,7 +33,13 @@
                         <?php
                             } else{
                         ?>
+                        <?php
+                            if($_SESSION['user']['role'] == 'ROLE_ADMIN'){
+                        ?>
                         <li class="nav-item"><a href="<?=RACINE_SITE?>admin/dashboard.php?dashboard_php" class="nav-link">Back-office</a></li>
+                        <?php
+                            }
+                        ?>
                         <li class="nav-item"><a href="<?=RACINE_SITE?>profil.php" class="nav-link">Profil <sup class="badge rounded-pill text-bg-primary ms-2 fs-6"><?= $_SESSION['user']['pseudo']?></sup> </a></li>
                         <li class="nav-item"><a href="<?=RACINE_SITE?>authentification.php?action=deconnexion" class="nav-link">Logout</a></li>
                         <?php

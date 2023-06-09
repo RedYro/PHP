@@ -76,7 +76,7 @@
     // table "users" // 
     function creationTableUsers(){
         $pdo = connectionDB();
-        $sql = "CREATE TABLE IF NOT EXISTS users (id_user INT PRIMARY KEY AUTO_INCREMENT, first_name VARCHAR(30) NOT NULL, last_name VARCHAR(30) NOT NULL, pseudo VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, password VARCHAR(255) NOT NULL, phone VARCHAR(30) NOT NULL, civility ENUM('f','m')NOT NULL, birthday DATE NOT NULL, address VARCHAR(50) NOT NULL, zip VARCHAR(50) NOT NULL, city VARCHAR(50) NOT NULL, country VARCHAR(50) NOT NULL)";
+        $sql = "CREATE TABLE IF NOT EXISTS users (id_user INT PRIMARY KEY AUTO_INCREMENT, first_name VARCHAR(30) NOT NULL, last_name VARCHAR(30) NOT NULL, pseudo VARCHAR(50) NOT NULL, email VARCHAR(100) NOT NULL, password VARCHAR(255) NOT NULL, phone VARCHAR(30) NOT NULL, civility ENUM('f','m')NOT NULL, birthday DATE NOT NULL, address VARCHAR(50) NOT NULL, zip VARCHAR(50) NOT NULL, city VARCHAR(50) NOT NULL, country VARCHAR(50) NOT NULL) role ENUM('ROLE_USER','ROLE_ADMIN') DEFAULT 'ROLE_USER'";
         $request = $pdo->exec($sql);
     } 
     // creationTableUsers();
@@ -121,9 +121,19 @@
         return $result;
     }
 
+    //------ Fonctions show users ------//
+
+    function allUsers(): array {
+        $pdo = connectionDB();
+        $sql = "SELECT * FROM users";
+        $request = $pdo->query($sql);
+        $result = $request->fetchAll();// j'utilise le fetchAll pour récuperer tout les ligne à la fois
+        return $result; 
+    }
+
     //------ Fonctions inscription user ------//
 
-    function inscriptionUser(string $firstName, string $lastName, string $pseudo, string $password,  string $email, string $phone, string $civility, string $birthday, string $address, string $zip, string $city, string $country){
+    function inscriptionUser(string $firstName, string $lastName, string $pseudo, string $password,  string $email, string $phone, string $civility, string $birthday, string $address, string $zip, string $city, string $country) :void{
         $pdo = connectionDB();
         $sql = "INSERT INTO users (first_name, last_name, pseudo, email, password, phone, civility, birthday, address, zip, city, country) VALUES (:firstName, :lastName, :pseudo, :email, :password, :phone, :civility, :birthday, :address, :zip, :city, :country)";
         $request = $pdo->prepare($sql);
@@ -143,7 +153,13 @@
         ));
     }
 
-    //------ Fonctions logout user ------//
+    //------ Fonctions update role user ------//
+    function roleUser() :void{
+        $pdo = connectionDB();
+        $sql = "UPDATE users SET role = 'ROLE_ADMIN' WHERE role = 'ROLE_ADMIN'";
+        $request = $pdo->prepare($sql);
+        $request->execute();
+    }
 
 
     // table "films" //

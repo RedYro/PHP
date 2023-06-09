@@ -32,7 +32,7 @@
                     */
                     // Création ou ouverture d'une session :
                     // Une variable de session est une variable superglobale du nom de $_SESSION, c'est un tableau associatif
-                    session_start(); // Permet de démarrer une nouvelle session ou en reprendre une existante, on utilise une session quand cette fonction est exécutée, le serveur vérifie si la session qui a le même id envoyé existe
+                    // session_start(); // Permet de démarrer une nouvelle session ou en reprendre une existante, on utilise une session quand cette fonction est exécutée, le serveur vérifie si la session qui a le même id envoyé existe
                     // Stockage des données dans cette session
                     $_SESSION['user'] = $user;
                     // debug($user);

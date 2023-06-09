@@ -2,6 +2,10 @@
     $title = "Categories";
     require_once("../inc/functions.inc.php");
     require_once("../inc/header.inc.php");
+    if(empty($_SESSION['user'])){
+        header('location:'.RACINE_SITE.'authentification.php');
+        // exit;
+    }
 
         if(isset($_GET['action']) && isset($_GET['id_category'])){
             // Suppression catégories // 

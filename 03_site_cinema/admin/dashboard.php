@@ -4,8 +4,8 @@
     require_once("../inc/header.inc.php");
 
     if(empty($_SESSION['user'])){
-        header('location:'.RACINE_SITE.'index.php');
-        exit;
+        header('location:'.RACINE_SITE.'authentification.php');
+        // exit;
     }
 ?>
 <main style="background:url(<?=RACINE_SITE?>assets/img/LoL_Wild_Rift.jpg) no-repeat; background-size: cover; background-attachment: fixed;">

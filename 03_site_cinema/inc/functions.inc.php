@@ -21,6 +21,16 @@
     }
 
     //------ Fonction "alert" ------//
+    function logoutUser(){
+        if(isset($_GET['action']) && !empty($_GET['action']) && $_GET['action'] == 'deconnexion'){
+            unset($_SESSION['user']); // Suppression de l'indice "user" de la session pour se déconnecter, cette fonction détruit les variables stockées comme 'fisrt_name' par exemple.
+            // or
+            // session_destroy(); // Supprime toutes les données de la session déjà établie, cette fonction détruit la session sur le serveur
+        }
+    }
+    logoutUser();
+
+    //------ Fonction "alert" ------//
     function alert(string $contenu, string $class){
         return "<div class=\"alert alert-$class alert-dismissible fade show text-center w-50 m-auto mb-5\" role=\"alert\">$contenu<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>";
     }

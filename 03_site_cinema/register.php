@@ -3,6 +3,11 @@
     require_once("inc/functions.inc.php");
     require_once("inc/header.inc.php");
 
+    // Si utilisateur log , pas d'accès à la page register
+    if(!empty($_SESSION['user'])){
+        header('location:profil.php');
+    }
+
     $info = ""; // Variable qui recevra les messages d'alerte, déclaration dans le script en général avec une valeur vide pour ne pas engendrer d'erreur sur la page 
     $year = ((int) date('Y')) - 12; // 2023 - 12 = 2011
     $month = date('m'); 

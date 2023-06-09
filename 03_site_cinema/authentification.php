@@ -3,6 +3,11 @@
     require_once("inc/functions.inc.php");
     require_once("inc/header.inc.php");
 
+    
+    if(!empty($_SESSION['user'])){
+        header('location:profil.php');
+    }
+
     $info = "";
 
     if(!empty($_POST)){

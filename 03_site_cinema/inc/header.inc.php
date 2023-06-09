@@ -25,7 +25,6 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav w-100 d-flex justify-content-end">
                         <li class="nav-item"><a href="<?=RACINE_SITE?>index.php" class="nav-link">Accueil</a></li>
-                        <li class="nav-item"><a href="<?=RACINE_SITE?>admin/dashboard.php?dashboard_php" class="nav-link">Back-office</a></li>
                         <?php
                             if(empty($_SESSION['user'])){
                         ?>
@@ -34,6 +33,7 @@
                         <?php
                             } else{
                         ?>
+                        <li class="nav-item"><a href="<?=RACINE_SITE?>admin/dashboard.php?dashboard_php" class="nav-link">Back-office</a></li>
                         <li class="nav-item"><a href="<?=RACINE_SITE?>profil.php" class="nav-link">Profil <sup class="badge rounded-pill text-bg-primary ms-2 fs-6"><?= $_SESSION['user']['pseudo']?></sup> </a></li>
                         <li class="nav-item"><a href="<?=RACINE_SITE?>index.php?action=deconnexion" class="nav-link">Logout</a></li>
                         <?php

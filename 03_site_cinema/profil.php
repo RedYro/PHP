@@ -16,7 +16,7 @@
 <main style="background:url(<?=RACINE_SITE?>assets/img/Ahri-ASU-Fox-Fire-Ahri.jpg) no-repeat; background-size: cover; background-attachment: fixed;">
     <div class="row">
         <div class="m-auto">
-            <h2 class="text-center text-primary">Bonjour <?= $_SESSION['user']['pseudo']?></h2>
+            <h2 class="text-center text-primary">Bonjour <?=$_SESSION['user']['pseudo']?></h2>
         </div>
     </div>
 </main>

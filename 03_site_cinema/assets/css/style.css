@@ -141,7 +141,7 @@ footer{
 }
 
 
-:root{
+/* :root{
      --red: #B42B51;
      --gray: #191A19;
      --gray-2: #353535;
@@ -151,7 +151,7 @@ footer{
      --box-shadow-light:  -1px 1px 10px 0px #EFE8E8;;
      font-size: 62.5%;
    
-}
+} */
 
 *{
      margin: 0; 

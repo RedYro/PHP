@@ -69,7 +69,7 @@
                 */
                 $info .= alert("Veuillez vérifier le numéro de téléphone", "danger");
             }
-            if(!isset($civility) || ($civility != 'f' && $civility != 'h')){
+            if(!isset($civility) || ($civility != 'f' && $civility != 'm')){
                 $info .= alert("Veuillez vérifier la civilité", "danger");
             }
             if(!isset($address) || strlen($address) < 5 || strlen($address) > 50){
@@ -160,7 +160,7 @@
                     <div class="col-md-6 mb-5">
                         <label class="form-label mb-3">Civilité</label>     
                         <select class="form-select fs-5" name="civility">
-                            <option value="h">Homme</option>
+                            <option value="m">Homme</option>
                             <option value="f">Femme</option>
                         </select>
                     </div>

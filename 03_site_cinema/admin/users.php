@@ -49,7 +49,7 @@
                     <th class="text-center">Code postal</th>
                     <th class="text-center">Ville</th>
                     <th class="text-center">Rôle</th>
-                    <th class="text-center">Modifier</th>
+                    <th class="text-center">Modifier rôle</th>
                     <th class="text-center">Supprimer</th>
                 </tr>
             </thead>
@@ -70,7 +70,7 @@
                     <td><?=$user['zip']?></td>
                     <td><?=$user['city']?></td>
                     <td><?=$user['role']?></td>
-                    <td class="text-center"><a href="users.php?action=update&id_user=<?=$user['id_user']?>" class="btn btn-danger"><?=$user['role'] == 'ROLE_ADMIN' ?'ROLE_USER' : 'ROLE-ADMIN'?></a></td>
+                    <td class="text-center"><a href="users.php?action=update&id_user=<?=$user['id_user']?>" class="btn btn-danger"><?=$user['role'] == 'ROLE_ADMIN' ?'ROLE_USER' : 'ROLE_ADMIN'?></a></td>
                     <td class="text-center"><a href="users.php?action=delete&id_user=<?=$user['id_user']?>"><i class="bi bi-trash3-fill"></i></a></td>
                 </tr>
                 <?php

@@ -1,7 +1,7 @@
 <!-- fichier contenant le header des différentes pages de notre site -->
 <?php
     require_once "functions.inc.php";
-    $categories = allCategories();
+    $allCategories = allCategories();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -35,12 +35,12 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-light w-100">
                                 <?php
-                                    foreach($categories as $key => $category){
+                                    foreach($allCategories as $key => $categoryValue){
                                 ?>
                                 <!-- Method 1 -->
-                                <li><a class="dropdown-item text-dark fs-4" href="index.php?category=<?=$category['id_category']?>"><?=$category['name']?></a></li>
+                                <!-- <li><a class="dropdown-item text-dark fs-4" href="index.php?category=<?//=$category['id_category']?>"><?//=$category['name']?></a></li> -->
                                 <!-- Method 2 -->
-                                <!-- <li><a class="dropdown-item text-dark fs-4" href="<//?=RACINE_SITE?>index.php?category=<//?=$category['name']?>"><//?=$category['name']?></a></li> -->
+                                <li><a class="dropdown-item text-dark fs-4" href="<?=RACINE_SITE?>index.php?category=<?=$categoryValue['name']?>"><?=$categoryValue['name']?></a></li>
                                 <?php        
                                     }
                                 ?>

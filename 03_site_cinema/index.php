@@ -5,21 +5,20 @@
 
     // Method 1 //  
 
-    // if(isset($_GET) && !empty($_GET)){ // Si il y a des données dans l'url 
-    //     // Récupération des films selon leur catégorie passée en argument dans la fonction 
-    //     $showFilm = filmByCategoryName($_GET['category']);
-    // } else{
-    //     $showFilm = allFilm();
-    // }
-
-    // Method 2 //  
-
     if(isset($_GET) && !empty($_GET)){ // Si il y a des données dans l'url 
         // Récupération des films selon leur catégorie passée en argument dans la fonction 
-        $showFilm = filmByCategoryId($_GET['category']);
+        $showFilm = filmByCategoryName($_GET['category']);
     } else{
         $showFilm = allFilm();
     }
+
+    // Method 2 //  
+
+    // if(isset($_GET) && !empty($_GET)){ // Si il y a des données dans l'url 
+    //     $showFilm = filmByCategoryId($_GET['category']);
+    // } else{
+    //     $showFilm = allFilm();
+    // }
 
     $info = "";
 ?>

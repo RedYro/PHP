@@ -1,7 +1,6 @@
 <?php
     $title = "Gestion / Film";
     require_once("../inc/functions.inc.php");
-    require_once("../inc/header.inc.php");
     if(empty($_SESSION['user'])){
         header('location:'.RACINE_SITE.'authentification.php');
         // exit;
@@ -15,12 +14,13 @@
         if(!empty($_GET['action']) && $_GET['action'] == 'delete' && !empty($_GET['id_film'])){
             $idFilm = htmlentities($_GET['id_film']);
             deleteFilm($idFilm);
-            header("location:dashboard.php?film_php");
+            header("location:dashboard.php?films_php");
         } else if(!empty($_GET['action']) && $_GET['action'] == 'update' && !empty($_GET['id_film'])){
         // Update catégories //
             $idFilm = htmlentities($_GET['id_film']);
             $film= showFilm($idFilm);
             // debug($film);
+            // header("location:dashboard.php?films_php");
         } else{
             header("location:dashboard.php?films_php");
         }
@@ -110,11 +110,11 @@
                     $result = addFilm($titleFilm,$director,$actors,$ageLimit,$category_id,$duration,$dateSortie,$synopsis,$image,$price,$stock);// j'insére mon film avec la fonction addFilm() créée dans le fichier fonctions.php  
                     header("location:dashboard.php?films_php");
                 }
-                header("location:dashboard.php?films_php");
+                // header("location:dashboard.php?films_php");
             }
         }
     }
-
+    require_once("../inc/header.inc.php");
 ?>
 <main style="background:url(<?=RACINE_SITE?>assets/img/LoL_Wild_Rift.jpg) no-repeat; background-size: cover; background-attachment: fixed;">
     <h2 class="text-center fw-bolder mb-5 text-danger"><?=(isset($film)) ? 'Modifier film' : 'Ajouter film'?></h2>
@@ -203,11 +203,7 @@
             <button type="submit" class="btn btn-danger p-3 w-25">Ajouter Film</button>
         </div>
     </form>
-    <?php
-        // debug($_POST);
-        // debug($_FILES);
-    ?>
 </main>
 <?php
-    require_once("inc/footer.inc.php");
+    require_once("../inc/footer.inc.php");
 ?>

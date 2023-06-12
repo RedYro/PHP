@@ -273,6 +273,30 @@
         return $result;
     }
 
+    //------ Fonctions récupération films ayant la même catégorie prime ------//
+    function filmByCategoryName(string $name) :array{
+        $pdo = connectionDB();
+        $sql = "SELECT * FROM films WHERE category_id = (SELECT id_category FROM categories WHERE name = :name)";
+        $request = $pdo->prepare($sql);
+        $request->execute(array(
+            ':name' => $name
+        ));
+        $result = $request->fetchAll();
+        return $result;
+    }
+
+    //------ Fonctions récupération films ayant la même catégorie bis ------//
+    function filmByCategoryId(int $category) :array{
+        $pdo = connectionDB();
+        $sql = "SELECT * FROM films WHERE category_id = (SELECT id_category FROM categories WHERE id_category = :id_category)";
+        $request = $pdo->prepare($sql);
+        $request->execute(array(
+            ':id_category' => $category
+        ));
+        $result = $request->fetchAll();
+        return $result;
+    }
+
     //------ Fonctions insertion film ------//
     function addFilm(string $title, string $director, string $actors, string $ageLimit, int $category_id, string $duration, string $date, string $synopsis, string $image, float $price, int $stock) : void{
         $pdo = connectionDB();  

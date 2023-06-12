@@ -27,7 +27,7 @@
                <div class="cardDetails row mt-5">
                     <h2 class="text-center mb-5"><?=ucfirst($film['title'])?></h2>
                     <div class="col-12 col-xl-5 row p-5">
-                         <img src="<?=RACINE_SITE."assets/". $film['image']?>" alt="Affiche film">
+                         <img src="<?=RACINE_SITE."assets/". $film['image']?>" alt="Affiche film" class="img-fluid">
                          <!-- formulaire d'ajout au panier -->
                          <div class="col-12 mt-5">
                               <form action="boutique/panier.php" method="post"  enctype="multipart/form-data"  class="w-50 m-auto row justify-content-center p-5">

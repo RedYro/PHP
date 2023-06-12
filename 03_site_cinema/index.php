@@ -3,13 +3,34 @@
     require_once("inc/functions.inc.php");
     require_once("inc/header.inc.php");
 
-    $showFilm = allFilm();
+    // Method 1 //  
+
+    // if(isset($_GET) && !empty($_GET)){ // Si il y a des données dans l'url 
+    //     // Récupération des films selon leur catégorie passée en argument dans la fonction 
+    //     $showFilm = filmByCategoryName($_GET['category']);
+    // } else{
+    //     $showFilm = allFilm();
+    // }
+
+    // Method 2 //  
+
+    if(isset($_GET) && !empty($_GET)){ // Si il y a des données dans l'url 
+        // Récupération des films selon leur catégorie passée en argument dans la fonction 
+        $showFilm = filmByCategoryId($_GET['category']);
+    } else{
+        $showFilm = allFilm();
+    }
+
+    $info = "";
 ?>
 <main style="background:url(<?=RACINE_SITE?>assets/img/Ahri_Arcana.jpg) no-repeat; background-size: cover; background-attachment: fixed;">
 <div class="films">
             <h2 class="fw-bolder fs-1 my-5 mx-5"><span class="nbreFilms bg-dark p-4" style="border-radius: 10px;"><?=count($showFilm)?> Films à l'affiche</span></h2> <!-- Compte du nombre de résultat dans le tableau-->
             <div class="row">
             <?php
+                if(count($showFilm) == 0){
+                    echo $info = alert("Aucun film répertorié dans cette catégorie", "danger");
+                }
                 foreach($showFilm as $index => $film){      
             ?>
                 <div class="col-sm-12 col-md-6 col-lg-4 col-xxl-3">

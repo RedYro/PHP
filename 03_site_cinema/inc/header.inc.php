@@ -1,4 +1,8 @@
 <!-- fichier contenant le header des différentes pages de notre site -->
+<?php
+    require_once "functions.inc.php";
+    $categories = allCategories();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -25,6 +29,23 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav w-100 d-flex justify-content-end">
                         <li class="nav-item"><a href="<?=RACINE_SITE?>index.php" class="nav-link">Accueil</a></li>
+                        <li class="dropdown nav-item">
+                            <button class="btn btn-danger h-100 fs-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Choisir catégorie
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-light w-100">
+                                <?php
+                                    foreach($categories as $key => $category){
+                                ?>
+                                <!-- Method 1 -->
+                                <li><a class="dropdown-item text-dark fs-4" href="index.php?category=<?=$category['id_category']?>"><?=$category['name']?></a></li>
+                                <!-- Method 2 -->
+                                <!-- <li><a class="dropdown-item text-dark fs-4" href="<//?=RACINE_SITE?>index.php?category=<//?=$category['name']?>"><//?=$category['name']?></a></li> -->
+                                <?php        
+                                    }
+                                ?>
+                            </ul>
+                        </li>
                         <?php
                             if(empty($_SESSION['user'])){
                         ?>

@@ -7,7 +7,25 @@
         // exit;
     }
     if($_SESSION['user']['role'] == 'ROLE_USER'){
-        header('location:'.RACINE_SITE.'profil.php');
+        header('location:profil.php');
+    }
+    if(isset($_GET['action']) && isset($_GET['id_user'])){
+        if(!empty($_GET['action']) && $_GET['action'] == 'delete' && !empty($_GET['id_user'])){
+            $idUser = htmlentities($_GET['id_user']);
+            deleteUser($idUser);
+            header('location:dashboard.php?users_php');
+        }
+        if(!empty($_GET['action']) && $_GET['action'] == 'update' && !empty($_GET['id_user'])){
+            $userRole = showUser($_GET['id_user']);
+            if($userRole['role'] == 'ROLE_ADMIN'){
+                updateRole('ROLE_USER', $userRole['id_user']);
+                header('location:dashboard.php?users_php');
+            }
+            if($userRole['role'] == 'ROLE_USER'){
+                updateRole('ROLE_ADMIN', $userRole['id_user']);
+                header('location:dashboard.php?users_php');
+            }
+        }
     }
 
     $users = allUsers();
@@ -52,12 +70,11 @@
                     <td><?=$user['zip']?></td>
                     <td><?=$user['city']?></td>
                     <td><?=$user['role']?></td>
-                    <td class="text-center"><a href="users.php?action=update&id_user=<?=$user['id_user']?>" class="text-danger" style="text-decoration:none;"><?=$user['role']?></a></td>
+                    <td class="text-center"><a href="users.php?action=update&id_user=<?=$user['id_user']?>" class="btn btn-danger"><?=$user['role'] == 'ROLE_ADMIN' ?'ROLE_USER' : 'ROLE-ADMIN'?></a></td>
                     <td class="text-center"><a href="users.php?action=delete&id_user=<?=$user['id_user']?>"><i class="bi bi-trash3-fill"></i></a></td>
                 </tr>
                 <?php
                     }
-                    debug($_GET);
                 ?>
             </tbody>
         </table>

@@ -153,14 +153,38 @@
         ));
     }
 
-    //------ Fonctions update role user ------//
-    function roleUser() :void{
+    //------ Fonctions delete user ------//
+    function deleteUser(int $id) :void{
         $pdo = connectionDB();
-        $sql = "UPDATE users SET role = 'ROLE_ADMIN' WHERE role = 'ROLE_ADMIN'";
+        $sql = "DELETE FROM users WHERE id_user = :id_user";
         $request = $pdo->prepare($sql);
-        $request->execute();
+        $request->execute(array(
+            ':id_user' => $id
+        ));
     }
 
+    //------ Fonctions show user ------//
+    function showUser(int $id) :mixed{
+        $pdo = connectionDB();
+        $sql = "SELECT * FROM users WHERE id_user = :id_user";
+        $request = $pdo->prepare($sql);
+        $request->execute(array(
+            ':id_user' => $id
+        ));
+        $result = $request->fetch();
+        return $result;
+    }
+
+    //------ Fonctions update role user ------//
+    function updateRole(string $role, int $id) :void{
+        $pdo = connectionDB();
+        $sql = "UPDATE users SET role = :role WHERE id_user = :id_user";
+        $request = $pdo->prepare($sql);
+        $request->execute(array(
+            ':role' => $role,
+            ':id_user' => $id
+        ));
+    }
 
     // table "films" //
     function createTableFilms(){

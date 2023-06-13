@@ -130,7 +130,7 @@
                 <!-- "name" => lien avec DB (PHP) -->
             </div>
             <div class="col-md-6 mb-5">
-                <label for="iamge">Photo</label>
+                <label for="image">Photo</label>
                 <input type="file" name="image" id="image" value="<?=RACINE_SITE."assets/".$film['image'] ?? '';?>">
                 <!-- "type=file" ne pas oublier attribut enctype="multipart/form-data" dans la balise form -->
             </div>

@@ -1,7 +1,7 @@
 <?php
     $title = "Authentification";
     require_once("inc/functions.inc.php");
-    require_once("inc/header.inc.php");
+    // require_once("inc/header.inc.php");
 
     
     if(!empty($_SESSION['user'])){
@@ -22,7 +22,7 @@
         } else{
             $pseudo = trim($_POST['pseudo']);
             $email = trim($_POST['email']);
-            $mdp = trim($_POST['password']);
+            $password = trim($_POST['password']);
             // Vérification des données passées dans le formulaire dans la DB, récupération de celles-ci dans la DB si elles existent
             $user = checkUser($email, $pseudo);
             // Je vérifie si le mot de passe est bon
@@ -55,6 +55,7 @@
             }
         }
     }
+    require_once("inc/header.inc.php");
 ?>
 <main class="authentification" style="background:url(assets/img/Kai_Sa_Runeterra_Prime.jpg) no-repeat; background-size: cover; background-attachment: fixed;"> 
     <div class="w-50 m-auto p-5 mt-5" style="background: rgba(20, 20, 20, 0.9);">

@@ -105,10 +105,10 @@
                 if(isset($_GET['action']) && $_GET['action']=='update' && isset($_GET['id_film']) && !empty($_GET['id_film'])){ // je vérifie l'action dans l'url et l'id 
                     $idFilm = htmlentities($film['id_film']);
                     $result = updateFilm($idFilm,$titleFilm,$director,$actors,$ageLimit,$category_id,$duration,$dateSortie,$synopsis,$image,$price,$stock);   // j'effectue la modification avec la fonction updateFilm() créé dans le fichier des fonctions
-                    header("location:dashboard.php?films_php");
+                    // header("location:dashboard.php?films_php");
                 }else{
                     $result = addFilm($titleFilm,$director,$actors,$ageLimit,$category_id,$duration,$dateSortie,$synopsis,$image,$price,$stock);// j'insére mon film avec la fonction addFilm() créée dans le fichier fonctions.php  
-                    header("location:dashboard.php?films_php");
+                    // header("location:dashboard.php?films_php");
                 }
                 // header("location:dashboard.php?films_php");
             }

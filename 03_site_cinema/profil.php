@@ -16,7 +16,7 @@
 <main class="profil">
     <div class="row">
         <div class="m-auto">
-            <h2 class="text-center text-primary">Bonjour <?=$_SESSION['user']['pseudo']?></h2>
+            <h2 class="profil-name text-center text-secondary" style="background: rgba(20, 20, 20, 0.7); border-radius: 5px;">Bonjour <?=$_SESSION['user']['pseudo']?></h2>
         </div>
     </div>
 </main>

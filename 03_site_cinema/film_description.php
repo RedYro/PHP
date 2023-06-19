@@ -38,7 +38,7 @@
                                    <input type="hidden" name="stock" value="<?= $film['stock'] ?>">
                                    <input type="hidden" name="image" value="<?= $film['image'] ?>">
                                    <select name="quantity" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                        <option selected>Choisir une quantité</option>
+                                        <!-- <option selected>Choisir une quantité</option> -->
                                         <!-- Je créé dynamiquement la quantité sélectionnable dans la limite du stock -->
      
                                         <?php for ($i = 1; $i <= $film["stock"]; $i++) { ?>

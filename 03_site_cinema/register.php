@@ -114,8 +114,8 @@
         }
     }
 ?>
-<main style="background:url(assets/img/Ahri-ASU-Fox-Fire-Ahri.jpg) no-repeat; background-size: cover; background-attachment: fixed;"> 
-    <div class="w-75 m-auto p-5" style="background: rgba(20, 20, 20, 0.9);">
+<main style="background:url(assets/img/Ahri_Runeterra.jpg) no-repeat; background-size: cover; background-attachment: fixed;"> 
+    <div class="w-75 m-auto p-5" style="background: rgba(20, 20, 20, 0.7);">
         <h2 class="text-center mb-5 p-3">Créer un compte</h2>
         <?php
             echo  $info; // pour afficher les messages

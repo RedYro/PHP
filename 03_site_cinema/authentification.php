@@ -58,7 +58,7 @@
     require_once("inc/header.inc.php");
 ?>
 <main class="authentification" style="background:url(assets/img/Kai_Sa_Runeterra_Prime.jpg) no-repeat; background-size: cover; background-attachment: fixed;"> 
-    <div class="w-50 m-auto p-5 mt-5" style="background: rgba(20, 20, 20, 0.9);">
+    <div class="w-50 m-auto p-5 mt-5" style="background: rgba(20, 20, 20, 0.7);">
         <h2 class="text-center mb-5 p-3">Connexion</h2>
         <?php
             echo($info);   // pour afficher les messages de vérification

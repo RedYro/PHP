@@ -58,10 +58,10 @@ function changeImg(){
 
 let profilName  = document.querySelector(`.badge`);
 if(profilName.innerText == `RedYro` || profilName.innerText == `RedLya`){
-    profilName.classList.remove(`bg-primary`);
+    profilName.classList.remove(`bg-secondary`);
     profilName.classList.add(`bg-danger`);
 } else if(profilName.innerText == `BlueHada` || profilName.innerText == `BlueYato`){
-    profilName.classList.remove(`bg-danger`);
+    profilName.classList.remove(`bg-secondary`);
     profilName.classList.add(`bg-primary`);
 } else{
     profilName.classList.add(`bg-secondary`);
@@ -84,4 +84,21 @@ if(profilName.innerText == `RedYro`){
 } else{
     profilMain.classList.remove(`profil`);
     profilMain.classList.add(`profil-main-second`);
+}
+
+let profilPseudo = document.querySelector(`.profil-name`);
+if(profilName.innerText == `RedYro`){
+    profilPseudo.classList.remove(`text-secondary`);
+    profilPseudo.classList.add(`text-danger`);
+} else if(profilName.innerText == `RedLya`){
+    profilPseudo.classList.remove(`text-secondary`);
+    profilPseudo.classList.add(`text-danger`);
+} else if(profilName.innerText == `BlueHada`){
+    profilPseudo.classList.remove(`text-secondary`);
+    profilPseudo.classList.add(`text-primary`)
+} else if(profilName.innerText == `BlueYato`){
+    profilPseudo.classList.remove(`text-secondary`);
+    profilPseudo.classList.add(`text-primary`)
+} else{
+    profilPseudo.classList.add(`text-secondary`);
 }

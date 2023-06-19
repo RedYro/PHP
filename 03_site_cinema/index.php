@@ -47,7 +47,7 @@
                 <?php
                     }
                 ?>
-                </div>
+        </div>
             <h2 class="fw-bolder fs-1 my-5 mx-5"><span class="nbreFilms bg-dark p-4" style="border-radius: 10px;"><?=count($showFilm)?> Films à l'affiche</span></h2> <!-- Compte du nombre de résultat dans le tableau-->
             <div class="row">
             <?php

@@ -66,20 +66,22 @@ if(profilName.innerText == `RedYro` || profilName.innerText == `RedLya`){
 } else{
     profilName.classList.add(`bg-secondary`);
 }
+// Background profil //
 
-let profilMain = document.querySelector(`.profil-main`);
+let profilMain = document.querySelector(`.profil`);
 if(profilName.innerText == `RedYro`){
-    profilMain.classList.remove(`profil-main`);
+    profilMain.classList.remove(`profil`);
     profilMain.classList.add(`profil-main-ter`);
 } else if(profilName.innerText == `RedLya`){
+    profilMain.classList.remove(`profil`);
     profilMain.classList.add(`profil-main`);
 } else if(profilName.innerText == `BlueHada`){
-    profilMain.classList.remove(`profil-main`);
+    profilMain.classList.remove(`profil`);
     profilMain.classList.add(`profil-main-bis`);
 } else if(profilName.innerText == `BlueYato`){
-    profilMain.classList.remove(`profil-main`);
+    profilMain.classList.remove(`profil`);
     profilMain.classList.add(`profil-main-4`);
 } else{
-    profilMain.classList.remove(`profil-main`);
+    profilMain.classList.remove(`profil`);
     profilMain.classList.add(`profil-main-second`);
 }

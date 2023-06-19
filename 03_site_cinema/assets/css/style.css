@@ -302,3 +302,9 @@ th{
     background-size: cover; 
     background-attachment: fixed;
 }
+
+.basket-main{
+    background:url(../img/ahri_Popstar.jpg) no-repeat; 
+    background-size: cover; 
+    background-attachment: fixed;
+}

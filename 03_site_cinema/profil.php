@@ -13,7 +13,7 @@
         header('location:authentification.php');
     }
 ?>
-<main class="profil-main">
+<main class="profil">
     <div class="row">
         <div class="m-auto">
             <h2 class="text-center text-primary">Bonjour <?=$_SESSION['user']['pseudo']?></h2>

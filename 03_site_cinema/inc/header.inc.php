@@ -66,6 +66,9 @@
                         <?php
                             }
                         ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?=RACINE_SITE?>boutique/panier.php"><i class="bi bi-basket3-fill text-light"></i></a>
+                        </li>
                     </ul>
                 </div>
             </div>

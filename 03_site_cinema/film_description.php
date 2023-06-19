@@ -47,7 +47,7 @@
                                    </select>
                                    <!-- <a href="boutique/panier.php?id_film=<?//=$film["id_film"] ?>" class="btn w-100 m-auto">Ajouter au Panier</a>  -->
                                    <input class="btn btn-outline-danger mt-3 w-100" type="submit" value="Ajouter au panier" name="ajout_panier" id="addCart">
-                                   <!-- au moment du click j'initalise une session de panier qui sera récupérer dans le fichier panier.php -->
+                              </form>     <!-- au moment du click j'initalise une session de panier qui sera récupérer dans le fichier panier.php -->
                          </div>
                     </div>
                     <div class="detailsContent  col-md-7 p-5">

@@ -25,6 +25,9 @@
 ?>
 <main style="background:url(<?=RACINE_SITE?>assets/img/Ahri_Arcana.jpg) no-repeat; background-size: cover; background-attachment: fixed;">
 <div class="films">
+    <?php
+        if(empty($_GET)){ 
+    ?>
     <h2 class="fw-bolder fs-1 my-5 mx-5"><span class="nbreFilms bg-dark p-4" style="border-radius: 10px;">Films les plus récents</span></h2>
     <div class="row">
         <?php
@@ -45,6 +48,7 @@
                 </div>
             </div>
                 <?php
+                        }
                     }
                 ?>
         </div>

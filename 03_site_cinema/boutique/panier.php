@@ -81,7 +81,7 @@
                                 }   
                         ?>
                         <tr class="border-top border-dark-subtle">
-                            <th class="text-danger p-4 fs-3">Total : €</th>
+                            <th class="text-danger p-4 fs-3">Total : <?=calculerMontantTotal($_SESSION['panier'])?> €</th>
                         </tr>
                     </table>
                 <a href="checkout.php" class="btn align-self-end mt-5">Payer</a>

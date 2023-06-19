@@ -400,4 +400,13 @@
         $result = $request->fetchAll();
         return $result;
     }
+
+    // function "panier" // 
+    function calculerMontantTotal(array $tab) :int{
+        $montant_total = 0;
+        foreach ($tab as $key) {
+            $montant_total += $key['price'] * $key['quantity'];
+        }
+        return $montant_total;
+    } 
 ?>

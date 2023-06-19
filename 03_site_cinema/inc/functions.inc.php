@@ -388,4 +388,14 @@
                         ));
     
     }
+
+    // Show film per date //    
+
+    function ShowFilmsRecent() :array{
+        $pdo = connectionDB();
+        $sql = "SELECT * FROM films ORDER BY date DESC LIMIT 6";
+        $request = $pdo->query($sql);
+        $result = $request->fetchAll();
+        return $result;
+    }
 ?>

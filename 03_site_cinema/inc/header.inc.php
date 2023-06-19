@@ -30,7 +30,7 @@
                     <ul class="navbar-nav w-100 d-flex justify-content-end">
                         <li class="nav-item"><a href="<?=RACINE_SITE?>index.php" class="nav-link">Accueil</a></li>
                         <li class="dropdown nav-item">
-                            <button class="btn btn-danger h-100 fs-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-danger h-100 pt-0 pb-0 fs-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 Choisir catégorie
                             </button>
                             <ul class="dropdown-menu dropdown-menu-light w-100">

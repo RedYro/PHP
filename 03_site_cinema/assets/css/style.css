@@ -269,3 +269,36 @@ th{
      opacity: 0 !important;
      transition: all .5s;
 }
+
+/* Style main background */
+
+.profil-main{
+    background:url(../img/Ahri-ASU-Fox-Fire-Ahri.jpg) no-repeat; 
+    background-size: cover; 
+    background-attachment: fixed;
+}
+
+.profil-main-second{
+    background:url(../img/Aurelion_Sol_Storm_Dragon.jpg) no-repeat; 
+    background-size: cover; 
+    background-attachment: fixed;
+}
+
+.profil-main-bis{
+    background:url(../img/Ashe_Championship.jpg) no-repeat; 
+    background-size: cover; 
+    background-attachment: fixed;
+    /* background-position: top; */
+}
+
+.profil-main-ter{
+    background:url(../img/Rhaast_original.jpg) no-repeat; 
+    background-size: cover; 
+    background-attachment: fixed;
+}
+
+.profil-main-4{
+    background:url(../img/Zed_Championship.jpg) no-repeat; 
+    background-size: cover; 
+    background-attachment: fixed;
+}

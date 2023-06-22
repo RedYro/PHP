@@ -69,7 +69,7 @@
                                 <p><span class="fw-bolder">Resumé : </span><?=substr($film['synopsis'], 0, 100)."..."?></p><!--je demande d'afficher un segment d'une chaîne de caractére :0 début de découpage jusqu'au 100 ième caractère--> 
                                 <!-- Dans ce p on récupère l'id du film qui va nous servir à afficher les détils du film à partir de l'url  -->
                                 <a href="<?= RACINE_SITE."film_description.php?id_film=".$film['id_film']?>" class="btn ">Voir Plus</a>                            
-                                <!-- Pour afficher le film en quetion on rajoute l'in du film dans le chemin du bouton donc on trasmet la donnée via la variable$_GET-->
+                                <!-- Pour afficher le film en quetion on rajoute l'id du film dans le chemin du bouton donc on trasmet la donnée via la variable$_GET-->
                                 <!-- Pour afficher le film en vas utiliser la même page: on vas cachéer la div avec la totalité des film et on affiche celle avec un seul film, on vas le faire en JS -->
                         </div>
                     </div>

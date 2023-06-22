@@ -19,8 +19,8 @@
                 $title = $film['title'];
     require_once("inc/header.inc.php");
 ?>
-<main style="background:url(<?=RACINE_SITE?>assets/img/Ahri_Snow_Moon.jpg) no-repeat; background-size: cover; background-attachment: fixed;">
-<div class="film bg-dark">
+<main style="background:url(<?=RACINE_SITE?>assets/img/Ahri_Runeterra.jpg) no-repeat; background-size: cover; background-attachment: fixed;">
+<div class="film" style="background: rgba(20, 20, 20, 0.8);">
                <div class="back">
                     <a href="<?=RACINE_SITE."index.php"?>"><i class="bi bi-arrow-left-circle-fill p-2 fs-1"></i></a>
                </div>

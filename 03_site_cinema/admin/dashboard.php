@@ -37,9 +37,22 @@
             if(isset($_GET['dashboard_php'])){
         ?>
         <div class="w-50 m-auto">
-            <h2>Bonjour Yro</h2>
+            <?php
+                if($_SESSION['user']['pseudo'] == 'RedYro'){
+            ?>
+            <h2 class="back-office-name text-danger">Bonjour <?=$_SESSION['user']['pseudo']?></h2>
             <p>Bienvenue sur le Back-office</p>
-            <img src="/php_cours/03_site_cinema/assets/img/Blure1.png" alt="Affiche films back-office" width="500" height="800" class="dashboard-img" onclick="changeImg()">
+            <!-- <img src="/php_cours/03_site_cinema/assets/img/Blure1.png" alt="Affiche films back-office" width="500" height="800" class="dashboard-img" onclick="changeImg()"> -->
+            <img src="/php_cours/03_site_cinema/assets/img/Blure1.png" alt="Affiche films back-office" width="500" height="800" class="dashboard-img">
+            <?php
+                } else if($_SESSION['user']['pseudo'] == 'BlueHada'){
+            ?>
+            <h2 class="back-office-name text-primary">Bonjour <?=$_SESSION['user']['pseudo']?></h2>
+            <p>Bienvenue sur le Back-office</p>
+            <img src="/php_cours/03_site_cinema/assets/img/Blure2.png" alt="Affiche films back-office" width="500" height="800" class="dashboard-img">
+            <?php
+                }
+            ?>
         </div>
         <?php
             }

@@ -1,5 +1,5 @@
-<footer class="container-fluid text-center d-flex flex-column justify-content-center">
-    <p>&copy; Cinéma - <?=date("Y")?></p>
+<footer class="container-fluid text-center d-flex flex-column justify-content-center p-0">
+    <p class="p-0 m-0">&copy; Cinéma - <?=date("Y")?></p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

@@ -2,9 +2,9 @@
     $title = "Profil";
     // session_start();
     // Duration Cookie
-    $expiration = time() + 30*24*60*60;
+    // $expiration = time() + 30*24*60*60;
     // Création Cookie 
-    setcookie('info', "I AM A COOKIE", $expiration);
+    // setcookie('info', "I AM A COOKIE", $expiration);
     // $_COOKIE['info'];
     require_once("inc/functions.inc.php");
     require_once("inc/header.inc.php");

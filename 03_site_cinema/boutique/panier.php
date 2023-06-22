@@ -18,6 +18,7 @@
                 if($filmExistence['id_film'] == $_POST['id_film']){
                     $_SESSION['panier'][$key]['quantity'] += $_POST['quantity'];
                     $filmExist = true;
+                    break;
                 }
             }
             if($filmExist == false){
@@ -48,7 +49,6 @@
     } else if(isset($_GET['vider'])){
         unset($_SESSION['panier']);
     }
-    $info = "";
 
     require_once("../inc/header.inc.php");
 ?>
@@ -57,11 +57,13 @@
             <div class="d-flex flex-column mt-5 p-5">
                 <h2 class="text-center fw-bolder mb-5 text-danger">Mon panier</h2>
                 <?php
+                    $info = "";
                     if(empty($_SESSION['panier']) && !isset($_SESSION['panier'])){
-                    echo $info = alert("Votre panier est vide", "secondary");
+                    $info = alert("Votre panier est vide", "secondary");
+                    echo $info;
                     } else{
                 ?>
-                <a href="panier.php?vider=1" class="btn align-self-end mb-5">Vider le panier</a>
+                <a href="?vider" class="btn align-self-end mb-5">Vider le panier</a>
                     <table class="fs-4">
                         <tr>
                             <th class="text-center text-danger fw-bolder">Affiche</th>
@@ -75,21 +77,21 @@
                             foreach($_SESSION['panier'] as $film){
                         ?>
                         <tr>
-                            <td class="text-center border-top border-dark-subtle"><img src="<?=RACINE_SITE."/assets/".$film['image'] ?? ''?>" style="width: 100px;"></td>
+                            <td class="text-center border-top border-dark-subtle"><a href="<?=RACINE_SITE?>film_description.php?id_film=<?=$film['id_film']?>"><img src="<?=RACINE_SITE."/assets/".$film['image'] ?? ''?>" style="width: 100px;"></a></td>
                             <td class="text-center border-top border-dark-subtle"><?=$film['title'] ?? ''?></td>
                             <td class="text-center border-top border-dark-subtle"><?=$film['price'] ?? ''?> €</td>
                             <td class="text-center border-top border-dark-subtle"><?=$film['quantity'] ?? ''?></td>
                             <td  class="text-center border-top border-dark-subtle"><?=$film['price'] * $film['quantity'] ?? ''?> €</td>
-                            <td  class="text-center border-top border-dark-subtle"><a href="panier.php?id_film=<?=$film['id_film']?>"><i class="bi bi-trash3"></i></a></td>
+                            <td  class="text-center border-top border-dark-subtle"><a href="?id_film=<?=$film['id_film']?>"><i class="bi bi-trash3"></i></a></td>
                         </tr>
                         <?php
                                 }   
                         ?>
                         <tr class="border-top border-dark-subtle">
-                            <th class="text-danger p-4 fs-3">Total : <?=calculerMontantTotal($_SESSION['panier'])?> €</th>
+                            <th class="text-danger p-4 fs-3">Total : <?=$total = calculerMontantTotal($_SESSION['panier'])?> €</th>
                         </tr>
                     </table>
-                <a href="checkout.php" class="btn align-self-end mt-5">Payer</a>
+                <a href="checkout.php?total=<?=$total?>" class="btn align-self-end mt-5">Payer</a>
                 <?php
                     }
                 ?>

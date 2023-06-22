@@ -67,7 +67,8 @@
                             }
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=RACINE_SITE?>boutique/panier.php"><i class="bi bi-basket3-fill text-light"></i></a>
+                            <!-- le nombre de produit dans le panier:  j'affiche le nombre de produit dans le panier/ si je veux afficher le nombre de produits dans le panier que lorsque l'utilisateur est connecté je rajoute ( !empty($_SESSION['user']))  -->
+                            <a class="nav-link" href="<?=RACINE_SITE?>boutique/panier.php"><i class="bi bi-basket3-fill text-light"><?=(!empty($_SESSION['panier']) && !empty($_SESSION['user'])) ? count($_SESSION['panier']) : ""?></i></a>
                         </li>
                     </ul>
                 </div>

@@ -6,28 +6,33 @@
         header('location:'.RACINE_SITE.'authentification.php');
     }
     if(isset($_POST['ajout_panier'])){
-        if(!isset($_SESSION['panier'])){
-            $_SESSION['panier'] = array();
-        }
-        $filmExist = false; // check film existence
-        foreach($_SESSION['panier'] as $key => $filmExistence){
-            if($filmExistence['id_film'] == $_POST['id_film']){
-                $_SESSION['panier'][$key]['quantity'] += $_POST['quantity'];
-                $filmExist = true;
+        $quantity = htmlentities($_POST['quantity']);
+        if(!isset($quantity) || empty($quantity)){
+            header("location:".RACINE_SITE."film_description.php");
+        } else {
+            if(!isset($_SESSION['panier'])){
+                $_SESSION['panier'] = array();
             }
+            $filmExist = false; // check film existence
+            foreach($_SESSION['panier'] as $key => $filmExistence){
+                if($filmExistence['id_film'] == $_POST['id_film']){
+                    $_SESSION['panier'][$key]['quantity'] += $_POST['quantity'];
+                    $filmExist = true;
+                }
+            }
+            if($filmExist == false){
+                $newFilm = array( // stockage $_POST
+                    'id_film' => $_POST['id_film'],
+                    'quantity' => $_POST['quantity'],
+                    'title' => $_POST['title'],
+                    'price' => $_POST['price'],
+                    'stock' => $_POST['stock'],
+                    'image' => $_POST['image']
+                );
+                $_SESSION['panier'][] = $newFilm;
+            }
+            // debug($_SESSION['panier']);
         }
-        if($filmExist == false){
-            $newFilm = array( // stockage $_POST
-                'id_film' => $_POST['id_film'],
-                'quantity' => $_POST['quantity'],
-                'title' => $_POST['title'],
-                'price' => $_POST['price'],
-                'stock' => $_POST['stock'],
-                'image' => $_POST['image']
-            );
-            $_SESSION['panier'][] = $newFilm;
-        }
-        // debug($_SESSION['panier']);
     }
 
     // Vérification de la suppression d'un film

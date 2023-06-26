@@ -17,12 +17,13 @@
     <meta name="description" content="Site films">
     <meta name="author" content="Grégory Lyfoung">
     <title><?=$title?></title>
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid">
-                <h1><a href="<?=RACINE_SITE?>index.php" class="navbar-brand">MOVIES</a></h1>
+                <h1 class=""><a href="<?=RACINE_SITE?>index.php" class="navbar-brand">MOVIES</a></h1>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                          <span class="navbar-toggler-icon"></span>
                 </button>
@@ -30,7 +31,7 @@
                     <ul class="navbar-nav w-100 d-flex justify-content-end">
                         <li class="nav-item"><a href="<?=RACINE_SITE?>index.php" class="nav-link">Accueil</a></li>
                         <li class="dropdown nav-item">
-                            <button class="btn btn-danger h-100 pt-0 pb-0 fs-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-secondary h-100 pt-0 pb-0 fs-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 Choisir catégorie
                             </button>
                             <ul class="dropdown-menu dropdown-menu-light w-100">

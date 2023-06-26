@@ -1,5 +1,7 @@
 :root{
     --red: #B42851;
+    --redBis: #ec0000;
+    --blue: #3700ff;
     --gray: #191A19;
     --gray-2 : #353535;
     --gray-light : #BBBBBB;
@@ -31,6 +33,40 @@ h1 {
     font-size: 4rem !important;
     margin: .8rem 4rem;
     font-weight: bolder;
+}
+
+/* h1 a style */
+
+.red{
+    font-size: 4rem !important;
+    color: var(--redBis) !important;
+    font-family: 'Roboto Condensed', sans-serif !important;
+}
+
+.blue{
+    font-size: 4rem !important;
+    color: var(--blue) !important;
+    font-family: 'Roboto Condensed', sans-serif !important;
+}
+
+/* Background badge profil */
+
+.bg-red{
+    background-color: var(--redBis) !important;
+}
+
+.bg-blue{
+    background-color: var(--blue) !important;
+}
+
+/* Background btn */
+
+.btn-red{
+    background-color: var(--redBis) !important;
+}
+
+.btn-blue{
+    background-color: var(--blue) !important;
 }
 
 h1 a{
@@ -91,8 +127,28 @@ a.btn {
     background-color: #B42851 !important;
 }
 
+.sidebarre-red{
+    background-color: var(--redBis) !important;
+}
+
+.sidebarre-blue{
+    background-color: var(--blue) !important;
+}
+
 .header-active{
     background-color: #B42851 !important;
+    border-radius: 5px !important;
+    box-sizing: border-box !important;
+}
+
+.header-red{
+    background-color: var(--redBis) !important;
+    border-radius: 5px !important;
+    box-sizing: border-box !important;
+}
+
+.header-blue{
+    background-color: var(--blue) !important;
     border-radius: 5px !important;
     box-sizing: border-box !important;
 }

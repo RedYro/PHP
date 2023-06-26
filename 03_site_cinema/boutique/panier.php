@@ -91,7 +91,11 @@
                             <th class="text-danger p-4 fs-3">Total : <?=$total = calculerMontantTotal($_SESSION['panier'])?> €</th>
                         </tr>
                     </table>
-                <a href="checkout.php?total=<?=$total?>" class="btn align-self-end mt-5">Payer</a>
+                <!-- <a href="checkout.php?total=<?//=$total?>" class="btn align-self-end mt-5">Payer</a> -->
+                <form action="checkout.php" method="POST">
+                    <input type="hidden" name="total" value="<?=$total?>">
+                    <button type="submit" class="btn btn-danger mt-5 p-3" id="checkout-button">Payer</button>
+                </form>
                 <?php
                     }
                 ?>

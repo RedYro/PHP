@@ -44,15 +44,15 @@ function showPasswordLogIn(){
 
 // img dashboard swap / change //
 
-let imgDashBoard = document.querySelector(`.dashboard-img`);
-let i = 0;
-function changeImg(){
-    i++;
-    imgDashBoard.setAttribute(`src`, `/php_cours/03_site_cinema/assets/img/Blure` + i + `.png`);
-    if(i == 2){
-        i = 0;
-    }
-}
+// let imgDashBoard = document.querySelector(`.dashboard-img`);
+// let i = 0;
+// function changeImg(){
+//     i++;
+//     imgDashBoard.setAttribute(`src`, `/php_cours/03_site_cinema/assets/img/Blure` + i + `.png`);
+//     if(i == 2){
+//         i = 0;
+//     }
+// }
 
 // Badge profil name //
 

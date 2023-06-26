@@ -16,8 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Site films">
     <meta name="author" content="Grégory Lyfoung">
-    <title><?=$title?></title>
     <script src="https://js.stripe.com/v3/"></script>
+    <title><?=$title?></title>
 </head>
 <body>
     <header>

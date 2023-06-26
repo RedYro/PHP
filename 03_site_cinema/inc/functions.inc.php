@@ -83,6 +83,14 @@
     } 
     // creationTableUsers();
 
+    // table "orders" //
+    function creationTableOrders(){
+        $pdo = connectionDB();
+        $sql = "CREATE TABLE IF NOT EXISTS orders (id_order INT PRIMARY KEY AUTO_INCREMENT, film_id INT NOT NULL, user_id INT NOT NULL, created_at DATE NOT NULL, price FLOAT NOT NULL, quantity INT NOT NULL, is_paid ENUM('0', '1') NOT NULL)";
+        $request = $pdo->exec($sql);
+    } 
+    // creationTableOrders();
+
     //------ Fonctions vérification email dans DB ------//
 
     function checkMailUsers(string $mail) :mixed{ // "mixed" => précise que le retour de la fonction peut être en boolean ou array  
@@ -409,4 +417,20 @@
         }
         return $montant_total;
     } 
+
+    // function add order //
+    function addOrder(int $film_id, int $user_id, string $created_at, float $price, int $quantity, string $is_paid) :void{
+        $pdo = connectionDB();
+        $sql = "INSERT INTO orders (film_id, user_id, created_at, price, quantity, is_paid) VALUES (:film_id, :user_id, :created_at, :price, :quantity, :is_paid)";
+        $request = $pdo->prepare($sql);
+        $request->execute(array(
+            ":film_id" => $film_id,
+            ":user_id" => $user_id,
+            ":created_at" => $created_at,
+            "price" => $price,
+            "quantity" => $quantity,
+            "is_paid" => $is_paid
+        ));
+    }
+
 ?>

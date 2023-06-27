@@ -8,7 +8,7 @@ for (let i = 0; i < links.length; i++){
     }
 }
 
-// header active class //   /!\ confilt avec la première active class /!\
+// header active class //   /!\ conflit avec la première active class /!\
 
 let linksHeader = document.querySelectorAll(`.nav-item a`);
 for (let i = 0; i < linksHeader.length; i++){

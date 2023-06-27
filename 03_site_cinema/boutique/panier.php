@@ -44,6 +44,9 @@
             if($filmExistence['id_film'] == $idFilmForDelete){
                 // Supprimer film du panier
                 unset($_SESSION['panier'][$key]);
+                if(empty($_SESSION['panier'])){
+                    unset($_SESSION['panier']);
+                }
             }
         }
     } else if(isset($_GET['vider'])){

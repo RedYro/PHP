@@ -2,10 +2,18 @@
     $title = "Panier";
     require_once('../inc/functions.inc.php');
     $date = date("Y-m-d H:i:s");
-    $film_id = $_SESSION['panier'];
+    $panier = $_SESSION['panier'];
     $user_id =  $_SESSION['user']['id_user'];
-    foreach($film_id as $key => $film){
-      addOrder($film['id_film'], $user_id, $film['created_at'], $film['price'], $film['quantity'], $film['is_paid']);
+    $total = $_GET['total'];
+    $resultOrder = addOrder($user_id, $total, $date, 1);
+    $idOrder = lastIdOrder();
+    if($resultOrder == true){
+      if(!empty($_SESSION['panier'])){
+        foreach($panier as $film){
+          addOrderDetails($idOrder['lastId'], $film['id_film'], $film['price'], $film['quantity']);
+          unset($_SESSION['panier']);
+        }
+      }
     }
     require_once('../inc/header.inc.php');
 ?>
